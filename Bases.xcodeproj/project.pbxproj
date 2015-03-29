@@ -67,25 +67,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C90A76CC1AC7AF8A006875B8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C90A76D71AC7AF8A006875B8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C90A76DB1AC7AF8A006875B8 /* Base32.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C977BB001AC89FB900D2F9E2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,9 +215,7 @@
 			buildConfigurationList = C90A76E31AC7AF8A006875B8 /* Build configuration list for PBXNativeTarget "Base32-iOS" */;
 			buildPhases = (
 				C90A76CB1AC7AF8A006875B8 /* Sources */,
-				C90A76CC1AC7AF8A006875B8 /* Frameworks */,
 				C90A76CD1AC7AF8A006875B8 /* Headers */,
-				C90A76CE1AC7AF8A006875B8 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -248,7 +232,6 @@
 			buildPhases = (
 				C90A76D61AC7AF8A006875B8 /* Sources */,
 				C90A76D71AC7AF8A006875B8 /* Frameworks */,
-				C90A76D81AC7AF8A006875B8 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -265,9 +248,7 @@
 			buildConfigurationList = C977BB171AC89FBA00D2F9E2 /* Build configuration list for PBXNativeTarget "Base32-Mac" */;
 			buildPhases = (
 				C977BAFF1AC89FB900D2F9E2 /* Sources */,
-				C977BB001AC89FB900D2F9E2 /* Frameworks */,
 				C977BB011AC89FB900D2F9E2 /* Headers */,
-				C977BB021AC89FB900D2F9E2 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -284,7 +265,6 @@
 			buildPhases = (
 				C977BB0A1AC89FBA00D2F9E2 /* Sources */,
 				C977BB0B1AC89FBA00D2F9E2 /* Frameworks */,
-				C977BB0C1AC89FBA00D2F9E2 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -338,37 +318,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		C90A76CE1AC7AF8A006875B8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C90A76D81AC7AF8A006875B8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C977BB021AC89FB900D2F9E2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C977BB0C1AC89FBA00D2F9E2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C90A76CB1AC7AF8A006875B8 /* Sources */ = {
