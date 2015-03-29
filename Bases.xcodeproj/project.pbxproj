@@ -580,6 +580,7 @@
 				C977BB191AC89FBA00D2F9E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C977BB1A1AC89FBA00D2F9E2 /* Build configuration list for PBXNativeTarget "Base32Tests-Mac" */ = {
 			isa = XCConfigurationList;
@@ -588,6 +589,7 @@
 				C977BB1C1AC89FBA00D2F9E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
