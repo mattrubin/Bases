@@ -278,9 +278,9 @@
 			productReference = C977BB041AC89FB900D2F9E2 /* Base32.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		C977BB0D1AC89FBA00D2F9E2 /* Base32Tests */ = {
+		C977BB0D1AC89FBA00D2F9E2 /* Base32Tests-Mac */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C977BB1A1AC89FBA00D2F9E2 /* Build configuration list for PBXNativeTarget "Base32Tests" */;
+			buildConfigurationList = C977BB1A1AC89FBA00D2F9E2 /* Build configuration list for PBXNativeTarget "Base32Tests-Mac" */;
 			buildPhases = (
 				C977BB0A1AC89FBA00D2F9E2 /* Sources */,
 				C977BB0B1AC89FBA00D2F9E2 /* Frameworks */,
@@ -291,7 +291,7 @@
 			dependencies = (
 				C977BB111AC89FBA00D2F9E2 /* PBXTargetDependency */,
 			);
-			name = Base32Tests;
+			name = "Base32Tests-Mac";
 			productName = Base32Tests;
 			productReference = C977BB0E1AC89FBA00D2F9E2 /* Base32Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -334,7 +334,7 @@
 				C90A76CF1AC7AF8A006875B8 /* Base32-iOS */,
 				C90A76D91AC7AF8A006875B8 /* Base32Tests-iOS */,
 				C977BB031AC89FB900D2F9E2 /* Base32-Mac */,
-				C977BB0D1AC89FBA00D2F9E2 /* Base32Tests */,
+				C977BB0D1AC89FBA00D2F9E2 /* Base32Tests-Mac */,
 			);
 		};
 /* End PBXProject section */
@@ -640,7 +640,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Base32Tests;
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -683,7 +683,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Base32Tests;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -726,7 +726,7 @@
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		C977BB1A1AC89FBA00D2F9E2 /* Build configuration list for PBXNativeTarget "Base32Tests" */ = {
+		C977BB1A1AC89FBA00D2F9E2 /* Build configuration list for PBXNativeTarget "Base32Tests-Mac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C977BB1B1AC89FBA00D2F9E2 /* Debug */,
