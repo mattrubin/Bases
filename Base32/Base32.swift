@@ -6,8 +6,26 @@
 //  Copyright (c) 2015 Matt Rubin. All rights reserved.
 //
 
+private let quantumSize = 5
 
 public func encode(bytes: ArraySlice<UInt8>) -> String? {
+    if let s = encodeQuantum(bytes) {
+        if bytes.count <= quantumSize {
+            return s
+        } else {
+            // There's more data to encode
+            let remainingBytes = bytes[(bytes.startIndex + quantumSize)..<(bytes.endIndex)]
+            if let restOfString = encode(remainingBytes) {
+                return s + restOfString
+            }
+        }
+    }
+
+    // Something failed
+    return nil
+}
+
+private func encodeQuantum(bytes: ArraySlice<UInt8>) -> String? {
     switch bytes.count {
     case 0:
         return ""
@@ -34,11 +52,7 @@ public func encode(bytes: ArraySlice<UInt8>) -> String? {
     default:
         let q = quintets(bytes[0], bytes[1], bytes[2], bytes[3], bytes[4])
         if let c = charactersForQuintets(q) {
-            let s = String([c.0, c.1, c.2, c.3, c.4, c.5, c.6, c.7])
-            let remainingBytes = bytes[(bytes.startIndex + 5)..<(bytes.endIndex)]
-            if let restOfString = encode(remainingBytes) {
-                return s + restOfString
-            }
+            return String([c.0, c.1, c.2, c.3, c.4, c.5, c.6, c.7])
         }
     }
     // Something failed
