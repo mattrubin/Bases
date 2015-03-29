@@ -15,29 +15,21 @@ public func encode(bytes: ArraySlice<UInt8>) -> String? {
         let q = quintets(bytes[0], 0, 0, 0, 0)
         if let c = charactersForQuintets(q) {
             return String([c.0, c.1, "=", "=", "=", "=", "=", "="])
-        } else {
-            return nil
         }
     case 2:
         let q = quintets(bytes[0], bytes[1], 0, 0, 0)
         if let c = charactersForQuintets(q) {
             return String([c.0, c.1, c.2, c.3, "=", "=", "=", "="])
-        } else {
-            return nil
         }
     case 3:
         let q = quintets(bytes[0], bytes[1], bytes[2], 0, 0)
         if let c = charactersForQuintets(q) {
             return String([c.0, c.1, c.2, c.3, c.4, "=", "=", "="])
-        } else {
-            return nil
         }
     case 4:
         let q = quintets(bytes[0], bytes[1], bytes[2], bytes[3], 0)
         if let c = charactersForQuintets(q) {
             return String([c.0, c.1, c.2, c.3, c.4, c.5, c.6, "="])
-        } else {
-            return nil
         }
     default:
         let q = quintets(bytes[0], bytes[1], bytes[2], bytes[3], bytes[4])
@@ -46,13 +38,11 @@ public func encode(bytes: ArraySlice<UInt8>) -> String? {
             let remainingBytes = bytes[(bytes.startIndex + 5)..<(bytes.endIndex)]
             if let restOfString = encode(remainingBytes) {
                 return s + restOfString
-            } else {
-                return nil
             }
-        } else {
-            return nil
         }
     }
+    // Something failed
+    return nil
 }
 
 private func quintets(b0: UInt8, b1: UInt8, b2: UInt8, b3: UInt8, b4: UInt8)
