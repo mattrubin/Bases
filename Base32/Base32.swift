@@ -64,11 +64,3 @@ private func stringForBytes(b0: Byte, b1: Byte?, b2: Byte?, b3: Byte?, b4: Byte?
         return nil
     }
 }
-
-private func characterOrPaddingForValue(value: Quintet?) -> Character? {
-    if let value = value {
-        return characterForValue(value)
-    } else {
-        return pad
-    }
-}

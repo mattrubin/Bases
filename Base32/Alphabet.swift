@@ -6,6 +6,16 @@
 //  Copyright (c) 2015 Matt Rubin. All rights reserved.
 //
 
+private func characterOrPaddingForValue(value: Quintet?) -> Character? {
+    if let value = value {
+        // If the quintet has a value, return the corresponding character (if one exists)
+        return characterForValue(value)
+    } else {
+        // If the quintet has no value, return the padding character
+        return "="
+    }
+}
+
 // Each 5-bit group is used as an index into an array of 32 printable
 // characters.  The character referenced by the index is placed in the
 // output string.  These characters, identified in Table 3, below, are
@@ -23,8 +33,6 @@
 //       6 G            15 P            24 Y         (pad) =
 //       7 H            16 Q            25 Z
 //       8 I            17 R            26 2
-
-internal let pad: Character = "="
 
 public func characterForValue(value: UInt8) -> Character? {
     switch value {
