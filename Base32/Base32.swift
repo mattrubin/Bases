@@ -31,113 +31,61 @@ private func encodeQuantum(bytes: ArraySlice<UInt8>) -> String? {
         return ""
     case 1:
         let q = quintets(bytes[0])
-        if let c = charactersForQuintets(q) {
-            return String([c.0, c.1, "=", "=", "=", "=", "=", "="])
+        if let
+            c0 = characterForValue(q.0),
+            c1 = characterForValue(q.1)
+        {
+            return String([c0, c1, "=", "=", "=", "=", "=", "="])
         }
     case 2:
         let q = quintets(bytes[0], bytes[1])
-        if let c = charactersForQuintets(q) {
-            return String([c.0, c.1, c.2, c.3, "=", "=", "=", "="])
+        if let
+            c0 = characterForValue(q.0),
+            c1 = characterForValue(q.1),
+            c2 = characterForValue(q.2),
+            c3 = characterForValue(q.3)
+        {
+            return String([c0, c1, c2, c3, "=", "=", "=", "="])
         }
     case 3:
         let q = quintets(bytes[0], bytes[1], bytes[2])
-        if let c = charactersForQuintets(q) {
-            return String([c.0, c.1, c.2, c.3, c.4, "=", "=", "="])
+        if let
+            c0 = characterForValue(q.0),
+            c1 = characterForValue(q.1),
+            c2 = characterForValue(q.2),
+            c3 = characterForValue(q.3),
+            c4 = characterForValue(q.4)
+        {
+            return String([c0, c1, c2, c3, c4, "=", "=", "="])
         }
     case 4:
         let q = quintets(bytes[0], bytes[1], bytes[2], bytes[3])
-        if let c = charactersForQuintets(q) {
-            return String([c.0, c.1, c.2, c.3, c.4, c.5, c.6, "="])
+        if let
+            c0 = characterForValue(q.0),
+            c1 = characterForValue(q.1),
+            c2 = characterForValue(q.2),
+            c3 = characterForValue(q.3),
+            c4 = characterForValue(q.4),
+            c5 = characterForValue(q.5),
+            c6 = characterForValue(q.6)
+        {
+            return String([c0, c1, c2, c3, c4, c5, c6, "="])
         }
     default:
         let q = quintets(bytes[0], bytes[1], bytes[2], bytes[3], bytes[4])
-        if let c = charactersForQuintets(q) {
-            return String([c.0, c.1, c.2, c.3, c.4, c.5, c.6, c.7])
+        if let
+            c0 = characterForValue(q.0),
+            c1 = characterForValue(q.1),
+            c2 = characterForValue(q.2),
+            c3 = characterForValue(q.3),
+            c4 = characterForValue(q.4),
+            c5 = characterForValue(q.5),
+            c6 = characterForValue(q.6),
+            c7 = characterForValue(q.7)
+        {
+            return String([c0, c1, c2, c3, c4, c5, c6, c7])
         }
     }
     // Something failed
     return nil
-}
-
-
-// MARK: Quintets -> Characters
-
-private func charactersForQuintets(q0: UInt8, q1: UInt8) -> (Character, Character)?
-{
-    if let
-        c0 = characterForValue(q0),
-        c1 = characterForValue(q1)
-    {
-        return (c0, c1)
-    } else {
-        return nil
-    }
-}
-
-private func charactersForQuintets(q0: UInt8, q1: UInt8, q2: UInt8, q3: UInt8)
-    -> (Character, Character, Character, Character)?
-{
-    if let
-        c0 = characterForValue(q0),
-        c1 = characterForValue(q1),
-        c2 = characterForValue(q2),
-        c3 = characterForValue(q3)
-    {
-        return (c0, c1, c2, c3)
-    } else {
-        return nil
-    }
-}
-
-private func charactersForQuintets(q0: UInt8, q1: UInt8, q2: UInt8, q3: UInt8, q4: UInt8)
-    -> (Character, Character, Character, Character, Character)?
-{
-    if let
-        c0 = characterForValue(q0),
-        c1 = characterForValue(q1),
-        c2 = characterForValue(q2),
-        c3 = characterForValue(q3),
-        c4 = characterForValue(q4)
-    {
-        return (c0, c1, c2, c3, c4)
-    } else {
-        return nil
-    }
-}
-
-private func charactersForQuintets(q0: UInt8, q1: UInt8, q2: UInt8, q3: UInt8, q4: UInt8, q5: UInt8, q6: UInt8)
-    -> (Character, Character, Character, Character, Character, Character, Character)?
-{
-    if let
-        c0 = characterForValue(q0),
-        c1 = characterForValue(q1),
-        c2 = characterForValue(q2),
-        c3 = characterForValue(q3),
-        c4 = characterForValue(q4),
-        c5 = characterForValue(q5),
-        c6 = characterForValue(q6)
-    {
-        return (c0, c1, c2, c3, c4, c5, c6)
-    } else {
-        return nil
-    }
-}
-
-private func charactersForQuintets(q0: UInt8, q1: UInt8, q2: UInt8, q3: UInt8, q4: UInt8, q5: UInt8, q6: UInt8, q7: UInt8)
-    -> (Character, Character, Character, Character, Character, Character, Character, Character)?
-{
-    if let
-        c0 = characterForValue(q0),
-        c1 = characterForValue(q1),
-        c2 = characterForValue(q2),
-        c3 = characterForValue(q3),
-        c4 = characterForValue(q4),
-        c5 = characterForValue(q5),
-        c6 = characterForValue(q6),
-        c7 = characterForValue(q7)
-    {
-        return (c0, c1, c2, c3, c4, c5, c6, c7)
-    } else {
-        return nil
-    }
 }
