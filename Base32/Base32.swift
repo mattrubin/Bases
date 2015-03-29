@@ -83,17 +83,8 @@ private func encodeQuantum(bytes: ArraySlice<UInt8>) -> String? {
         // The final quantum of encoding input is exactly 32 bits; here, the
         // final unit of encoded output will be seven characters followed by
         // one "=" padding character.
-        let q = quintets(bytes[0], bytes[1], bytes[2], bytes[3])
-        if let
-            c0 = characterForValue(q.0),
-            c1 = characterForValue(q.1),
-            c2 = characterForValue(q.2),
-            c3 = characterForValue(q.3),
-            c4 = characterForValue(q.4),
-            c5 = characterForValue(q.5),
-            c6 = characterForValue(q.6)
-        {
-            return String([c0, c1, c2, c3, c4, c5, c6, pad])
+        if let c = charactersForBytes(bytes[0], bytes[1], bytes[2], bytes[3], nil) {
+            return String([c.0, c.1, c.2, c.3, c.4, c.5, c.6, c.7])
         }
     default:
         // The final quantum of encoding input is an integral multiple of 40
@@ -109,10 +100,10 @@ private func encodeQuantum(bytes: ArraySlice<UInt8>) -> String? {
 }
 
 
-private func charactersForBytes(b0: UInt8, b1: UInt8, b2: UInt8, b3: UInt8, b4: UInt8)
+private func charactersForBytes(b0: UInt8, b1: UInt8, b2: UInt8, b3: UInt8, b4: UInt8?)
     -> (Character, Character, Character, Character, Character, Character, Character, Character)?
 {
-    let q = quintets(b0, b1, b2, b3, b4: b4)
+    let q = quintets(b0, b1, b2, b3, b4)
     if let
         c0 = characterForValue(q.0),
         c1 = characterForValue(q.1),
@@ -121,7 +112,7 @@ private func charactersForBytes(b0: UInt8, b1: UInt8, b2: UInt8, b3: UInt8, b4: 
         c4 = characterForValue(q.4),
         c5 = characterForValue(q.5),
         c6 = characterForValue(q.6),
-        c7 = q.7.flatMap(characterForValue)
+        c7 = characterOrPaddingForValue(q.7)
     {
         return (c0, c1, c2, c3, c4, c5, c6, c7)
     } else {
@@ -129,3 +120,10 @@ private func charactersForBytes(b0: UInt8, b1: UInt8, b2: UInt8, b3: UInt8, b4: 
     }
 }
 
+private func characterOrPaddingForValue(value: UInt8?) -> Character? {
+    if let value = value {
+        return characterForValue(value)
+    } else {
+        return pad
+    }
+}

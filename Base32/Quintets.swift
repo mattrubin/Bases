@@ -38,7 +38,7 @@ func quintets(b0: UInt8, b1: UInt8, b2: UInt8)
     )
 }
 
-func quintets(b0: UInt8, b1: UInt8, b2: UInt8, b3: UInt8, b4: UInt8? = nil)
+func quintets(b0: UInt8, b1: UInt8, b2: UInt8, b3: UInt8, b4: UInt8?)
     -> (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8?)
 {
     return (
