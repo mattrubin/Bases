@@ -7,7 +7,6 @@
 //
 
 private let quantumSize = 5
-private let pad: Character = "="
 
 public func encode(bytes: ArraySlice<UInt8>) -> String? {
     if let s = encodeQuantum(bytes) {
