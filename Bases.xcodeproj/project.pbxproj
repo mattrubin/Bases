@@ -307,7 +307,9 @@
 			baseConfigurationReference = C977BACD1AC8953F00D2F9E2 /* Debug.xcconfig */;
 			buildSettings = {
 				CURRENT_PROJECT_VERSION = 1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -318,7 +320,9 @@
 			baseConfigurationReference = C977BACF1AC8953F00D2F9E2 /* Release.xcconfig */;
 			buildSettings = {
 				CURRENT_PROJECT_VERSION = 1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -333,9 +337,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Base32/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				PRODUCT_NAME = Base32;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -348,9 +350,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Base32/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				PRODUCT_NAME = Base32;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -363,7 +363,6 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Base32Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				PRODUCT_NAME = Base32Tests;
 			};
 			name = Debug;
@@ -377,7 +376,6 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Base32Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				PRODUCT_NAME = Base32Tests;
 			};
 			name = Release;
