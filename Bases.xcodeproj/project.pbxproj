@@ -128,9 +128,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		C90A76CF1AC7AF8A006875B8 /* Base32 */ = {
+		C90A76CF1AC7AF8A006875B8 /* Base32-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C90A76E31AC7AF8A006875B8 /* Build configuration list for PBXNativeTarget "Base32" */;
+			buildConfigurationList = C90A76E31AC7AF8A006875B8 /* Build configuration list for PBXNativeTarget "Base32-iOS" */;
 			buildPhases = (
 				C90A76CB1AC7AF8A006875B8 /* Sources */,
 				C90A76CC1AC7AF8A006875B8 /* Frameworks */,
@@ -141,7 +141,7 @@
 			);
 			dependencies = (
 			);
-			name = Base32;
+			name = "Base32-iOS";
 			productName = Base32;
 			productReference = C90A76D01AC7AF8A006875B8 /* Base32.framework */;
 			productType = "com.apple.product-type.framework";
@@ -193,7 +193,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C90A76CF1AC7AF8A006875B8 /* Base32 */,
+				C90A76CF1AC7AF8A006875B8 /* Base32-iOS */,
 				C90A76D91AC7AF8A006875B8 /* Base32Tests */,
 			);
 		};
@@ -241,7 +241,7 @@
 /* Begin PBXTargetDependency section */
 		C90A76DD1AC7AF8A006875B8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C90A76CF1AC7AF8A006875B8 /* Base32 */;
+			target = C90A76CF1AC7AF8A006875B8 /* Base32-iOS */;
 			targetProxy = C90A76DC1AC7AF8A006875B8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -305,7 +305,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Base32;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -323,7 +323,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Base32;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -372,7 +372,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C90A76E31AC7AF8A006875B8 /* Build configuration list for PBXNativeTarget "Base32" */ = {
+		C90A76E31AC7AF8A006875B8 /* Build configuration list for PBXNativeTarget "Base32-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C90A76E41AC7AF8A006875B8 /* Debug */,
