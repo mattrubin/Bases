@@ -14,6 +14,13 @@
 		C90A76EE1AC7B6EF006875B8 /* AlphabetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A76ED1AC7B6EF006875B8 /* AlphabetTests.swift */; };
 		C90A76F01AC7BBB8006875B8 /* Base32.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A76EF1AC7BBB8006875B8 /* Base32.swift */; };
 		C90A76F21AC7CE92006875B8 /* Quintets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A76F11AC7CE92006875B8 /* Quintets.swift */; };
+		C977BB0F1AC89FBA00D2F9E2 /* Base32.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C977BB041AC89FB900D2F9E2 /* Base32.framework */; };
+		C977BB1D1AC8A00400D2F9E2 /* Base32.h in Headers */ = {isa = PBXBuildFile; fileRef = C90A76D41AC7AF8A006875B8 /* Base32.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C977BB1E1AC8A00A00D2F9E2 /* Base32.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A76EF1AC7BBB8006875B8 /* Base32.swift */; };
+		C977BB1F1AC8A00A00D2F9E2 /* Quintets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A76F11AC7CE92006875B8 /* Quintets.swift */; };
+		C977BB201AC8A00A00D2F9E2 /* Alphabet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A76EB1AC7B286006875B8 /* Alphabet.swift */; };
+		C977BB211AC8A01300D2F9E2 /* Base32Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A76E11AC7AF8A006875B8 /* Base32Tests.swift */; };
+		C977BB221AC8A01600D2F9E2 /* AlphabetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A76ED1AC7B6EF006875B8 /* AlphabetTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,6 +29,13 @@
 			containerPortal = C90A76A61AC7AD5A006875B8 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = C90A76CF1AC7AF8A006875B8;
+			remoteInfo = Base32;
+		};
+		C977BB101AC89FBA00D2F9E2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C90A76A61AC7AD5A006875B8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C977BB031AC89FB900D2F9E2;
 			remoteInfo = Base32;
 		};
 /* End PBXContainerItemProxy section */
@@ -48,6 +62,8 @@
 		C977BADD1AC8953F00D2F9E2 /* Mac-DynamicLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Mac-DynamicLibrary.xcconfig"; sourceTree = "<group>"; };
 		C977BADE1AC8953F00D2F9E2 /* Mac-Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Mac-Framework.xcconfig"; sourceTree = "<group>"; };
 		C977BADF1AC8953F00D2F9E2 /* Mac-StaticLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Mac-StaticLibrary.xcconfig"; sourceTree = "<group>"; };
+		C977BB041AC89FB900D2F9E2 /* Base32.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Base32.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C977BB0E1AC89FBA00D2F9E2 /* Base32Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Base32Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +79,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				C90A76DB1AC7AF8A006875B8 /* Base32.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C977BB001AC89FB900D2F9E2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C977BB0B1AC89FBA00D2F9E2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C977BB0F1AC89FBA00D2F9E2 /* Base32.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +115,8 @@
 			children = (
 				C90A76D01AC7AF8A006875B8 /* Base32.framework */,
 				C90A76DA1AC7AF8A006875B8 /* Base32Tests.xctest */,
+				C977BB041AC89FB900D2F9E2 /* Base32.framework */,
+				C977BB0E1AC89FBA00D2F9E2 /* Base32Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -180,6 +213,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C977BB011AC89FB900D2F9E2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C977BB1D1AC8A00400D2F9E2 /* Base32.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -219,6 +260,42 @@
 			productReference = C90A76DA1AC7AF8A006875B8 /* Base32Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		C977BB031AC89FB900D2F9E2 /* Base32-Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C977BB171AC89FBA00D2F9E2 /* Build configuration list for PBXNativeTarget "Base32-Mac" */;
+			buildPhases = (
+				C977BAFF1AC89FB900D2F9E2 /* Sources */,
+				C977BB001AC89FB900D2F9E2 /* Frameworks */,
+				C977BB011AC89FB900D2F9E2 /* Headers */,
+				C977BB021AC89FB900D2F9E2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Base32-Mac";
+			productName = Base32;
+			productReference = C977BB041AC89FB900D2F9E2 /* Base32.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C977BB0D1AC89FBA00D2F9E2 /* Base32Tests-Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C977BB1A1AC89FBA00D2F9E2 /* Build configuration list for PBXNativeTarget "Base32Tests-Mac" */;
+			buildPhases = (
+				C977BB0A1AC89FBA00D2F9E2 /* Sources */,
+				C977BB0B1AC89FBA00D2F9E2 /* Frameworks */,
+				C977BB0C1AC89FBA00D2F9E2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C977BB111AC89FBA00D2F9E2 /* PBXTargetDependency */,
+			);
+			name = "Base32Tests-Mac";
+			productName = Base32Tests;
+			productReference = C977BB0E1AC89FBA00D2F9E2 /* Base32Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -232,6 +309,12 @@
 						CreatedOnToolsVersion = 6.3;
 					};
 					C90A76D91AC7AF8A006875B8 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					C977BB031AC89FB900D2F9E2 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					C977BB0D1AC89FBA00D2F9E2 = {
 						CreatedOnToolsVersion = 6.3;
 					};
 				};
@@ -250,6 +333,8 @@
 			targets = (
 				C90A76CF1AC7AF8A006875B8 /* Base32-iOS */,
 				C90A76D91AC7AF8A006875B8 /* Base32Tests-iOS */,
+				C977BB031AC89FB900D2F9E2 /* Base32-Mac */,
+				C977BB0D1AC89FBA00D2F9E2 /* Base32Tests-Mac */,
 			);
 		};
 /* End PBXProject section */
@@ -263,6 +348,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C90A76D81AC7AF8A006875B8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C977BB021AC89FB900D2F9E2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C977BB0C1AC89FBA00D2F9E2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -291,6 +390,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C977BAFF1AC89FB900D2F9E2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C977BB201AC8A00A00D2F9E2 /* Alphabet.swift in Sources */,
+				C977BB1F1AC8A00A00D2F9E2 /* Quintets.swift in Sources */,
+				C977BB1E1AC8A00A00D2F9E2 /* Base32.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C977BB0A1AC89FBA00D2F9E2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C977BB221AC8A01600D2F9E2 /* AlphabetTests.swift in Sources */,
+				C977BB211AC8A01300D2F9E2 /* Base32Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -298,6 +416,11 @@
 			isa = PBXTargetDependency;
 			target = C90A76CF1AC7AF8A006875B8 /* Base32-iOS */;
 			targetProxy = C90A76DC1AC7AF8A006875B8 /* PBXContainerItemProxy */;
+		};
+		C977BB111AC89FBA00D2F9E2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C977BB031AC89FB900D2F9E2 /* Base32-Mac */;
+			targetProxy = C977BB101AC89FBA00D2F9E2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -308,6 +431,7 @@
 			buildSettings = {
 				CURRENT_PROJECT_VERSION = 1;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -321,6 +445,7 @@
 			buildSettings = {
 				CURRENT_PROJECT_VERSION = 1;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -372,6 +497,52 @@
 			};
 			name = Release;
 		};
+		C977BB181AC89FBA00D2F9E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C977BADE1AC8953F00D2F9E2 /* Mac-Framework.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Base32/Info.plist;
+				PRODUCT_NAME = Base32;
+			};
+			name = Debug;
+		};
+		C977BB191AC89FBA00D2F9E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C977BADE1AC8953F00D2F9E2 /* Mac-Framework.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Base32/Info.plist;
+				PRODUCT_NAME = Base32;
+			};
+			name = Release;
+		};
+		C977BB1B1AC89FBA00D2F9E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C977BADB1AC8953F00D2F9E2 /* Mac-Application.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = Base32Tests/Info.plist;
+				PRODUCT_NAME = Base32Tests;
+			};
+			name = Debug;
+		};
+		C977BB1C1AC89FBA00D2F9E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C977BADB1AC8953F00D2F9E2 /* Mac-Application.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = Base32Tests/Info.plist;
+				PRODUCT_NAME = Base32Tests;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -398,6 +569,24 @@
 			buildConfigurations = (
 				C90A76E71AC7AF8A006875B8 /* Debug */,
 				C90A76E81AC7AF8A006875B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C977BB171AC89FBA00D2F9E2 /* Build configuration list for PBXNativeTarget "Base32-Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C977BB181AC89FBA00D2F9E2 /* Debug */,
+				C977BB191AC89FBA00D2F9E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C977BB1A1AC89FBA00D2F9E2 /* Build configuration list for PBXNativeTarget "Base32Tests-Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C977BB1B1AC89FBA00D2F9E2 /* Debug */,
+				C977BB1C1AC89FBA00D2F9E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
