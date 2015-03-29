@@ -37,6 +37,17 @@
 		C90A76ED1AC7B6EF006875B8 /* AlphabetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphabetTests.swift; sourceTree = "<group>"; };
 		C90A76EF1AC7BBB8006875B8 /* Base32.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base32.swift; sourceTree = "<group>"; };
 		C90A76F11AC7CE92006875B8 /* Quintets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quintets.swift; sourceTree = "<group>"; };
+		C977BACD1AC8953F00D2F9E2 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = Configurations/Debug.xcconfig; sourceTree = "<group>"; };
+		C977BACE1AC8953F00D2F9E2 /* Profile.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Profile.xcconfig; path = Configurations/Profile.xcconfig; sourceTree = "<group>"; };
+		C977BACF1AC8953F00D2F9E2 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Configurations/Release.xcconfig; sourceTree = "<group>"; };
+		C977BAD01AC8953F00D2F9E2 /* Test.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Test.xcconfig; path = Configurations/Test.xcconfig; sourceTree = "<group>"; };
+		C977BAD61AC8953F00D2F9E2 /* iOS-Application.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS-Application.xcconfig"; sourceTree = "<group>"; };
+		C977BAD81AC8953F00D2F9E2 /* iOS-Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS-Framework.xcconfig"; sourceTree = "<group>"; };
+		C977BAD91AC8953F00D2F9E2 /* iOS-StaticLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS-StaticLibrary.xcconfig"; sourceTree = "<group>"; };
+		C977BADB1AC8953F00D2F9E2 /* Mac-Application.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Mac-Application.xcconfig"; sourceTree = "<group>"; };
+		C977BADD1AC8953F00D2F9E2 /* Mac-DynamicLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Mac-DynamicLibrary.xcconfig"; sourceTree = "<group>"; };
+		C977BADE1AC8953F00D2F9E2 /* Mac-Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Mac-Framework.xcconfig"; sourceTree = "<group>"; };
+		C977BADF1AC8953F00D2F9E2 /* Mac-StaticLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Mac-StaticLibrary.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +74,7 @@
 			children = (
 				C90A76D11AC7AF8A006875B8 /* Base32 */,
 				C90A76DE1AC7AF8A006875B8 /* Base32Tests */,
+				C977BAC91AC8953F00D2F9E2 /* Configurations */,
 				C90A76B01AC7AD5A006875B8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -112,6 +124,49 @@
 				C90A76E01AC7AF8A006875B8 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C977BAC91AC8953F00D2F9E2 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				C977BACA1AC8953F00D2F9E2 /* Base */,
+				C977BAD51AC8953F00D2F9E2 /* iOS */,
+				C977BADA1AC8953F00D2F9E2 /* Mac OS X */,
+			);
+			name = Configurations;
+			path = Carthage/Checkouts/xcconfigs;
+			sourceTree = "<group>";
+		};
+		C977BACA1AC8953F00D2F9E2 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				C977BACD1AC8953F00D2F9E2 /* Debug.xcconfig */,
+				C977BACE1AC8953F00D2F9E2 /* Profile.xcconfig */,
+				C977BACF1AC8953F00D2F9E2 /* Release.xcconfig */,
+				C977BAD01AC8953F00D2F9E2 /* Test.xcconfig */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		C977BAD51AC8953F00D2F9E2 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				C977BAD61AC8953F00D2F9E2 /* iOS-Application.xcconfig */,
+				C977BAD81AC8953F00D2F9E2 /* iOS-Framework.xcconfig */,
+				C977BAD91AC8953F00D2F9E2 /* iOS-StaticLibrary.xcconfig */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		C977BADA1AC8953F00D2F9E2 /* Mac OS X */ = {
+			isa = PBXGroup;
+			children = (
+				C977BADB1AC8953F00D2F9E2 /* Mac-Application.xcconfig */,
+				C977BADD1AC8953F00D2F9E2 /* Mac-DynamicLibrary.xcconfig */,
+				C977BADE1AC8953F00D2F9E2 /* Mac-Framework.xcconfig */,
+				C977BADF1AC8953F00D2F9E2 /* Mac-StaticLibrary.xcconfig */,
+			);
+			path = "Mac OS X";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +304,7 @@
 /* Begin XCBuildConfiguration section */
 		C90A76C31AC7AD5A006875B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C977BACD1AC8953F00D2F9E2 /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -274,6 +330,7 @@
 		};
 		C90A76C41AC7AD5A006875B8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C977BACF1AC8953F00D2F9E2 /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -296,6 +353,7 @@
 		};
 		C90A76E41AC7AF8A006875B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C977BAD81AC8953F00D2F9E2 /* iOS-Framework.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -314,6 +372,7 @@
 		};
 		C90A76E51AC7AF8A006875B8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C977BAD81AC8953F00D2F9E2 /* iOS-Framework.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -332,6 +391,7 @@
 		};
 		C90A76E71AC7AF8A006875B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C977BAD61AC8953F00D2F9E2 /* iOS-Application.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -347,6 +407,7 @@
 		};
 		C90A76E81AC7AF8A006875B8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C977BAD61AC8953F00D2F9E2 /* iOS-Application.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
