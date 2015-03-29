@@ -38,8 +38,8 @@ func quintets(b0: UInt8, b1: UInt8, b2: UInt8)
     )
 }
 
-func quintets(b0: UInt8, b1: UInt8, b2: UInt8, b3: UInt8)
-    -> (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8)
+func quintets(b0: UInt8, b1: UInt8, b2: UInt8, b3: UInt8, b4: UInt8? = nil)
+    -> (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8?)
 {
     return (
         firstQuintet(b0),
@@ -48,22 +48,8 @@ func quintets(b0: UInt8, b1: UInt8, b2: UInt8, b3: UInt8)
         fourthQuintet(b1, b2),
         fifthQuintet(b2, b3),
         sixthQuintet(b3),
-        seventhQuintet(b3, 0)
-    )
-}
-
-func quintets(b0: UInt8, b1: UInt8, b2: UInt8, b3: UInt8, b4: UInt8)
-    -> (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8)
-{
-    return (
-        firstQuintet(b0),
-        secondQuintet(b0, b1),
-        thirdQuintet(b1),
-        fourthQuintet(b1, b2),
-        fifthQuintet(b2, b3),
-        sixthQuintet(b3),
-        seventhQuintet(b3, b4),
-        eigthQuintet(b4)
+        seventhQuintet(b3, b4 ?? 0),
+        b4.map(eigthQuintet)
     )
 }
 
