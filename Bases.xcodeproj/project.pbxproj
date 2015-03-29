@@ -337,7 +337,6 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Base32/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				PRODUCT_NAME = Base32;
 			};
 			name = Debug;
@@ -351,7 +350,6 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Base32/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				PRODUCT_NAME = Base32;
 			};
 			name = Release;
@@ -360,10 +358,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C977BAD61AC8953F00D2F9E2 /* iOS-Application.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
 				INFOPLIST_FILE = Base32Tests/Info.plist;
 				PRODUCT_NAME = Base32Tests;
 			};
@@ -373,10 +367,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C977BAD61AC8953F00D2F9E2 /* iOS-Application.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
 				INFOPLIST_FILE = Base32Tests/Info.plist;
 				PRODUCT_NAME = Base32Tests;
 			};
