@@ -44,6 +44,13 @@ class AlphabetTests: XCTestCase {
         assertCharacter("5", forValue: 29)
         assertCharacter("6", forValue: 30)
         assertCharacter("7", forValue: 31)
+
+        let remainingValues = Range<UInt8>(start: 32, end: 255)
+        for value: UInt8 in remainingValues {
+            if let resultingCharacter = characterForValue(value) {
+                XCTFail("\(value) translated to \"\(resultingCharacter)\" (expected nil)")
+            }
+        }
     }
 
     private func assertCharacter(expectedCharacter: Character, forValue value: UInt8) {
