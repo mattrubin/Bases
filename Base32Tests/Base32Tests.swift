@@ -33,7 +33,7 @@ class Base32Tests: XCTestCase {
 
     private func assertASCIIString(source: String, encodesToString destination: String) {
         if let data = (source as NSString).dataUsingEncoding(NSASCIIStringEncoding) {
-            if let result = Base32.encode(ArraySlice(data.byteArray)) {
+            if let result = base32(data.byteArray) {
                 XCTAssertEqual(result, destination, "\"\(source)\" encoded to \"\(result)\" (Expected \"\(destination)\")")
             } else {
                 XCTFail("Could not encode \"\(source)\" (Expected \"\(destination)\")")

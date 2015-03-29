@@ -8,7 +8,11 @@
 
 private let quantumSize = 5
 
-public func encode(bytes: ArraySlice<UInt8>) -> String? {
+public func base32<S: SequenceType where S.Generator.Element == UInt8>(bytes: S) -> String? {
+    return encode(ArraySlice(bytes))
+}
+
+private func encode(bytes: ArraySlice<UInt8>) -> String? {
     if let s = encodeQuantum(bytes) {
         if bytes.count <= quantumSize {
             return s
