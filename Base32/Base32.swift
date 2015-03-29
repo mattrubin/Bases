@@ -46,9 +46,7 @@ private func encodeQuantum(bytes: ArraySlice<Byte>) -> String? {
     }
 }
 
-
-private func stringForBytes(b0: Byte, b1: Byte?, b2: Byte?, b3: Byte?, b4: Byte?)
-    -> String?
+private func stringForBytes(b0: Byte, b1: Byte?, b2: Byte?, b3: Byte?, b4: Byte?) -> String?
 {
     let q = quintetsFromBytes(b0, b1, b2, b3, b4)
     if let
