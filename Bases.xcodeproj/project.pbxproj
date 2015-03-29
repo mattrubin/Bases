@@ -14,9 +14,13 @@
 		C90A76EE1AC7B6EF006875B8 /* AlphabetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A76ED1AC7B6EF006875B8 /* AlphabetTests.swift */; };
 		C90A76F01AC7BBB8006875B8 /* Base32.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A76EF1AC7BBB8006875B8 /* Base32.swift */; };
 		C90A76F21AC7CE92006875B8 /* Quintets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A76F11AC7CE92006875B8 /* Quintets.swift */; };
-		C977BB091AC89FB900D2F9E2 /* Base32.h in Headers */ = {isa = PBXBuildFile; fileRef = C977BB081AC89FB900D2F9E2 /* Base32.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C977BB0F1AC89FBA00D2F9E2 /* Base32.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C977BB041AC89FB900D2F9E2 /* Base32.framework */; };
-		C977BB161AC89FBA00D2F9E2 /* Base32Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C977BB151AC89FBA00D2F9E2 /* Base32Tests.swift */; };
+		C977BB1D1AC8A00400D2F9E2 /* Base32.h in Headers */ = {isa = PBXBuildFile; fileRef = C90A76D41AC7AF8A006875B8 /* Base32.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C977BB1E1AC8A00A00D2F9E2 /* Base32.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A76EF1AC7BBB8006875B8 /* Base32.swift */; };
+		C977BB1F1AC8A00A00D2F9E2 /* Quintets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A76F11AC7CE92006875B8 /* Quintets.swift */; };
+		C977BB201AC8A00A00D2F9E2 /* Alphabet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A76EB1AC7B286006875B8 /* Alphabet.swift */; };
+		C977BB211AC8A01300D2F9E2 /* Base32Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A76E11AC7AF8A006875B8 /* Base32Tests.swift */; };
+		C977BB221AC8A01600D2F9E2 /* AlphabetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A76ED1AC7B6EF006875B8 /* AlphabetTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,11 +63,7 @@
 		C977BADE1AC8953F00D2F9E2 /* Mac-Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Mac-Framework.xcconfig"; sourceTree = "<group>"; };
 		C977BADF1AC8953F00D2F9E2 /* Mac-StaticLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Mac-StaticLibrary.xcconfig"; sourceTree = "<group>"; };
 		C977BB041AC89FB900D2F9E2 /* Base32.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Base32.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C977BB071AC89FB900D2F9E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C977BB081AC89FB900D2F9E2 /* Base32.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Base32.h; sourceTree = "<group>"; };
 		C977BB0E1AC89FBA00D2F9E2 /* Base32Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Base32Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C977BB141AC89FBA00D2F9E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C977BB151AC89FBA00D2F9E2 /* Base32Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base32Tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +106,6 @@
 				C90A76D11AC7AF8A006875B8 /* Base32 */,
 				C90A76DE1AC7AF8A006875B8 /* Base32Tests */,
 				C977BAC91AC8953F00D2F9E2 /* Configurations */,
-				C977BB051AC89FB900D2F9E2 /* Base32 */,
-				C977BB121AC89FBA00D2F9E2 /* Base32Tests */,
 				C90A76B01AC7AD5A006875B8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -204,40 +202,6 @@
 			path = "Mac OS X";
 			sourceTree = "<group>";
 		};
-		C977BB051AC89FB900D2F9E2 /* Base32 */ = {
-			isa = PBXGroup;
-			children = (
-				C977BB081AC89FB900D2F9E2 /* Base32.h */,
-				C977BB061AC89FB900D2F9E2 /* Supporting Files */,
-			);
-			path = Base32;
-			sourceTree = "<group>";
-		};
-		C977BB061AC89FB900D2F9E2 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				C977BB071AC89FB900D2F9E2 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		C977BB121AC89FBA00D2F9E2 /* Base32Tests */ = {
-			isa = PBXGroup;
-			children = (
-				C977BB151AC89FBA00D2F9E2 /* Base32Tests.swift */,
-				C977BB131AC89FBA00D2F9E2 /* Supporting Files */,
-			);
-			path = Base32Tests;
-			sourceTree = "<group>";
-		};
-		C977BB131AC89FBA00D2F9E2 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				C977BB141AC89FBA00D2F9E2 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -253,7 +217,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C977BB091AC89FB900D2F9E2 /* Base32.h in Headers */,
+				C977BB1D1AC8A00400D2F9E2 /* Base32.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +394,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C977BB201AC8A00A00D2F9E2 /* Alphabet.swift in Sources */,
+				C977BB1F1AC8A00A00D2F9E2 /* Quintets.swift in Sources */,
+				C977BB1E1AC8A00A00D2F9E2 /* Base32.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,7 +404,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C977BB161AC89FBA00D2F9E2 /* Base32Tests.swift in Sources */,
+				C977BB221AC8A01600D2F9E2 /* AlphabetTests.swift in Sources */,
+				C977BB211AC8A01300D2F9E2 /* Base32Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
