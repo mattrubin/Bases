@@ -12,7 +12,7 @@ public func base32<S: SequenceType where S.Generator.Element == UInt8>(bytes: S)
     return encode(ArraySlice(bytes))
 }
 
-private func encode(bytes: ArraySlice<UInt8>) -> String? {
+private func encode(bytes: ArraySlice<Byte>) -> String? {
     if let s = encodeQuantum(bytes) {
         if bytes.count <= quantumSize {
             return s
@@ -29,7 +29,7 @@ private func encode(bytes: ArraySlice<UInt8>) -> String? {
     return nil
 }
 
-private func encodeQuantum(bytes: ArraySlice<UInt8>) -> String? {
+private func encodeQuantum(bytes: ArraySlice<Byte>) -> String? {
     switch bytes.count {
     case 0:
         return ""
@@ -47,7 +47,7 @@ private func encodeQuantum(bytes: ArraySlice<UInt8>) -> String? {
 }
 
 
-private func stringForBytes(b0: UInt8, b1: UInt8?, b2: UInt8?, b3: UInt8?, b4: UInt8?)
+private func stringForBytes(b0: Byte, b1: Byte?, b2: Byte?, b3: Byte?, b4: Byte?)
     -> String?
 {
     let q = quintetsFromBytes(b0, b1, b2, b3, b4)
@@ -67,7 +67,7 @@ private func stringForBytes(b0: UInt8, b1: UInt8?, b2: UInt8?, b3: UInt8?, b4: U
     }
 }
 
-private func characterOrPaddingForValue(value: UInt8?) -> Character? {
+private func characterOrPaddingForValue(value: Quintet?) -> Character? {
     if let value = value {
         return characterForValue(value)
     } else {
