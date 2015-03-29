@@ -7,6 +7,7 @@
 //
 
 private let quantumSize = 5
+private let pad: Character = "="
 
 public func encode(bytes: ArraySlice<UInt8>) -> String? {
     if let s = encodeQuantum(bytes) {
@@ -46,7 +47,7 @@ private func encodeQuantum(bytes: ArraySlice<UInt8>) -> String? {
             c0 = characterForValue(q.0),
             c1 = characterForValue(q.1)
         {
-            return String([c0, c1, "=", "=", "=", "=", "=", "="])
+            return String([c0, c1, pad, pad, pad, pad, pad, pad])
         }
     case 2:
         // The final quantum of encoding input is exactly 16 bits; here, the
@@ -59,7 +60,7 @@ private func encodeQuantum(bytes: ArraySlice<UInt8>) -> String? {
             c2 = characterForValue(q.2),
             c3 = characterForValue(q.3)
         {
-            return String([c0, c1, c2, c3, "=", "=", "=", "="])
+            return String([c0, c1, c2, c3, pad, pad, pad, pad])
         }
     case 3:
         // The final quantum of encoding input is exactly 24 bits; here, the
@@ -73,7 +74,7 @@ private func encodeQuantum(bytes: ArraySlice<UInt8>) -> String? {
             c3 = characterForValue(q.3),
             c4 = characterForValue(q.4)
         {
-            return String([c0, c1, c2, c3, c4, "=", "=", "="])
+            return String([c0, c1, c2, c3, c4, pad, pad, pad])
         }
     case 4:
         // The final quantum of encoding input is exactly 32 bits; here, the
@@ -89,7 +90,7 @@ private func encodeQuantum(bytes: ArraySlice<UInt8>) -> String? {
             c5 = characterForValue(q.5),
             c6 = characterForValue(q.6)
         {
-            return String([c0, c1, c2, c3, c4, c5, c6, "="])
+            return String([c0, c1, c2, c3, c4, c5, c6, pad])
         }
     default:
         // The final quantum of encoding input is an integral multiple of 40
