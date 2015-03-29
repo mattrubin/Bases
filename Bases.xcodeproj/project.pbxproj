@@ -497,6 +497,7 @@
 		};
 		C977BB181AC89FBA00D2F9E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C977BADE1AC8953F00D2F9E2 /* Mac-Framework.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -551,6 +552,7 @@
 		};
 		C977BB191AC89FBA00D2F9E2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C977BADE1AC8953F00D2F9E2 /* Mac-Framework.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -597,6 +599,7 @@
 		};
 		C977BB1B1AC89FBA00D2F9E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C977BADB1AC8953F00D2F9E2 /* Mac-Application.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -647,6 +650,7 @@
 		};
 		C977BB1C1AC89FBA00D2F9E2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C977BADB1AC8953F00D2F9E2 /* Mac-Application.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
