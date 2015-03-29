@@ -50,7 +50,7 @@ private func encodeQuantum(bytes: ArraySlice<UInt8>) -> String? {
 private func stringForBytes(b0: UInt8, b1: UInt8?, b2: UInt8?, b3: UInt8?, b4: UInt8?)
     -> String?
 {
-    let q = quintets(b0, b1, b2, b3, b4)
+    let q = quintetsFromBytes(b0, b1, b2, b3, b4)
     if let
         c0 = characterForValue(q.0),
         c1 = characterForValue(q.1),

@@ -6,21 +6,20 @@
 //  Copyright (c) 2015 Matt Rubin. All rights reserved.
 //
 
-func quintets(b0: UInt8, b1: UInt8?, b2: UInt8?, b3: UInt8?, b4: UInt8?)
+func quintetsFromBytes(b: (UInt8, UInt8?, UInt8?, UInt8?, UInt8?))
     -> (UInt8, UInt8, UInt8?, UInt8?, UInt8?, UInt8?, UInt8?, UInt8?)
 {
     return (
-        firstQuintet(b0),
-        secondQuintet(b0, b1 ?? 0),
-        b1.map(thirdQuintet),
-        b1.map(fourthQuintet)?(b2 ?? 0),
-        b2.map(fifthQuintet)?(b3 ?? 0),
-        b3.map(sixthQuintet),
-        b3.map(seventhQuintet)?(b4 ?? 0),
-        b4.map(eigthQuintet)
+        firstQuintet(b.0),
+        secondQuintet(b.0, b.1 ?? 0),
+        b.1.map(thirdQuintet),
+        b.1.map(fourthQuintet)?(b.2 ?? 0),
+        b.2.map(fifthQuintet)?(b.3 ?? 0),
+        b.3.map(sixthQuintet),
+        b.3.map(seventhQuintet)?(b.4 ?? 0),
+        b.4.map(eigthQuintet)
     )
 }
-
 
 
 private func firstQuintet(b0: UInt8) -> UInt8 {
