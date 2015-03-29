@@ -260,9 +260,9 @@
 			productReference = C90A76DA1AC7AF8A006875B8 /* Base32Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		C977BB031AC89FB900D2F9E2 /* Base32 */ = {
+		C977BB031AC89FB900D2F9E2 /* Base32-Mac */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C977BB171AC89FBA00D2F9E2 /* Build configuration list for PBXNativeTarget "Base32" */;
+			buildConfigurationList = C977BB171AC89FBA00D2F9E2 /* Build configuration list for PBXNativeTarget "Base32-Mac" */;
 			buildPhases = (
 				C977BAFF1AC89FB900D2F9E2 /* Sources */,
 				C977BB001AC89FB900D2F9E2 /* Frameworks */,
@@ -273,7 +273,7 @@
 			);
 			dependencies = (
 			);
-			name = Base32;
+			name = "Base32-Mac";
 			productName = Base32;
 			productReference = C977BB041AC89FB900D2F9E2 /* Base32.framework */;
 			productType = "com.apple.product-type.framework";
@@ -333,7 +333,7 @@
 			targets = (
 				C90A76CF1AC7AF8A006875B8 /* Base32-iOS */,
 				C90A76D91AC7AF8A006875B8 /* Base32Tests-iOS */,
-				C977BB031AC89FB900D2F9E2 /* Base32 */,
+				C977BB031AC89FB900D2F9E2 /* Base32-Mac */,
 				C977BB0D1AC89FBA00D2F9E2 /* Base32Tests */,
 			);
 		};
@@ -419,7 +419,7 @@
 		};
 		C977BB111AC89FBA00D2F9E2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C977BB031AC89FB900D2F9E2 /* Base32 */;
+			target = C977BB031AC89FB900D2F9E2 /* Base32-Mac */;
 			targetProxy = C977BB101AC89FBA00D2F9E2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -542,7 +542,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Base32;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -589,7 +589,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Base32;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 			};
@@ -718,7 +718,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C977BB171AC89FBA00D2F9E2 /* Build configuration list for PBXNativeTarget "Base32" */ = {
+		C977BB171AC89FBA00D2F9E2 /* Build configuration list for PBXNativeTarget "Base32-Mac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C977BB181AC89FBA00D2F9E2 /* Debug */,
