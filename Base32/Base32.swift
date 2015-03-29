@@ -45,46 +45,33 @@ private func encodeQuantum(bytes: ArraySlice<UInt8>) -> String? {
         // The final quantum of encoding input is exactly 8 bits; here, the
         // final unit of encoded output will be two characters followed by
         // six "=" padding characters.
-        if let c = charactersForBytes(bytes[0], nil, nil, nil, nil) {
-            return String([c.0, c.1, c.2, c.3, c.4, c.5, c.6, c.7])
-        }
+        return stringForBytes(bytes[0], nil, nil, nil, nil)
     case 2:
         // The final quantum of encoding input is exactly 16 bits; here, the
         // final unit of encoded output will be four characters followed by
         // four "=" padding characters.
-        if let c = charactersForBytes(bytes[0], bytes[1], nil, nil, nil) {
-            return String([c.0, c.1, c.2, c.3, c.4, c.5, c.6, c.7])
-        }
+        return stringForBytes(bytes[0], bytes[1], nil, nil, nil)
     case 3:
         // The final quantum of encoding input is exactly 24 bits; here, the
         // final unit of encoded output will be five characters followed by
         // three "=" padding characters.
-        if let c = charactersForBytes(bytes[0], bytes[1], bytes[2], nil, nil) {
-            return String([c.0, c.1, c.2, c.3, c.4, c.5, c.6, c.7])
-        }
+        return stringForBytes(bytes[0], bytes[1], bytes[2], nil, nil)
     case 4:
         // The final quantum of encoding input is exactly 32 bits; here, the
         // final unit of encoded output will be seven characters followed by
         // one "=" padding character.
-        if let c = charactersForBytes(bytes[0], bytes[1], bytes[2], bytes[3], nil) {
-            return String([c.0, c.1, c.2, c.3, c.4, c.5, c.6, c.7])
-        }
+        return stringForBytes(bytes[0], bytes[1], bytes[2], bytes[3], nil)
     default:
         // The final quantum of encoding input is an integral multiple of 40
         // bits; here, the final unit of encoded output will be an integral
         // multiple of 8 characters with no "=" padding.
-        if let c = charactersForBytes(bytes[0], bytes[1], bytes[2], bytes[3], bytes[4]) {
-            return String([c.0, c.1, c.2, c.3, c.4, c.5, c.6, c.7])
-        }
+        return stringForBytes(bytes[0], bytes[1], bytes[2], bytes[3], bytes[4])
     }
-
-    // Something failed
-    return nil
 }
 
 
-private func charactersForBytes(b0: UInt8, b1: UInt8?, b2: UInt8?, b3: UInt8?, b4: UInt8?)
-    -> (Character, Character, Character, Character, Character, Character, Character, Character)?
+private func stringForBytes(b0: UInt8, b1: UInt8?, b2: UInt8?, b3: UInt8?, b4: UInt8?)
+    -> String?
 {
     let q = quintets(b0, b1, b2, b3, b4)
     if let
@@ -97,7 +84,7 @@ private func charactersForBytes(b0: UInt8, b1: UInt8?, b2: UInt8?, b3: UInt8?, b
         c6 = characterOrPaddingForValue(q.6),
         c7 = characterOrPaddingForValue(q.7)
     {
-        return (c0, c1, c2, c3, c4, c5, c6, c7)
+        return String([c0, c1, c2, c3, c4, c5, c6, c7])
     } else {
         return nil
     }
