@@ -332,6 +332,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C977BAD81AC8953F00D2F9E2 /* iOS-Framework.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -345,6 +346,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C977BAD81AC8953F00D2F9E2 /* iOS-Framework.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
