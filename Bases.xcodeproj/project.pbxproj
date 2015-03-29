@@ -146,9 +146,9 @@
 			productReference = C90A76D01AC7AF8A006875B8 /* Base32.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		C90A76D91AC7AF8A006875B8 /* Base32Tests */ = {
+		C90A76D91AC7AF8A006875B8 /* Base32Tests-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C90A76E61AC7AF8A006875B8 /* Build configuration list for PBXNativeTarget "Base32Tests" */;
+			buildConfigurationList = C90A76E61AC7AF8A006875B8 /* Build configuration list for PBXNativeTarget "Base32Tests-iOS" */;
 			buildPhases = (
 				C90A76D61AC7AF8A006875B8 /* Sources */,
 				C90A76D71AC7AF8A006875B8 /* Frameworks */,
@@ -159,7 +159,7 @@
 			dependencies = (
 				C90A76DD1AC7AF8A006875B8 /* PBXTargetDependency */,
 			);
-			name = Base32Tests;
+			name = "Base32Tests-iOS";
 			productName = Base32Tests;
 			productReference = C90A76DA1AC7AF8A006875B8 /* Base32Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -194,7 +194,7 @@
 			projectRoot = "";
 			targets = (
 				C90A76CF1AC7AF8A006875B8 /* Base32-iOS */,
-				C90A76D91AC7AF8A006875B8 /* Base32Tests */,
+				C90A76D91AC7AF8A006875B8 /* Base32Tests-iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -340,7 +340,7 @@
 				INFOPLIST_FILE = Base32Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Base32Tests;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -355,7 +355,7 @@
 				INFOPLIST_FILE = Base32Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Base32Tests;
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -381,7 +381,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C90A76E61AC7AF8A006875B8 /* Build configuration list for PBXNativeTarget "Base32Tests" */ = {
+		C90A76E61AC7AF8A006875B8 /* Build configuration list for PBXNativeTarget "Base32Tests-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C90A76E71AC7AF8A006875B8 /* Debug */,
