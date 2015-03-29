@@ -69,15 +69,8 @@ private func encodeQuantum(bytes: ArraySlice<UInt8>) -> String? {
         // The final quantum of encoding input is exactly 24 bits; here, the
         // final unit of encoded output will be five characters followed by
         // three "=" padding characters.
-        let q = quintets(bytes[0], bytes[1], bytes[2])
-        if let
-            c0 = characterForValue(q.0),
-            c1 = characterForValue(q.1),
-            c2 = characterForValue(q.2),
-            c3 = characterForValue(q.3),
-            c4 = characterForValue(q.4)
-        {
-            return String([c0, c1, c2, c3, c4, pad, pad, pad])
+        if let c = charactersForBytes(bytes[0], bytes[1], bytes[2], nil, nil) {
+            return String([c.0, c.1, c.2, c.3, c.4, c.5, c.6, c.7])
         }
     case 4:
         // The final quantum of encoding input is exactly 32 bits; here, the
@@ -100,7 +93,7 @@ private func encodeQuantum(bytes: ArraySlice<UInt8>) -> String? {
 }
 
 
-private func charactersForBytes(b0: UInt8, b1: UInt8, b2: UInt8, b3: UInt8, b4: UInt8?)
+private func charactersForBytes(b0: UInt8, b1: UInt8, b2: UInt8, b3: UInt8?, b4: UInt8?)
     -> (Character, Character, Character, Character, Character, Character, Character, Character)?
 {
     let q = quintets(b0, b1, b2, b3, b4)
@@ -110,8 +103,8 @@ private func charactersForBytes(b0: UInt8, b1: UInt8, b2: UInt8, b3: UInt8, b4: 
         c2 = characterForValue(q.2),
         c3 = characterForValue(q.3),
         c4 = characterForValue(q.4),
-        c5 = characterForValue(q.5),
-        c6 = characterForValue(q.6),
+        c5 = characterOrPaddingForValue(q.5),
+        c6 = characterOrPaddingForValue(q.6),
         c7 = characterOrPaddingForValue(q.7)
     {
         return (c0, c1, c2, c3, c4, c5, c6, c7)
