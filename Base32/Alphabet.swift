@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Matt Rubin. All rights reserved.
 //
 
-func characterOrPaddingForValue(value: Quintet?) -> Character? {
+func characterOrPaddingForValue(value: Quintet?) -> Character {
     if let value = value {
         // If the quintet has a value, return the corresponding character (if one exists)
         return characterForValue(value)
@@ -34,7 +34,7 @@ func characterOrPaddingForValue(value: Quintet?) -> Character? {
 //       7 H            16 Q            25 Z
 //       8 I            17 R            26 2
 
-public func characterForValue(value: UInt8) -> Character? {
+public func characterForValue(value: UInt8) -> Character {
     switch value {
     case  0: return "A"
     case  1: return "B"
@@ -68,6 +68,10 @@ public func characterForValue(value: UInt8) -> Character? {
     case 29: return "5"
     case 30: return "6"
     case 31: return "7"
-    default: return nil
+    default:
+        // This function is only ever called internally, with the result of an octet-to-quintet conversion.
+        // If the value is 32 or higher, it is the result of a flaw in the implementation of the algorithm,
+        // and not a legitimate error case which might merit returning an optional.
+        fatalError("Could not encode value \(value) as a Base32 character")
     }
 }
