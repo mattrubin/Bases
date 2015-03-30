@@ -30,7 +30,7 @@ func characterOrPaddingForValue(value: Quintet?) -> Character {
 //       7 H            16 Q            25 Z
 //       8 I            17 R            26 2
 
-public func characterForValue(value: UInt8) -> Character {
+func characterForValue(value: Quintet) -> Character {
     switch value {
     case  0: return "A"
     case  1: return "B"
