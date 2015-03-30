@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Matt Rubin. All rights reserved.
 //
 
-private func characterOrPaddingForValue(value: Quintet?) -> Character? {
+func characterOrPaddingForValue(value: Quintet?) -> Character? {
     if let value = value {
         // If the quintet has a value, return the corresponding character (if one exists)
         return characterForValue(value)
