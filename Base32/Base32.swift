@@ -8,28 +8,22 @@
 
 private let quantumSize = 5
 
-public func base32<S: SequenceType where S.Generator.Element == UInt8>(bytes: S) -> String? {
-    return encode(ArraySlice(bytes))
+public func base32<S: SequenceType where S.Generator.Element == UInt8>(bytes: S) -> String {
+    return stringForData(ArraySlice(bytes))
 }
 
-private func encode(bytes: ArraySlice<Byte>) -> String? {
-    if let s = encodeQuantum(bytes) {
-        if bytes.count <= quantumSize {
-            return s
-        } else {
-            // There's more data to encode
-            let remainingBytes = bytes[(bytes.startIndex + quantumSize)..<(bytes.endIndex)]
-            if let restOfString = encode(remainingBytes) {
-                return s + restOfString
-            }
-        }
+private func stringForData(bytes: ArraySlice<Byte>) -> String {
+    let s = stringForNextQuantum(bytes)
+    if bytes.count <= quantumSize {
+        return s
+    } else {
+        // There's more data to encode
+        let remainingBytes = bytes[(bytes.startIndex + quantumSize)..<(bytes.endIndex)]
+        return s + stringForData(remainingBytes)
     }
-
-    // Something failed
-    return nil
 }
 
-private func encodeQuantum(bytes: ArraySlice<Byte>) -> String? {
+private func stringForNextQuantum(bytes: ArraySlice<Byte>) -> String {
     switch bytes.count {
     case 0:
         return ""
@@ -46,21 +40,16 @@ private func encodeQuantum(bytes: ArraySlice<Byte>) -> String? {
     }
 }
 
-private func stringForBytes(b0: Byte, b1: Byte?, b2: Byte?, b3: Byte?, b4: Byte?) -> String?
+private func stringForBytes(b0: Byte, b1: Byte?, b2: Byte?, b3: Byte?, b4: Byte?) -> String
 {
     let q = quintetsFromBytes(b0, b1, b2, b3, b4)
-    if let
-        c0 = characterForValue(q.0),
-        c1 = characterForValue(q.1),
-        c2 = characterOrPaddingForValue(q.2),
-        c3 = characterOrPaddingForValue(q.3),
-        c4 = characterOrPaddingForValue(q.4),
-        c5 = characterOrPaddingForValue(q.5),
-        c6 = characterOrPaddingForValue(q.6),
-        c7 = characterOrPaddingForValue(q.7)
-    {
-        return String([c0, c1, c2, c3, c4, c5, c6, c7])
-    } else {
-        return nil
-    }
+    let c0 = characterForValue(q.0)
+    let c1 = characterForValue(q.1)
+    let c2 = characterOrPaddingForValue(q.2)
+    let c3 = characterOrPaddingForValue(q.3)
+    let c4 = characterOrPaddingForValue(q.4)
+    let c5 = characterOrPaddingForValue(q.5)
+    let c6 = characterOrPaddingForValue(q.6)
+    let c7 = characterOrPaddingForValue(q.7)
+    return String([c0, c1, c2, c3, c4, c5, c6, c7])
 }
