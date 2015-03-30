@@ -7,7 +7,7 @@
 //
 
 func characterOrPaddingForValue(value: Quintet?) -> Character {
-    // If the quintet has a value, return the corresponding character (if one exists)
+    // If the quintet has a value, return the corresponding character
     // If the quintet has no value, return the padding character
     return value.map(characterForValue) ?? "="
 }
