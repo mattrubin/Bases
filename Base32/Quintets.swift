@@ -20,7 +20,7 @@ func quintetsFromBytes(b: (Byte, Byte?, Byte?, Byte?, Byte?))
         b.2.map(fifthQuintet)?(b.3 ?? 0),
         b.3.map(sixthQuintet),
         b.3.map(seventhQuintet)?(b.4 ?? 0),
-        b.4.map(eigthQuintet)
+        b.4.map(eighthQuintet)
     )
 }
 
@@ -57,6 +57,6 @@ private func seventhQuintet(b3: Byte)(_ b4: Byte) -> Quintet {
         |  ((b4 & 0b11100000) >> 5)
 }
 
-private func eigthQuintet(b4: Byte) -> Quintet {
+private func eighthQuintet(b4: Byte) -> Quintet {
     return (b4 & 0b00011111)
 }
