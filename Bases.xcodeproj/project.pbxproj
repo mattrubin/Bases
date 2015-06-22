@@ -49,6 +49,7 @@
 		C90A76EF1AC7BBB8006875B8 /* Base32.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base32.swift; sourceTree = "<group>"; };
 		C90A76F11AC7CE92006875B8 /* Quintets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quintets.swift; sourceTree = "<group>"; };
 		C94EAC7C1B38C9910073D43E /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
+		C94EAC7E1B38CCBE0073D43E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C977BACD1AC8953F00D2F9E2 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = Configurations/Debug.xcconfig; sourceTree = "<group>"; };
 		C977BACE1AC8953F00D2F9E2 /* Profile.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Profile.xcconfig; path = Configurations/Profile.xcconfig; sourceTree = "<group>"; };
 		C977BACF1AC8953F00D2F9E2 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Configurations/Release.xcconfig; sourceTree = "<group>"; };
@@ -146,6 +147,7 @@
 		C94EAC7D1B38CB610073D43E /* Docs */ = {
 			isa = PBXGroup;
 			children = (
+				C94EAC7E1B38CCBE0073D43E /* README.md */,
 				C94EAC7C1B38C9910073D43E /* LICENSE.md */,
 			);
 			name = Docs;
