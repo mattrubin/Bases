@@ -29,7 +29,7 @@ private func firstQuintet(b0: Byte) -> Quintet {
     return ((b0 & 0b11111000) >> 3)
 }
 
-private func secondQuintet(b0: Byte, b1: Byte) -> Quintet {
+private func secondQuintet(b0: Byte, _ b1: Byte) -> Quintet {
     return ((b0 & 0b00000111) << 2)
         |  ((b1 & 0b11000000) >> 6)
 }

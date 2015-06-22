@@ -40,7 +40,7 @@ private func stringForNextQuantum(bytes: ArraySlice<Byte>) -> String {
     }
 }
 
-private func stringForBytes(b0: Byte, b1: Byte?, b2: Byte?, b3: Byte?, b4: Byte?) -> String
+private func stringForBytes(b0: Byte, _ b1: Byte?, _ b2: Byte?, _ b3: Byte?, _ b4: Byte?) -> String
 {
     let q = quintetsFromBytes(b0, b1, b2, b3, b4)
     let c0 = characterForValue(q.0)
