@@ -6,8 +6,8 @@
 //  Copyright © 2016 Matt Rubin. All rights reserved.
 //
 
-internal typealias EncodedBlock = (CUnsignedChar, CUnsignedChar, CUnsignedChar, CUnsignedChar,
-    CUnsignedChar, CUnsignedChar, CUnsignedChar, CUnsignedChar)
+internal typealias EncodedBlock = (EncodedChar, EncodedChar, EncodedChar, EncodedChar, EncodedChar,
+    EncodedChar, EncodedChar, EncodedChar)
 
 internal func encodeBlock(bytes: UnsafePointer<Byte>, size: Int) -> EncodedBlock {
     switch size {

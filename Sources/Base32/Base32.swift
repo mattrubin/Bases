@@ -16,7 +16,7 @@ public func base32(data: NSData) -> String {
     let unencodedBytes = UnsafePointer<Byte>(data.bytes)
 
     let encodedLength = Base32.encodedLength(unencodedLength: unencodedLength)
-    let encodedBytes = UnsafeMutablePointer<CUnsignedChar>(allocatingCapacity: encodedLength)
+    let encodedBytes = UnsafeMutablePointer<EncodedChar>(allocatingCapacity: encodedLength)
 
     var encodedWriteOffset = 0
     for unencodedReadOffset in stride(from: 0, to: unencodedLength, by: unencodedBlockSize) {
