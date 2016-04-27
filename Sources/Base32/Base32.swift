@@ -6,6 +6,16 @@
 //  Copyright (c) 2015 Matt Rubin. All rights reserved.
 //
 
+import Foundation
+
+public func base32(data: NSData) -> String {
+    let byteCount = data.length / sizeof(UInt8)
+    var byteArray = Array<UInt8>(repeating: 0, count: byteCount)
+    data.getBytes(&byteArray, length: byteArray.count)
+    return base32(bytes: byteArray)
+}
+
+
 private let quantumSize = 5
 
 public func base32<S: Sequence where S.Iterator.Element == UInt8>(bytes: S) -> String {
