@@ -33,7 +33,8 @@ func compareEncoding(from data: NSData, to encodedString: String, times: Int) {
     let previousBest = 0.566725015640259
     print("Previous best: \(previousBest)")
     let improvement = 1 - (duration / previousBest)
-    print("Improvement: \(Int(improvement*10000)/100)%")
+    print("Improvement: \(round(improvement*10000)/100)%")
+    print("Still \(round((duration/secDuration)*100)/100) times slower than the system baseline.")
 }
 
 func secBase32Encode(data: NSData) -> String {
