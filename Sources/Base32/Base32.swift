@@ -8,54 +8,46 @@
 
 import Foundation
 
-public func base32(data: NSData) -> String {
-    let byteCount = data.length / sizeof(UInt8)
-    var byteArray = Array<UInt8>(repeating: 0, count: byteCount)
-    data.getBytes(&byteArray, length: byteArray.count)
-    return base32(bytes: byteArray)
-}
-
-
 private let quantumSize = 5
 
-public func base32<S: Sequence where S.Iterator.Element == UInt8>(bytes: S) -> String {
-    return stringForData(bytes: ArraySlice(bytes))
-}
+public func base32(data: NSData) -> String {
+    let bytes = UnsafePointer<Byte>(data.bytes)
+    let length = data.length / sizeof(UInt8)
 
-private func stringForData(bytes: ArraySlice<Byte>) -> String {
     var s = String()
-    for quantumStart in stride(from: bytes.startIndex, to: bytes.endIndex, by: quantumSize) {
-        let quantumEnd = min(quantumStart + quantumSize, bytes.endIndex)
-        let q = bytes[quantumStart..<quantumEnd]
-        s += stringForNextQuantum(bytes: q)
+    for quantumStart in stride(from: 0, to: length, by: quantumSize) {
+        let quantumEnd = min(quantumStart + quantumSize, length)
+        let byteGroup = bytes + quantumStart
+        let byteCount = quantumEnd - quantumStart
+        s += stringForNextQuantum(bytes: byteGroup, count: byteCount)
     }
     return s
 }
 
-private func stringForNextQuantum(bytes: ArraySlice<Byte>) -> String {
-    switch bytes.count {
+private func stringForNextQuantum(bytes: UnsafePointer<Byte>, count: Int) -> String {
+    switch count {
     case 0:
         return ""
     case 1:
-        return stringForBytes(bytes[bytes.startIndex])
+        return stringForBytes(bytes[0])
     case 2:
-        return stringForBytes(bytes[bytes.startIndex],
-                              bytes[bytes.startIndex + 1])
+        return stringForBytes(bytes[0],
+                              bytes[1])
     case 3:
-        return stringForBytes(bytes[bytes.startIndex],
-                              bytes[bytes.startIndex + 1],
-                              bytes[bytes.startIndex + 2])
+        return stringForBytes(bytes[0],
+                              bytes[1],
+                              bytes[2])
     case 4:
-        return stringForBytes(bytes[bytes.startIndex],
-                              bytes[bytes.startIndex + 1],
-                              bytes[bytes.startIndex + 2],
-                              bytes[bytes.startIndex + 3])
+        return stringForBytes(bytes[0],
+                              bytes[1],
+                              bytes[2],
+                              bytes[3])
     default:
-        return stringForBytes(bytes[bytes.startIndex],
-                              bytes[bytes.startIndex + 1],
-                              bytes[bytes.startIndex + 2],
-                              bytes[bytes.startIndex + 3],
-                              bytes[bytes.startIndex + 4])
+        return stringForBytes(bytes[0],
+                              bytes[1],
+                              bytes[2],
+                              bytes[3],
+                              bytes[4])
     }
 }
 
