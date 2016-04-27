@@ -39,7 +39,6 @@
 /* Begin PBXFileReference section */
 		C90A76D01AC7AF8A006875B8 /* Base32.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Base32.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C90A76DA1AC7AF8A006875B8 /* Base32Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Base32Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C90A76E01AC7AF8A006875B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C90A76E11AC7AF8A006875B8 /* Base32Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base32Tests.swift; sourceTree = "<group>"; };
 		C90A76EB1AC7B286006875B8 /* Alphabet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alphabet.swift; sourceTree = "<group>"; };
 		C90A76EF1AC7BBB8006875B8 /* Base32.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base32.swift; sourceTree = "<group>"; };
@@ -85,7 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				C98BC9301CD0527A00227CE7 /* Sources */,
-				C90A76DE1AC7AF8A006875B8 /* Base32Tests */,
+				C98BC9311CD053EA00227CE7 /* Tests */,
 				C977BAC91AC8953F00D2F9E2 /* Configurations */,
 				C90A76B01AC7AD5A006875B8 /* Products */,
 				C94EAC7D1B38CB610073D43E /* Docs */,
@@ -113,21 +112,12 @@
 			path = Base32;
 			sourceTree = "<group>";
 		};
-		C90A76DE1AC7AF8A006875B8 /* Base32Tests */ = {
+		C90A76DE1AC7AF8A006875B8 /* Base32 */ = {
 			isa = PBXGroup;
 			children = (
 				C90A76E11AC7AF8A006875B8 /* Base32Tests.swift */,
-				C90A76DF1AC7AF8A006875B8 /* Supporting Files */,
 			);
-			path = Base32Tests;
-			sourceTree = "<group>";
-		};
-		C90A76DF1AC7AF8A006875B8 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				C90A76E01AC7AF8A006875B8 /* Info.plist */,
-			);
-			name = "Supporting Files";
+			path = Base32;
 			sourceTree = "<group>";
 		};
 		C94EAC7D1B38CB610073D43E /* Docs */ = {
@@ -188,6 +178,14 @@
 				C90A76D11AC7AF8A006875B8 /* Base32 */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		C98BC9311CD053EA00227CE7 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C90A76DE1AC7AF8A006875B8 /* Base32 */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
