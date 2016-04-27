@@ -9,18 +9,18 @@
 typealias Byte = UInt8
 typealias Quintet = UInt8
 
-func quintetsFromBytes(b: (Byte, Byte?, Byte?, Byte?, Byte?))
+func quintetsFromBytes(_ firstByte: Byte, _ secondByte: Byte?, _ thirdByte: Byte?, _ fourthByte: Byte?, _ fifthByte: Byte?)
     -> (Quintet, Quintet, Quintet?, Quintet?, Quintet?, Quintet?, Quintet?, Quintet?)
 {
     return (
-        firstQuintet(b0: b.0),
-        secondQuintet(b0: b.0, b.1 ?? 0),
-        b.1.map(thirdQuintet),
-        b.1.map(fourthQuintet)?(b.2 ?? 0),
-        b.2.map(fifthQuintet)?(b.3 ?? 0),
-        b.3.map(sixthQuintet),
-        b.3.map(seventhQuintet)?(b.4 ?? 0),
-        b.4.map(eighthQuintet)
+        firstQuintet(b0: firstByte),
+        secondQuintet(b0: firstByte, secondByte ?? 0),
+        secondByte.map(thirdQuintet),
+        secondByte.map(fourthQuintet)?(thirdByte ?? 0),
+        thirdByte.map(fifthQuintet)?(fourthByte ?? 0),
+        fourthByte.map(sixthQuintet),
+        fourthByte.map(seventhQuintet)?(fifthByte ?? 0),
+        fifthByte.map(eighthQuintet)
     )
 }
 
