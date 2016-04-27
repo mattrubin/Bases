@@ -30,7 +30,7 @@ func compareEncoding(from data: NSData, to encodedString: String, times: Int) {
     print("Base duration: \(secDuration)")
     let duration = measureEncoding(from: data, to: encodedString, using: base32, times: times)
     print("  My duration: \(duration)")
-    let previousBest = 0.377586007118225
+    let previousBest = 0.199999356269836
     print("Previous best: \(previousBest)")
     let improvement = 1 - (duration / previousBest)
     print("Improvement: \(round(improvement*10000)/100)%")
@@ -58,3 +58,13 @@ let foxData = fox1000.data(using: NSASCIIStringEncoding)!
 let foxResult = secBase32Encode(data: foxData)
 let n = 1000
 compareEncoding(from: foxData, to: foxResult, times: n)
+
+/*
+let c = 25
+let avg = (0..<c).map({ _ in
+    measureEncoding(from: foxData, to: foxResult, using: base32, times: n)
+}).reduce(0) { (total, time) in
+    total + time
+} / Double(c)
+print("avg: \(avg)")
+*/

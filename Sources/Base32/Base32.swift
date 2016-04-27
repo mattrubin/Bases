@@ -9,33 +9,44 @@
 import Foundation
 
 private let quantumSize = 5
+private let encodedBlockSize = 8
 
 public func base32(data: NSData) -> String {
     let bytes = UnsafePointer<Byte>(data.bytes)
     let length = data.length / sizeof(UInt8)
 
-    var s = Array<CUnsignedChar>()
+    let encodedLength = Base32.encodedLength(rawLength: length)
+    let encodedBytes = UnsafeMutablePointer<CUnsignedChar>(allocatingCapacity: encodedLength)
+    var encodedWriteOffset = 0
+
     for quantumStart in stride(from: 0, to: length, by: quantumSize) {
         let quantumEnd = min(quantumStart + quantumSize, length)
         let byteGroup = bytes + quantumStart
         let byteCount = quantumEnd - quantumStart
 
         let nextChars = stringForNextQuantum(bytes: byteGroup, count: byteCount)
-        s.append(nextChars.0)
-        s.append(nextChars.1)
-        s.append(nextChars.2)
-        s.append(nextChars.3)
-        s.append(nextChars.4)
-        s.append(nextChars.5)
-        s.append(nextChars.6)
-        s.append(nextChars.7)
+        encodedBytes[encodedWriteOffset + 0] = nextChars.0
+        encodedBytes[encodedWriteOffset + 1] = nextChars.1
+        encodedBytes[encodedWriteOffset + 2] = nextChars.2
+        encodedBytes[encodedWriteOffset + 3] = nextChars.3
+        encodedBytes[encodedWriteOffset + 4] = nextChars.4
+        encodedBytes[encodedWriteOffset + 5] = nextChars.5
+        encodedBytes[encodedWriteOffset + 6] = nextChars.6
+        encodedBytes[encodedWriteOffset + 7] = nextChars.7
+        encodedWriteOffset += encodedBlockSize
     }
-    let encodedBytes = UnsafeMutablePointer<CUnsignedChar>(allocatingCapacity: s.count)
-    encodedBytes.initializeFrom(s)
+
     // The NSData object takes ownership of the allocated bytes and will handle deallocation.
-    let encodedData = NSData(bytesNoCopy: encodedBytes, length: s.count)
+    let encodedData = NSData(bytesNoCopy: encodedBytes, length: encodedLength)
     let encodedString = String(data: encodedData, encoding: NSASCIIStringEncoding)!
     return encodedString
+}
+
+private func encodedLength(rawLength: Int) -> Int {
+    let fullBlockCount = rawLength / quantumSize
+    let remainingRawBytes = rawLength % quantumSize
+    let blockCount = remainingRawBytes > 0 ? fullBlockCount + 1 : fullBlockCount
+    return blockCount * encodedBlockSize
 }
 
 typealias EncodedBlock = (CUnsignedChar, CUnsignedChar, CUnsignedChar, CUnsignedChar,
