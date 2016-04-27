@@ -410,7 +410,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C977BAD61AC8953F00D2F9E2 /* iOS-Application.xcconfig */;
 			buildSettings = {
-				INFOPLIST_FILE = Base32Tests/Info.plist;
 				PRODUCT_NAME = Base32Tests;
 			};
 			name = Debug;
@@ -419,7 +418,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C977BAD61AC8953F00D2F9E2 /* iOS-Application.xcconfig */;
 			buildSettings = {
-				INFOPLIST_FILE = Base32Tests/Info.plist;
 				PRODUCT_NAME = Base32Tests;
 			};
 			name = Release;
@@ -452,7 +450,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C977BADB1AC8953F00D2F9E2 /* Mac-Application.xcconfig */;
 			buildSettings = {
-				INFOPLIST_FILE = Base32Tests/Info.plist;
 				PRODUCT_NAME = Base32Tests;
 			};
 			name = Debug;
@@ -461,7 +458,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C977BADB1AC8953F00D2F9E2 /* Mac-Application.xcconfig */;
 			buildSettings = {
-				INFOPLIST_FILE = Base32Tests/Info.plist;
 				PRODUCT_NAME = Base32Tests;
 			};
 			name = Release;
