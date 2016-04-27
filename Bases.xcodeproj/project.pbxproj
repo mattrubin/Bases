@@ -190,30 +190,12 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		C90A76CD1AC7AF8A006875B8 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C977BB011AC89FB900D2F9E2 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
 		C90A76CF1AC7AF8A006875B8 /* Base32-iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C90A76E31AC7AF8A006875B8 /* Build configuration list for PBXNativeTarget "Base32-iOS" */;
 			buildPhases = (
 				C90A76CB1AC7AF8A006875B8 /* Sources */,
-				C90A76CD1AC7AF8A006875B8 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -246,7 +228,6 @@
 			buildConfigurationList = C977BB171AC89FBA00D2F9E2 /* Build configuration list for PBXNativeTarget "Base32-Mac" */;
 			buildPhases = (
 				C977BAFF1AC89FB900D2F9E2 /* Sources */,
-				C977BB011AC89FB900D2F9E2 /* Headers */,
 			);
 			buildRules = (
 			);
