@@ -31,12 +31,12 @@ class Base32Tests: XCTestCase {
         assertASCIIString("foobar", encodesToString: "MZXW6YTBOI======")
     }
 
-    private func assertASCIIString(_ source: String, encodesToString destination: String) {
+    private func assertASCIIString(_ source: String, encodesToString destination: String, file: StaticString = #file, line: UInt = #line) {
         if let data = (source as NSString).data(using: NSASCIIStringEncoding) {
             let result = base32(bytes: data.byteArray)
-            XCTAssertEqual(result, destination, "\"\(source)\" encoded to \"\(result)\" (Expected \"\(destination)\")")
+            XCTAssertEqual(result, destination, "\"\(source)\" encoded to \"\(result)\" (Expected \"\(destination)\")", file: file, line: line)
         } else {
-            XCTFail("Could not convert \"\(source)\" to NSData")
+            XCTFail("Could not convert \"\(source)\" to NSData", file: file, line: line)
         }
     }
 
