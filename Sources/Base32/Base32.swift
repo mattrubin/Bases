@@ -23,14 +23,13 @@ public func base32<S: Sequence where S.Iterator.Element == UInt8>(bytes: S) -> S
 }
 
 private func stringForData(bytes: ArraySlice<Byte>) -> String {
-    let s = stringForNextQuantum(bytes: bytes)
-    if bytes.count <= quantumSize {
-        return s
-    } else {
-        // There's more data to encode
-        let remainingBytes = bytes[(bytes.startIndex + quantumSize)..<(bytes.endIndex)]
-        return s + stringForData(bytes: remainingBytes)
+    var s = String()
+    for quantumStart in stride(from: bytes.startIndex, to: bytes.endIndex, by: quantumSize) {
+        let quantumEnd = min(quantumStart + quantumSize, bytes.endIndex)
+        let q = bytes[quantumStart..<quantumEnd]
+        s += stringForNextQuantum(bytes: q)
     }
+    return s
 }
 
 private func stringForNextQuantum(bytes: ArraySlice<Byte>) -> String {
