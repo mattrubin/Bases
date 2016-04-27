@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Matt Rubin. All rights reserved.
 //
 
-let paddingCharacter: String = "="
+let paddingCharacter: CUnsignedChar = 61
 
 // Each 5-bit group is used as an index into an array of 32 printable
 // characters.  The character referenced by the index is placed in the
@@ -26,11 +26,11 @@ let paddingCharacter: String = "="
 //       7 H            16 Q            25 Z
 //       8 I            17 R            26 2
 
-private let alphabet = ["A", "B", "C", "D", "E", "F", "G", "H",
-                        "I", "J", "K", "L", "M", "N", "O", "P",
-                        "Q", "R", "S", "T", "U", "V", "W", "X",
-                        "Y", "Z", "2", "3", "4", "5", "6", "7"]
+private let alphabet: [CUnsignedChar] = [65, 66, 67, 68, 69, 70, 71, 72,
+                                         73, 74, 75, 76, 77, 78, 79, 80,
+                                         81, 82, 83, 84, 85, 86, 87, 88,
+                                         89, 90, 50, 51, 52, 53, 54, 55]
 
-func encodedValue(_ value: Quintet) -> String {
+func encodedValue(_ value: Quintet) -> CUnsignedChar {
     return alphabet[Int(value)]
 }
