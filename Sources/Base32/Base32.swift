@@ -8,23 +8,22 @@
 
 import Foundation
 
-private let quantumSize = 5
+private let unencodedBlockSize = 5
 private let encodedBlockSize = 8
 
 public func base32(data: NSData) -> String {
-    let bytes = UnsafePointer<Byte>(data.bytes)
-    let length = data.length / sizeof(UInt8)
+    let unencodedLength = data.length
+    let unencodedBytes = UnsafePointer<Byte>(data.bytes)
 
-    let encodedLength = Base32.encodedLength(rawLength: length)
+    let encodedLength = Base32.encodedLength(unencodedLength: unencodedLength)
     let encodedBytes = UnsafeMutablePointer<CUnsignedChar>(allocatingCapacity: encodedLength)
+
     var encodedWriteOffset = 0
+    for unencodedReadOffset in stride(from: 0, to: unencodedLength, by: unencodedBlockSize) {
+        let nextBlockBytes = unencodedBytes + unencodedReadOffset
+        let nextBlockSize = min(unencodedBlockSize, unencodedLength - unencodedReadOffset)
 
-    for quantumStart in stride(from: 0, to: length, by: quantumSize) {
-        let quantumEnd = min(quantumStart + quantumSize, length)
-        let byteGroup = bytes + quantumStart
-        let byteCount = quantumEnd - quantumStart
-
-        let nextChars = stringForNextQuantum(bytes: byteGroup, count: byteCount)
+        let nextChars = stringForNextQuantum(bytes: nextBlockBytes, count: nextBlockSize)
         encodedBytes[encodedWriteOffset + 0] = nextChars.0
         encodedBytes[encodedWriteOffset + 1] = nextChars.1
         encodedBytes[encodedWriteOffset + 2] = nextChars.2
@@ -33,6 +32,7 @@ public func base32(data: NSData) -> String {
         encodedBytes[encodedWriteOffset + 5] = nextChars.5
         encodedBytes[encodedWriteOffset + 6] = nextChars.6
         encodedBytes[encodedWriteOffset + 7] = nextChars.7
+
         encodedWriteOffset += encodedBlockSize
     }
 
@@ -42,9 +42,9 @@ public func base32(data: NSData) -> String {
     return encodedString
 }
 
-private func encodedLength(rawLength: Int) -> Int {
-    let fullBlockCount = rawLength / quantumSize
-    let remainingRawBytes = rawLength % quantumSize
+private func encodedLength(unencodedLength: Int) -> Int {
+    let fullBlockCount = unencodedLength / unencodedBlockSize
+    let remainingRawBytes = unencodedLength % unencodedBlockSize
     let blockCount = remainingRawBytes > 0 ? fullBlockCount + 1 : fullBlockCount
     return blockCount * encodedBlockSize
 }
