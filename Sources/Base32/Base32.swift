@@ -52,37 +52,37 @@ private func stringForNextQuantum(bytes: ArraySlice<Byte>) -> String {
 
 private func stringForBytes(_ b0: Byte, _ b1: Byte, _ b2: Byte, _ b3: Byte, _ b4: Byte) -> String {
     let q = quintetsFromBytes(b0, b1, b2, b3, b4)
-    let c0 = characterForValue(q.0)
-    let c1 = characterForValue(q.1)
-    let c2 = characterForValue(q.2)
-    let c3 = characterForValue(q.3)
-    let c4 = characterForValue(q.4)
-    let c5 = characterForValue(q.5)
-    let c6 = characterForValue(q.6)
-    let c7 = characterForValue(q.7)
+    let c0 = encodedValue(q.0)
+    let c1 = encodedValue(q.1)
+    let c2 = encodedValue(q.2)
+    let c3 = encodedValue(q.3)
+    let c4 = encodedValue(q.4)
+    let c5 = encodedValue(q.5)
+    let c6 = encodedValue(q.6)
+    let c7 = encodedValue(q.7)
     return String([c0, c1, c2, c3, c4, c5, c6, c7])
 }
 
 private func stringForBytes(_ b0: Byte, _ b1: Byte, _ b2: Byte, _ b3: Byte) -> String {
     let q = quintetsFromBytes(b0, b1, b2, b3)
-    let c0 = characterForValue(q.0)
-    let c1 = characterForValue(q.1)
-    let c2 = characterForValue(q.2)
-    let c3 = characterForValue(q.3)
-    let c4 = characterForValue(q.4)
-    let c5 = characterForValue(q.5)
-    let c6 = characterForValue(q.6)
+    let c0 = encodedValue(q.0)
+    let c1 = encodedValue(q.1)
+    let c2 = encodedValue(q.2)
+    let c3 = encodedValue(q.3)
+    let c4 = encodedValue(q.4)
+    let c5 = encodedValue(q.5)
+    let c6 = encodedValue(q.6)
     let c7 = paddingCharacter
     return String([c0, c1, c2, c3, c4, c5, c6, c7])
 }
 
 private func stringForBytes(_ b0: Byte, _ b1: Byte, _ b2: Byte) -> String {
     let q = quintetsFromBytes(b0, b1, b2)
-    let c0 = characterForValue(q.0)
-    let c1 = characterForValue(q.1)
-    let c2 = characterForValue(q.2)
-    let c3 = characterForValue(q.3)
-    let c4 = characterForValue(q.4)
+    let c0 = encodedValue(q.0)
+    let c1 = encodedValue(q.1)
+    let c2 = encodedValue(q.2)
+    let c3 = encodedValue(q.3)
+    let c4 = encodedValue(q.4)
     let c5 = paddingCharacter
     let c6 = paddingCharacter
     let c7 = paddingCharacter
@@ -91,10 +91,10 @@ private func stringForBytes(_ b0: Byte, _ b1: Byte, _ b2: Byte) -> String {
 
 private func stringForBytes(_ b0: Byte, _ b1: Byte) -> String {
     let q = quintetsFromBytes(b0, b1)
-    let c0 = characterForValue(q.0)
-    let c1 = characterForValue(q.1)
-    let c2 = characterForValue(q.2)
-    let c3 = characterForValue(q.3)
+    let c0 = encodedValue(q.0)
+    let c1 = encodedValue(q.1)
+    let c2 = encodedValue(q.2)
+    let c3 = encodedValue(q.3)
     let c4 = paddingCharacter
     let c5 = paddingCharacter
     let c6 = paddingCharacter
@@ -104,8 +104,8 @@ private func stringForBytes(_ b0: Byte, _ b1: Byte) -> String {
 
 private func stringForBytes(_ b0: Byte) -> String {
     let q = quintetsFromBytes(b0)
-    let c0 = characterForValue(q.0)
-    let c1 = characterForValue(q.1)
+    let c0 = encodedValue(q.0)
+    let c1 = encodedValue(q.1)
     let c2 = paddingCharacter
     let c3 = paddingCharacter
     let c4 = paddingCharacter

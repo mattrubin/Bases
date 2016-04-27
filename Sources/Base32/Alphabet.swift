@@ -26,7 +26,7 @@ let paddingCharacter: Character = "="
 //       7 H            16 Q            25 Z
 //       8 I            17 R            26 2
 
-func characterForValue(_ value: Quintet) -> Character {
+func encodedValue(_ value: Quintet) -> Character {
     switch value {
     case  0: return "A"
     case  1: return "B"
