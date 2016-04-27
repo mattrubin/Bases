@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Matt Rubin. All rights reserved.
 //
 
-func characterOrPaddingForValue(value: Quintet?) -> Character {
+func characterOrPaddingForValue(_ value: Quintet?) -> Character {
     // If the quintet has a value, return the corresponding character
     // If the quintet has no value, return the padding character
     return value.map(characterForValue) ?? "="
@@ -30,7 +30,7 @@ func characterOrPaddingForValue(value: Quintet?) -> Character {
 //       7 H            16 Q            25 Z
 //       8 I            17 R            26 2
 
-func characterForValue(value: Quintet) -> Character {
+func characterForValue(_ value: Quintet) -> Character {
     switch value {
     case  0: return "A"
     case  1: return "B"

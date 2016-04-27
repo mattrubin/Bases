@@ -8,18 +8,18 @@
 
 private let quantumSize = 5
 
-public func base32<S: SequenceType where S.Generator.Element == UInt8>(bytes: S) -> String {
-    return stringForData(ArraySlice(bytes))
+public func base32<S: Sequence where S.Iterator.Element == UInt8>(bytes: S) -> String {
+    return stringForData(bytes: ArraySlice(bytes))
 }
 
 private func stringForData(bytes: ArraySlice<Byte>) -> String {
-    let s = stringForNextQuantum(bytes)
+    let s = stringForNextQuantum(bytes: bytes)
     if bytes.count <= quantumSize {
         return s
     } else {
         // There's more data to encode
         let remainingBytes = bytes[(bytes.startIndex + quantumSize)..<(bytes.endIndex)]
-        return s + stringForData(remainingBytes)
+        return s + stringForData(bytes: remainingBytes)
     }
 }
 
@@ -54,9 +54,9 @@ private func stringForNextQuantum(bytes: ArraySlice<Byte>) -> String {
     }
 }
 
-private func stringForBytes(b0: Byte, _ b1: Byte?, _ b2: Byte?, _ b3: Byte?, _ b4: Byte?) -> String
+private func stringForBytes(_ b0: Byte, _ b1: Byte?, _ b2: Byte?, _ b3: Byte?, _ b4: Byte?) -> String
 {
-    let q = quintetsFromBytes(b0, b1, b2, b3, b4)
+    let q = quintetsFromBytes(b: (b0, b1, b2, b3, b4))
     let c0 = characterForValue(q.0)
     let c1 = characterForValue(q.1)
     let c2 = characterOrPaddingForValue(q.2)

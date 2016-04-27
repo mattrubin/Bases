@@ -13,7 +13,7 @@ import Base32
 extension NSData {
     var byteArray: [UInt8] {
         let count = self.length / sizeof(UInt8)
-        var bytesArray = [UInt8](count: count, repeatedValue: 0)
+        var bytesArray = Array<UInt8>(repeating: 0, count: count)
         self.getBytes(&bytesArray, length:count * sizeof(UInt8))
         return bytesArray
     }
@@ -31,9 +31,9 @@ class Base32Tests: XCTestCase {
         assertASCIIString("foobar", encodesToString: "MZXW6YTBOI======")
     }
 
-    private func assertASCIIString(source: String, encodesToString destination: String) {
-        if let data = (source as NSString).dataUsingEncoding(NSASCIIStringEncoding) {
-            let result = base32(data.byteArray)
+    private func assertASCIIString(_ source: String, encodesToString destination: String) {
+        if let data = (source as NSString).data(using: NSASCIIStringEncoding) {
+            let result = base32(bytes: data.byteArray)
             XCTAssertEqual(result, destination, "\"\(source)\" encoded to \"\(result)\" (Expected \"\(destination)\")")
         } else {
             XCTFail("Could not convert \"\(source)\" to NSData")
