@@ -70,7 +70,7 @@ private func stringForBytes(_ b0: Byte, _ b1: Byte, _ b2: Byte, _ b3: Byte, _ b4
     let c5 = encodedValue(q.5)
     let c6 = encodedValue(q.6)
     let c7 = encodedValue(q.7)
-    return String([c0, c1, c2, c3, c4, c5, c6, c7])
+    return c0 + c1 + c2 + c3 + c4 + c5 + c6 + c7
 }
 
 private func stringForBytes(_ b0: Byte, _ b1: Byte, _ b2: Byte, _ b3: Byte) -> String {
@@ -83,7 +83,7 @@ private func stringForBytes(_ b0: Byte, _ b1: Byte, _ b2: Byte, _ b3: Byte) -> S
     let c5 = encodedValue(q.5)
     let c6 = encodedValue(q.6)
     let c7 = paddingCharacter
-    return String([c0, c1, c2, c3, c4, c5, c6, c7])
+    return c0 + c1 + c2 + c3 + c4 + c5 + c6 + c7
 }
 
 private func stringForBytes(_ b0: Byte, _ b1: Byte, _ b2: Byte) -> String {
@@ -96,7 +96,7 @@ private func stringForBytes(_ b0: Byte, _ b1: Byte, _ b2: Byte) -> String {
     let c5 = paddingCharacter
     let c6 = paddingCharacter
     let c7 = paddingCharacter
-    return String([c0, c1, c2, c3, c4, c5, c6, c7])
+    return c0 + c1 + c2 + c3 + c4 + c5 + c6 + c7
 }
 
 private func stringForBytes(_ b0: Byte, _ b1: Byte) -> String {
@@ -109,7 +109,7 @@ private func stringForBytes(_ b0: Byte, _ b1: Byte) -> String {
     let c5 = paddingCharacter
     let c6 = paddingCharacter
     let c7 = paddingCharacter
-    return String([c0, c1, c2, c3, c4, c5, c6, c7])
+    return c0 + c1 + c2 + c3 + c4 + c5 + c6 + c7
 }
 
 private func stringForBytes(_ b0: Byte) -> String {
@@ -122,5 +122,5 @@ private func stringForBytes(_ b0: Byte) -> String {
     let c5 = paddingCharacter
     let c6 = paddingCharacter
     let c7 = paddingCharacter
-    return String([c0, c1, c2, c3, c4, c5, c6, c7])
+    return c0 + c1 + c2 + c3 + c4 + c5 + c6 + c7
 }
