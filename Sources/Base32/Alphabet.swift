@@ -8,12 +8,6 @@
 
 let paddingCharacter: Character = "="
 
-func characterOrPaddingForValue(_ value: Quintet?) -> Character {
-    // If the quintet has a value, return the corresponding character
-    // If the quintet has no value, return the padding character
-    return value.map(characterForValue) ?? paddingCharacter
-}
-
 // Each 5-bit group is used as an index into an array of 32 printable
 // characters.  The character referenced by the index is placed in the
 // output string.  These characters, identified in Table 3, below, are
