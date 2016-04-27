@@ -9,7 +9,9 @@
 import Foundation
 
 public enum Base32 {
+    /// The size of a block before encoding, measured in bytes.
     private static let unencodedBlockSize = 5
+    /// The size of a block after encoding, measured in bytes.
     private static let encodedBlockSize = 8
 
     public static func encode(data: NSData) -> String {
