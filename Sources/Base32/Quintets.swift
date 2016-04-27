@@ -13,8 +13,8 @@ func quintetsFromBytes(b: (Byte, Byte?, Byte?, Byte?, Byte?))
     -> (Quintet, Quintet, Quintet?, Quintet?, Quintet?, Quintet?, Quintet?, Quintet?)
 {
     return (
-        firstQuintet(b.0),
-        secondQuintet(b.0, b.1 ?? 0),
+        firstQuintet(b0: b.0),
+        secondQuintet(b0: b.0, b.1 ?? 0),
         b.1.map(thirdQuintet),
         b.1.map(fourthQuintet)?(b.2 ?? 0),
         b.2.map(fifthQuintet)?(b.3 ?? 0),
