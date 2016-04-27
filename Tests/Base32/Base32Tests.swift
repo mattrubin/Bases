@@ -22,21 +22,21 @@ extension NSData {
 class Base32Tests: XCTestCase {
 
     func testRFC() {
-        assertASCIIString("", encodesToString: "")
-        assertASCIIString("f", encodesToString: "MY======")
-        assertASCIIString("fo", encodesToString: "MZXQ====")
-        assertASCIIString("foo", encodesToString: "MZXW6===")
-        assertASCIIString("foob", encodesToString: "MZXW6YQ=")
-        assertASCIIString("fooba", encodesToString: "MZXW6YTB")
-        assertASCIIString("foobar", encodesToString: "MZXW6YTBOI======")
+        assert(ASCII: "", encodesTo: "")
+        assert(ASCII: "f", encodesTo: "MY======")
+        assert(ASCII: "fo", encodesTo: "MZXQ====")
+        assert(ASCII: "foo", encodesTo: "MZXW6===")
+        assert(ASCII: "foob", encodesTo: "MZXW6YQ=")
+        assert(ASCII: "fooba", encodesTo: "MZXW6YTB")
+        assert(ASCII: "foobar", encodesTo: "MZXW6YTBOI======")
     }
 
-    private func assertASCIIString(_ source: String, encodesToString destination: String) {
-        if let data = (source as NSString).data(using: NSASCIIStringEncoding) {
+    private func assert(ASCII sourceString: String, encodesTo encodedString: String, file: StaticString = #file, line: UInt = #line) {
+        if let data = (sourceString as NSString).data(using: NSASCIIStringEncoding) {
             let result = base32(bytes: data.byteArray)
-            XCTAssertEqual(result, destination, "\"\(source)\" encoded to \"\(result)\" (Expected \"\(destination)\")")
+            XCTAssertEqual(result, encodedString, "ASCII string \"\(sourceString)\" encoded to \"\(result)\" (expected result: \"\(encodedString)\")", file: file, line: line)
         } else {
-            XCTFail("Could not convert \"\(source)\" to NSData")
+            XCTFail("Could not convert ASCII string \"\(sourceString)\" to NSData", file: file, line: line)
         }
     }
 
