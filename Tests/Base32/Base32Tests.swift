@@ -24,7 +24,7 @@ class Base32Tests: XCTestCase {
 
     private func assert(ASCII sourceString: String, encodesTo encodedString: String, file: StaticString = #file, line: UInt = #line) {
         if let data = sourceString.data(using: NSASCIIStringEncoding) {
-            let result = base32(data: data)
+            let result = Base32.encode(data: data)
             XCTAssertEqual(result, encodedString, "ASCII string \"\(sourceString)\" encoded to \"\(result)\" (expected result: \"\(encodedString)\")", file: file, line: line)
         } else {
             XCTFail("Could not convert ASCII string \"\(sourceString)\" to NSData", file: file, line: line)
