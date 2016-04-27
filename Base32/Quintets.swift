@@ -38,23 +38,28 @@ private func thirdQuintet(b1: Byte) -> Quintet {
     return ((b1 & 0b00111110) >> 1)
 }
 
-private func fourthQuintet(b1: Byte)(_ b2: Byte) -> Quintet {
-    return ((b1 & 0b00000001) << 4)
+private func fourthQuintet(b1: Byte) -> Byte -> Quintet {
+    return { b2 in ((b1 & 0b00000001) << 4)
         |  ((b2 & 0b11110000) >> 4)
+    }
 }
 
-private func fifthQuintet(b2: Byte)(_ b3: Byte) -> Quintet {
-    return ((b2 & 0b00001111) << 1)
+private func fifthQuintet(b2: Byte) -> (Byte) -> Quintet {
+    return { b3 in
+        ((b2 & 0b00001111) << 1)
         |  ((b3 & 0b10000000) >> 7)
+    }
 }
 
 private func sixthQuintet(b3: Byte) -> Quintet {
     return ((b3 & 0b01111100) >> 2)
 }
 
-private func seventhQuintet(b3: Byte)(_ b4: Byte) -> Quintet {
-    return ((b3 & 0b00000011) << 3)
+private func seventhQuintet(b3: Byte) -> Byte -> Quintet {
+    return { b4 in
+        ((b3 & 0b00000011) << 3)
         |  ((b4 & 0b11100000) >> 5)
+    }
 }
 
 private func eighthQuintet(b4: Byte) -> Quintet {

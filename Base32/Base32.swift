@@ -28,15 +28,29 @@ private func stringForNextQuantum(bytes: ArraySlice<Byte>) -> String {
     case 0:
         return ""
     case 1:
-        return stringForBytes(bytes[0], nil, nil, nil, nil)
+        return stringForBytes(bytes[bytes.startIndex],
+                              nil, nil, nil, nil)
     case 2:
-        return stringForBytes(bytes[0], bytes[1], nil, nil, nil)
+        return stringForBytes(bytes[bytes.startIndex],
+                              bytes[bytes.startIndex + 1],
+                              nil, nil, nil)
     case 3:
-        return stringForBytes(bytes[0], bytes[1], bytes[2], nil, nil)
+        return stringForBytes(bytes[bytes.startIndex],
+                              bytes[bytes.startIndex + 1],
+                              bytes[bytes.startIndex + 2],
+                              nil, nil)
     case 4:
-        return stringForBytes(bytes[0], bytes[1], bytes[2], bytes[3], nil)
+        return stringForBytes(bytes[bytes.startIndex],
+                              bytes[bytes.startIndex + 1],
+                              bytes[bytes.startIndex + 2],
+                              bytes[bytes.startIndex + 3],
+                              nil)
     default:
-        return stringForBytes(bytes[0], bytes[1], bytes[2], bytes[3], bytes[4])
+        return stringForBytes(bytes[bytes.startIndex],
+                              bytes[bytes.startIndex + 1],
+                              bytes[bytes.startIndex + 2],
+                              bytes[bytes.startIndex + 3],
+                              bytes[bytes.startIndex + 4])
     }
 }
 
