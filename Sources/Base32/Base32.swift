@@ -64,7 +64,7 @@ private func stringForBytes(_ b0: Byte, _ b1: Byte, _ b2: Byte, _ b3: Byte, _ b4
 }
 
 private func stringForBytes(_ b0: Byte, _ b1: Byte, _ b2: Byte, _ b3: Byte) -> String {
-    let q = quintetsFromBytes(b0, b1, b2, b3, nil)
+    let q = quintetsFromBytes(b0, b1, b2, b3)
     let c0 = characterForValue(q.0)
     let c1 = characterForValue(q.1)
     let c2 = characterOrPaddingForValue(q.2)
@@ -77,7 +77,7 @@ private func stringForBytes(_ b0: Byte, _ b1: Byte, _ b2: Byte, _ b3: Byte) -> S
 }
 
 private func stringForBytes(_ b0: Byte, _ b1: Byte, _ b2: Byte) -> String {
-    let q = quintetsFromBytes(b0, b1, b2, nil, nil)
+    let q = quintetsFromBytes(b0, b1, b2)
     let c0 = characterForValue(q.0)
     let c1 = characterForValue(q.1)
     let c2 = characterOrPaddingForValue(q.2)
@@ -90,7 +90,7 @@ private func stringForBytes(_ b0: Byte, _ b1: Byte, _ b2: Byte) -> String {
 }
 
 private func stringForBytes(_ b0: Byte, _ b1: Byte) -> String {
-    let q = quintetsFromBytes(b0, b1, nil, nil, nil)
+    let q = quintetsFromBytes(b0, b1)
     let c0 = characterForValue(q.0)
     let c1 = characterForValue(q.1)
     let c2 = characterOrPaddingForValue(q.2)
@@ -103,7 +103,7 @@ private func stringForBytes(_ b0: Byte, _ b1: Byte) -> String {
 }
 
 private func stringForBytes(_ b0: Byte) -> String {
-    let q = quintetsFromBytes(b0, nil, nil, nil, nil)
+    let q = quintetsFromBytes(b0)
     let c0 = characterForValue(q.0)
     let c1 = characterForValue(q.1)
     let c2 = characterOrPaddingForValue(q.2)
