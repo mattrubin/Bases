@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Base16
+import Base16
 
 class Base16Tests: XCTestCase {
     func testRFC() {
