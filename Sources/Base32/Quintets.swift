@@ -10,7 +10,7 @@ typealias Byte = UInt8
 typealias Quintet = UInt8
 
 func quintetsFromBytes(_ firstByte: Byte, _ secondByte: Byte, _ thirdByte: Byte, _ fourthByte: Byte, _ fifthByte: Byte)
-    -> (Quintet, Quintet, Quintet?, Quintet?, Quintet?, Quintet?, Quintet?, Quintet?)
+    -> (Quintet, Quintet, Quintet, Quintet, Quintet, Quintet, Quintet, Quintet)
 {
     return (
         firstQuintet(b0: firstByte),
@@ -25,7 +25,7 @@ func quintetsFromBytes(_ firstByte: Byte, _ secondByte: Byte, _ thirdByte: Byte,
 }
 
 func quintetsFromBytes(_ firstByte: Byte, _ secondByte: Byte, _ thirdByte: Byte, _ fourthByte: Byte)
-    -> (Quintet, Quintet, Quintet?, Quintet?, Quintet?, Quintet?, Quintet?, Quintet?)
+    -> (Quintet, Quintet, Quintet, Quintet, Quintet, Quintet, Quintet)
 {
     return (
         firstQuintet(b0: firstByte),
@@ -34,53 +34,39 @@ func quintetsFromBytes(_ firstByte: Byte, _ secondByte: Byte, _ thirdByte: Byte,
         fourthQuintet(b1: secondByte, b2: thirdByte),
         fifthQuintet(b2: thirdByte, b3: fourthByte),
         sixthQuintet(b3: fourthByte),
-        seventhQuintet(b3: fourthByte, b4: 0),
-        nil
+        seventhQuintet(b3: fourthByte, b4: 0)
     )
 }
 
 func quintetsFromBytes(_ firstByte: Byte, _ secondByte: Byte, _ thirdByte: Byte)
-    -> (Quintet, Quintet, Quintet?, Quintet?, Quintet?, Quintet?, Quintet?, Quintet?)
+    -> (Quintet, Quintet, Quintet, Quintet, Quintet)
 {
     return (
         firstQuintet(b0: firstByte),
         secondQuintet(b0: firstByte, secondByte),
         thirdQuintet(b1: secondByte),
         fourthQuintet(b1: secondByte, b2: thirdByte),
-        fifthQuintet(b2: thirdByte, b3: 0),
-        nil,
-        nil,
-        nil
+        fifthQuintet(b2: thirdByte, b3: 0)
     )
 }
 
 func quintetsFromBytes(_ firstByte: Byte, _ secondByte: Byte)
-    -> (Quintet, Quintet, Quintet?, Quintet?, Quintet?, Quintet?, Quintet?, Quintet?)
+    -> (Quintet, Quintet, Quintet, Quintet)
 {
     return (
         firstQuintet(b0: firstByte),
         secondQuintet(b0: firstByte, secondByte),
         thirdQuintet(b1: secondByte),
-        fourthQuintet(b1: secondByte, b2: 0),
-        nil,
-        nil,
-        nil,
-        nil
+        fourthQuintet(b1: secondByte, b2: 0)
     )
 }
 
 func quintetsFromBytes(_ firstByte: Byte)
-    -> (Quintet, Quintet, Quintet?, Quintet?, Quintet?, Quintet?, Quintet?, Quintet?)
+    -> (Quintet, Quintet)
 {
     return (
         firstQuintet(b0: firstByte),
-        secondQuintet(b0: firstByte, 0),
-        nil,
-        nil,
-        nil,
-        nil,
-        nil,
-        nil
+        secondQuintet(b0: firstByte, 0)
     )
 }
 

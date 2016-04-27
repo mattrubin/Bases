@@ -6,10 +6,12 @@
 //  Copyright (c) 2015 Matt Rubin. All rights reserved.
 //
 
+let paddingCharacter: Character = "="
+
 func characterOrPaddingForValue(_ value: Quintet?) -> Character {
     // If the quintet has a value, return the corresponding character
     // If the quintet has no value, return the padding character
-    return value.map(characterForValue) ?? "="
+    return value.map(characterForValue) ?? paddingCharacter
 }
 
 // Each 5-bit group is used as an index into an array of 32 printable

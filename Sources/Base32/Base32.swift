@@ -72,7 +72,7 @@ private func stringForBytes(_ b0: Byte, _ b1: Byte, _ b2: Byte, _ b3: Byte) -> S
     let c4 = characterOrPaddingForValue(q.4)
     let c5 = characterOrPaddingForValue(q.5)
     let c6 = characterOrPaddingForValue(q.6)
-    let c7 = characterOrPaddingForValue(q.7)
+    let c7 = paddingCharacter
     return String([c0, c1, c2, c3, c4, c5, c6, c7])
 }
 
@@ -83,9 +83,9 @@ private func stringForBytes(_ b0: Byte, _ b1: Byte, _ b2: Byte) -> String {
     let c2 = characterOrPaddingForValue(q.2)
     let c3 = characterOrPaddingForValue(q.3)
     let c4 = characterOrPaddingForValue(q.4)
-    let c5 = characterOrPaddingForValue(q.5)
-    let c6 = characterOrPaddingForValue(q.6)
-    let c7 = characterOrPaddingForValue(q.7)
+    let c5 = paddingCharacter
+    let c6 = paddingCharacter
+    let c7 = paddingCharacter
     return String([c0, c1, c2, c3, c4, c5, c6, c7])
 }
 
@@ -95,10 +95,10 @@ private func stringForBytes(_ b0: Byte, _ b1: Byte) -> String {
     let c1 = characterForValue(q.1)
     let c2 = characterOrPaddingForValue(q.2)
     let c3 = characterOrPaddingForValue(q.3)
-    let c4 = characterOrPaddingForValue(q.4)
-    let c5 = characterOrPaddingForValue(q.5)
-    let c6 = characterOrPaddingForValue(q.6)
-    let c7 = characterOrPaddingForValue(q.7)
+    let c4 = paddingCharacter
+    let c5 = paddingCharacter
+    let c6 = paddingCharacter
+    let c7 = paddingCharacter
     return String([c0, c1, c2, c3, c4, c5, c6, c7])
 }
 
@@ -106,11 +106,11 @@ private func stringForBytes(_ b0: Byte) -> String {
     let q = quintetsFromBytes(b0)
     let c0 = characterForValue(q.0)
     let c1 = characterForValue(q.1)
-    let c2 = characterOrPaddingForValue(q.2)
-    let c3 = characterOrPaddingForValue(q.3)
-    let c4 = characterOrPaddingForValue(q.4)
-    let c5 = characterOrPaddingForValue(q.5)
-    let c6 = characterOrPaddingForValue(q.6)
-    let c7 = characterOrPaddingForValue(q.7)
+    let c2 = paddingCharacter
+    let c3 = paddingCharacter
+    let c4 = paddingCharacter
+    let c5 = paddingCharacter
+    let c6 = paddingCharacter
+    let c7 = paddingCharacter
     return String([c0, c1, c2, c3, c4, c5, c6, c7])
 }
