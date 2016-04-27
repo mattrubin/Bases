@@ -8,17 +8,11 @@
 
 import Foundation
 
-private extension NSData {
-    var byteArray: [UInt8] {
-        let count = self.length / sizeof(UInt8)
-        var bytesArray = Array<UInt8>(repeating: 0, count: count)
-        self.getBytes(&bytesArray, length:count * sizeof(UInt8))
-        return bytesArray
-    }
-}
-
 public func base32(data: NSData) -> String {
-    return base32(bytes: data.byteArray)
+    let byteCount = data.length / sizeof(UInt8)
+    var byteArray = Array<UInt8>(repeating: 0, count: byteCount)
+    data.getBytes(&byteArray, length: byteArray.count)
+    return base32(bytes: byteArray)
 }
 
 
