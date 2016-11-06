@@ -17,11 +17,7 @@
 		C914E0B41CD16904006EC147 /* Base16.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C914E0AA1CD16904006EC147 /* Base16.framework */; };
 		C914E0C21CD16A4C006EC147 /* Base16Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C914E0991CD16456006EC147 /* Base16Tests.swift */; };
 		C95BCAE81CD1406500FFFAAD /* BlockEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BCAE71CD1406500FFFAAD /* BlockEncoding.swift */; };
-		C95BCAE91CD140A500FFFAAD /* BlockEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BCAE71CD1406500FFFAAD /* BlockEncoding.swift */; };
 		C977BB0F1AC89FBA00D2F9E2 /* Base32.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C977BB041AC89FB900D2F9E2 /* Base32.framework */; };
-		C977BB1E1AC8A00A00D2F9E2 /* Base32.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A76EF1AC7BBB8006875B8 /* Base32.swift */; };
-		C977BB1F1AC8A00A00D2F9E2 /* Quintets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A76F11AC7CE92006875B8 /* Quintets.swift */; };
-		C977BB201AC8A00A00D2F9E2 /* Alphabet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A76EB1AC7B286006875B8 /* Alphabet.swift */; };
 		C977BB211AC8A01300D2F9E2 /* Base32Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A76E11AC7AF8A006875B8 /* Base32Tests.swift */; };
 /* End PBXBuildFile section */
 
@@ -359,7 +355,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C977BB171AC89FBA00D2F9E2 /* Build configuration list for PBXNativeTarget "Base32-Mac" */;
 			buildPhases = (
-				C977BAFF1AC89FB900D2F9E2 /* Sources */,
+				C90A76CB1AC7AF8A006875B8 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -488,17 +484,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C914E0C21CD16A4C006EC147 /* Base16Tests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C977BAFF1AC89FB900D2F9E2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C95BCAE91CD140A500FFFAAD /* BlockEncoding.swift in Sources */,
-				C977BB201AC8A00A00D2F9E2 /* Alphabet.swift in Sources */,
-				C977BB1F1AC8A00A00D2F9E2 /* Quintets.swift in Sources */,
-				C977BB1E1AC8A00A00D2F9E2 /* Base32.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
