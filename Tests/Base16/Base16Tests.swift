@@ -20,15 +20,15 @@ class Base16Tests: XCTestCase {
                               ("foobar", "666F6F626172")]
 
         for (decodedString, encodedString) in rfcTestVectors {
-            guard let decodedData = decodedString.data(using: NSASCIIStringEncoding) else {
+            guard let decodedData = decodedString.data(using: String.Encoding.ascii) else {
                 XCTFail("Could not convert ASCII string \"\(decodedString)\" to NSData")
                 continue
             }
 
-            let encodedResult = Base16.encode(data: decodedData)
+            let encodedResult = Base16.encode(decodedData)
             XCTAssertEqual(encodedResult, encodedString, "ASCII string \"\(decodedString)\" encoded to \"\(encodedResult)\" (expected \"\(encodedString)\")")
 
-            let decodedResult = Base16.decode(string: encodedString)!
+            let decodedResult = Base16.decode(encodedString)!
             XCTAssertEqual(decodedResult, decodedData, "Encoded string \"\(encodedString)\" decoded to data \"\(decodedResult)\" (expected \"\(decodedData)\")")
         }
     }

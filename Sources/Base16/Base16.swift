@@ -30,68 +30,70 @@ public enum Base16 {
          __, __, __, __, __, __, __, __, __, __, __, __, __, __, __, __,
          __, __, __, __, __, __, __, __, __, __, __, __, __, __, __, __]
 
-    public static func encode(data: NSData) -> String {
-        let unencodedLength = data.length
-        let unencodedBytes = UnsafePointer<Byte>(data.bytes)
+    public static func encode(_ data: Data) -> String {
+        let unencodedByteCount = data.count
 
-        let encodedLength = unencodedLength * encodedBlockSize
-        let encodedBytes = UnsafeMutablePointer<EncodedChar>(allocatingCapacity: encodedLength)
+        let encodedByteCount = unencodedByteCount * encodedBlockSize
+        let encodedBytes = UnsafeMutablePointer<EncodedChar>.allocate(capacity: encodedByteCount)
 
-        var encodedWriteOffset = 0
-        for unencodedReadOffset in stride(from: 0, to: unencodedLength, by: unencodedBlockSize) {
-            let nextUnencodedByte = unencodedBytes[unencodedReadOffset]
+        data.withUnsafeBytes { (unencodedBytes: UnsafePointer<Byte>) in
+            var encodedWriteOffset = 0
+            for unencodedReadOffset in stride(from: 0, to: unencodedByteCount, by: unencodedBlockSize) {
+                let nextUnencodedByte = unencodedBytes[unencodedReadOffset]
 
-            let bigNibble = (nextUnencodedByte & 0b11110000) >> 4
-            let littleNibble = nextUnencodedByte & 0b00001111
-            let bigChar = encodingTable[Int(bigNibble)]
-            let littleChar = encodingTable[Int(littleNibble)]
-            encodedBytes[encodedWriteOffset + 0] = bigChar
-            encodedBytes[encodedWriteOffset + 1] = littleChar
+                let bigNibble = (nextUnencodedByte & 0b11110000) >> 4
+                let littleNibble = nextUnencodedByte & 0b00001111
+                let bigChar = encodingTable[Int(bigNibble)]
+                let littleChar = encodingTable[Int(littleNibble)]
+                encodedBytes[encodedWriteOffset + 0] = bigChar
+                encodedBytes[encodedWriteOffset + 1] = littleChar
 
-            encodedWriteOffset += encodedBlockSize
+                encodedWriteOffset += encodedBlockSize
+            }
         }
 
         // The NSData object takes ownership of the allocated bytes and will handle deallocation.
-        let encodedData = NSData(bytesNoCopy: encodedBytes, length: encodedLength)
-        let encodedString = String(data: encodedData, encoding: NSASCIIStringEncoding)!
-        return encodedString
+        let encodedData = Data(bytesNoCopy: encodedBytes,
+                               count: encodedByteCount,
+                               deallocator: .free)
+        return String(data: encodedData, encoding: String.Encoding.ascii)!
     }
 
-    public static func decode(string: String) -> NSData? {
-        guard let encodedData = string.data(using: NSASCIIStringEncoding) else {
+    public static func decode(_ string: String) -> Data? {
+        guard let encodedData = string.data(using: String.Encoding.ascii) else {
             return nil
         }
-        let encodedLength = encodedData.length
-        let encodedBytes = UnsafePointer<Byte>(encodedData.bytes)
+        let encodedByteCount = encodedData.count
 
-        guard let decodedLength = unencodedLength(encodedLength: encodedLength) else {
+        guard let decodedByteCount = byteCount(decoding: encodedByteCount) else {
             return nil
         }
-        let decodedBytes = UnsafeMutablePointer<Byte>(allocatingCapacity: decodedLength)
+        let decodedBytes = UnsafeMutablePointer<Byte>.allocate(capacity: decodedByteCount)
 
-        var decodedWriteOffset = 0
-        for encodedReadOffset in stride(from: 0, to: encodedLength, by: encodedBlockSize) {
-            let bigChar = encodedBytes[encodedReadOffset]
-            let littleChar = encodedBytes[encodedReadOffset + 1]
+        encodedData.withUnsafeBytes { (encodedBytes: UnsafePointer<Byte>) in
+            var decodedWriteOffset = 0
+            for encodedReadOffset in stride(from: 0, to: encodedByteCount, by: encodedBlockSize) {
+                let bigChar = encodedBytes[encodedReadOffset]
+                let littleChar = encodedBytes[encodedReadOffset + 1]
 
-            let bigNibble = decodingTable[Int(bigChar)]!
-            let littleNibble = decodingTable[Int(littleChar)]!
+                let bigNibble = decodingTable[Int(bigChar)]!
+                let littleNibble = decodingTable[Int(littleChar)]!
 
-            let decodedByte = ((bigNibble & 0b00001111) << 4) | (littleNibble & 0b00001111)
-            decodedBytes[decodedWriteOffset] = decodedByte
+                let decodedByte = ((bigNibble & 0b00001111) << 4) | (littleNibble & 0b00001111)
+                decodedBytes[decodedWriteOffset] = decodedByte
 
-            decodedWriteOffset += unencodedBlockSize
+                decodedWriteOffset += unencodedBlockSize
+            }
         }
 
         // The NSData object takes ownership of the allocated bytes and will handle deallocation.
-        let decodedData = NSData(bytesNoCopy: decodedBytes, length: decodedLength)
-        return decodedData
+        return Data(bytesNoCopy: decodedBytes, count: decodedByteCount, deallocator: .free)
     }
 
-    private static func unencodedLength(encodedLength: Int) -> Int? {
-        guard encodedLength % encodedBlockSize == 0 else {
+    private static func byteCount(decoding encodedByteCount: Int) -> Int? {
+        guard encodedByteCount % encodedBlockSize == 0 else {
             return nil
         }
-        return (encodedLength / encodedBlockSize) * unencodedBlockSize
+        return (encodedByteCount / encodedBlockSize) * unencodedBlockSize
     }
 }
