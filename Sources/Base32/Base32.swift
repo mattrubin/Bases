@@ -15,16 +15,16 @@ public enum Base32 {
     private static let encodedBlockSize = 8
 
     public static func encode(_ data: Data) -> String {
-        let unencodedLength = data.count
+        let unencodedByteCount = data.count
 
-        let encodedLength = Base32.encodedLength(unencodedLength: unencodedLength)
-        let encodedBytes = UnsafeMutablePointer<EncodedChar>.allocate(capacity: encodedLength)
+        let encodedByteCount = byteCount(encoding: unencodedByteCount)
+        let encodedBytes = UnsafeMutablePointer<EncodedChar>.allocate(capacity: encodedByteCount)
 
         data.withUnsafeBytes { (unencodedBytes: UnsafePointer<Byte>) in
         var encodedWriteOffset = 0
-        for unencodedReadOffset in stride(from: 0, to: unencodedLength, by: unencodedBlockSize) {
+        for unencodedReadOffset in stride(from: 0, to: unencodedByteCount, by: unencodedBlockSize) {
             let nextBlockBytes = unencodedBytes + unencodedReadOffset
-            let nextBlockSize = min(unencodedBlockSize, unencodedLength - unencodedReadOffset)
+            let nextBlockSize = min(unencodedBlockSize, unencodedByteCount - unencodedReadOffset)
 
             let nextChars = encodeBlock(bytes: nextBlockBytes, size: nextBlockSize)
             encodedBytes[encodedWriteOffset + 0] = nextChars.0
@@ -41,14 +41,16 @@ public enum Base32 {
         }
 
         // The NSData object takes ownership of the allocated bytes and will handle deallocation.
-        let encodedData = Data(bytesNoCopy: encodedBytes, count: encodedLength, deallocator: .free)
+        let encodedData = Data(bytesNoCopy: encodedBytes,
+                               count: encodedByteCount,
+                               deallocator: .free)
         let encodedString = String(data: encodedData, encoding: .ascii)!
         return encodedString
     }
 
-    private static func encodedLength(unencodedLength: Int) -> Int {
-        let fullBlockCount = unencodedLength / unencodedBlockSize
-        let remainingRawBytes = unencodedLength % unencodedBlockSize
+    private static func byteCount(encoding unencodedByteCount: Int) -> Int {
+        let fullBlockCount = unencodedByteCount / unencodedBlockSize
+        let remainingRawBytes = unencodedByteCount % unencodedBlockSize
         let blockCount = remainingRawBytes > 0 ? fullBlockCount + 1 : fullBlockCount
         return blockCount * encodedBlockSize
     }
