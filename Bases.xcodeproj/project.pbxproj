@@ -134,7 +134,9 @@
 				C90A76B01AC7AD5A006875B8 /* Products */,
 				C94EAC7D1B38CB610073D43E /* Docs */,
 			);
+			indentWidth = 4;
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		C90A76B01AC7AD5A006875B8 /* Products */ = {
 			isa = PBXGroup;
