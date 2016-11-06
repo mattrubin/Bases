@@ -134,7 +134,9 @@
 				C90A76B01AC7AD5A006875B8 /* Products */,
 				C94EAC7D1B38CB610073D43E /* Docs */,
 			);
+			indentWidth = 4;
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		C90A76B01AC7AD5A006875B8 /* Products */ = {
 			isa = PBXGroup;
@@ -556,16 +558,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C977BACD1AC8953F00D2F9E2 /* Debug.xcconfig */;
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 1;
-				ENABLE_TESTABILITY = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.mattrubin.$(PRODUCT_NAME:rfc1034identifier)";
 				SWIFT_VERSION = 3.0.1;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
@@ -573,16 +571,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C977BACF1AC8953F00D2F9E2 /* Release.xcconfig */;
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 1;
-				GCC_NO_COMMON_BLOCKS = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.mattrubin.$(PRODUCT_NAME:rfc1034identifier)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0.1;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
@@ -590,9 +584,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C977BAD81AC8953F00D2F9E2 /* iOS-Framework.xcconfig */;
 			buildSettings = {
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				PRODUCT_NAME = Base32;
 			};
 			name = Debug;
@@ -601,9 +592,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C977BAD81AC8953F00D2F9E2 /* iOS-Framework.xcconfig */;
 			buildSettings = {
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				PRODUCT_NAME = Base32;
 			};
 			name = Release;
@@ -628,9 +616,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C977BAD81AC8953F00D2F9E2 /* iOS-Framework.xcconfig */;
 			buildSettings = {
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				PRODUCT_NAME = Base16;
 			};
 			name = Debug;
@@ -639,9 +624,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C977BAD81AC8953F00D2F9E2 /* iOS-Framework.xcconfig */;
 			buildSettings = {
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				PRODUCT_NAME = Base16;
 			};
 			name = Release;
@@ -666,10 +648,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C977BADE1AC8953F00D2F9E2 /* Mac-Framework.xcconfig */;
 			buildSettings = {
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
 				PRODUCT_NAME = Base16;
 			};
 			name = Debug;
@@ -678,10 +656,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C977BADE1AC8953F00D2F9E2 /* Mac-Framework.xcconfig */;
 			buildSettings = {
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
 				PRODUCT_NAME = Base16;
 			};
 			name = Release;
@@ -706,10 +680,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C977BADE1AC8953F00D2F9E2 /* Mac-Framework.xcconfig */;
 			buildSettings = {
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
 				PRODUCT_NAME = Base32;
 			};
 			name = Debug;
@@ -718,10 +688,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C977BADE1AC8953F00D2F9E2 /* Mac-Framework.xcconfig */;
 			buildSettings = {
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
 				PRODUCT_NAME = Base32;
 			};
 			name = Release;
