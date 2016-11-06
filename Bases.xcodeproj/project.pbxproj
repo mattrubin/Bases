@@ -164,20 +164,20 @@
 			path = Base32;
 			sourceTree = "<group>";
 		};
-		C90A76DE1AC7AF8A006875B8 /* Base32 */ = {
+		C90A76DE1AC7AF8A006875B8 /* Base32Tests */ = {
 			isa = PBXGroup;
 			children = (
 				C90A76E11AC7AF8A006875B8 /* Base32Tests.swift */,
 			);
-			path = Base32;
+			path = Base32Tests;
 			sourceTree = "<group>";
 		};
-		C914E0981CD16456006EC147 /* Base16 */ = {
+		C914E0981CD16456006EC147 /* Base16Tests */ = {
 			isa = PBXGroup;
 			children = (
 				C914E0991CD16456006EC147 /* Base16Tests.swift */,
 			);
-			path = Base16;
+			path = Base16Tests;
 			sourceTree = "<group>";
 		};
 		C914E0A21CD164B2006EC147 /* Base16 */ = {
@@ -252,8 +252,8 @@
 		C98BC9311CD053EA00227CE7 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				C914E0981CD16456006EC147 /* Base16 */,
-				C90A76DE1AC7AF8A006875B8 /* Base32 */,
+				C914E0981CD16456006EC147 /* Base16Tests */,
+				C90A76DE1AC7AF8A006875B8 /* Base32Tests */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
