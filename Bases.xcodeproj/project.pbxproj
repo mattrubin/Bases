@@ -16,7 +16,6 @@
 		C914E09A1CD16456006EC147 /* Base16Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C914E0991CD16456006EC147 /* Base16Tests.swift */; };
 		C914E0A41CD164BC006EC147 /* Base16.swift in Sources */ = {isa = PBXBuildFile; fileRef = C914E0A31CD164BC006EC147 /* Base16.swift */; };
 		C914E0B41CD16904006EC147 /* Base16.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C914E0AA1CD16904006EC147 /* Base16.framework */; };
-		C914E0C11CD16A31006EC147 /* Base16.swift in Sources */ = {isa = PBXBuildFile; fileRef = C914E0A31CD164BC006EC147 /* Base16.swift */; };
 		C914E0C21CD16A4C006EC147 /* Base16Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C914E0991CD16456006EC147 /* Base16Tests.swift */; };
 		C95BCAE81CD1406500FFFAAD /* BlockEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BCAE71CD1406500FFFAAD /* BlockEncoding.swift */; };
 		C95BCAE91CD140A500FFFAAD /* BlockEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BCAE71CD1406500FFFAAD /* BlockEncoding.swift */; };
@@ -329,7 +328,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C914E0BB1CD16904006EC147 /* Build configuration list for PBXNativeTarget "Base16-Mac" */;
 			buildPhases = (
-				C914E0A51CD16904006EC147 /* Sources */,
+				C914E0861CD16456006EC147 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -490,14 +489,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C914E09A1CD16456006EC147 /* Base16Tests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C914E0A51CD16904006EC147 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C914E0C11CD16A31006EC147 /* Base16.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
