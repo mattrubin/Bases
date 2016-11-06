@@ -223,9 +223,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C90A76CF1AC7AF8A006875B8 /* Base32-iOS */ = {
+		C90A76CF1AC7AF8A006875B8 /* Base32 (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C90A76E31AC7AF8A006875B8 /* Build configuration list for PBXNativeTarget "Base32-iOS" */;
+			buildConfigurationList = C90A76E31AC7AF8A006875B8 /* Build configuration list for PBXNativeTarget "Base32 (iOS)" */;
 			buildPhases = (
 				C90A76CB1AC7AF8A006875B8 /* Sources */,
 			);
@@ -233,14 +233,14 @@
 			);
 			dependencies = (
 			);
-			name = "Base32-iOS";
+			name = "Base32 (iOS)";
 			productName = Base32;
 			productReference = C90A76D01AC7AF8A006875B8 /* Base32.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		C90A76D91AC7AF8A006875B8 /* Base32Tests-iOS */ = {
+		C90A76D91AC7AF8A006875B8 /* Base32Tests (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C90A76E61AC7AF8A006875B8 /* Build configuration list for PBXNativeTarget "Base32Tests-iOS" */;
+			buildConfigurationList = C90A76E61AC7AF8A006875B8 /* Build configuration list for PBXNativeTarget "Base32Tests (iOS)" */;
 			buildPhases = (
 				C90A76D61AC7AF8A006875B8 /* Sources */,
 				C90A76D71AC7AF8A006875B8 /* Frameworks */,
@@ -249,14 +249,14 @@
 			);
 			dependencies = (
 			);
-			name = "Base32Tests-iOS";
+			name = "Base32Tests (iOS)";
 			productName = Base32Tests;
 			productReference = C90A76DA1AC7AF8A006875B8 /* Base32Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		C914E08A1CD16456006EC147 /* Base16-iOS */ = {
+		C914E08A1CD16456006EC147 /* Base16 (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C914E09C1CD16456006EC147 /* Build configuration list for PBXNativeTarget "Base16-iOS" */;
+			buildConfigurationList = C914E09C1CD16456006EC147 /* Build configuration list for PBXNativeTarget "Base16 (iOS)" */;
 			buildPhases = (
 				C914E0861CD16456006EC147 /* Sources */,
 			);
@@ -264,14 +264,14 @@
 			);
 			dependencies = (
 			);
-			name = "Base16-iOS";
+			name = "Base16 (iOS)";
 			productName = Base16;
 			productReference = C914E08B1CD16456006EC147 /* Base16.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		C914E0931CD16456006EC147 /* Base16Tests-iOS */ = {
+		C914E0931CD16456006EC147 /* Base16Tests (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C914E09F1CD16456006EC147 /* Build configuration list for PBXNativeTarget "Base16Tests-iOS" */;
+			buildConfigurationList = C914E09F1CD16456006EC147 /* Build configuration list for PBXNativeTarget "Base16Tests (iOS)" */;
 			buildPhases = (
 				C914E0901CD16456006EC147 /* Sources */,
 				C914E0911CD16456006EC147 /* Frameworks */,
@@ -280,14 +280,14 @@
 			);
 			dependencies = (
 			);
-			name = "Base16Tests-iOS";
+			name = "Base16Tests (iOS)";
 			productName = Base16Tests;
 			productReference = C914E0941CD16456006EC147 /* Base16Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		C914E0A91CD16904006EC147 /* Base16-Mac */ = {
+		C914E0A91CD16904006EC147 /* Base16 (macOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C914E0BB1CD16904006EC147 /* Build configuration list for PBXNativeTarget "Base16-Mac" */;
+			buildConfigurationList = C914E0BB1CD16904006EC147 /* Build configuration list for PBXNativeTarget "Base16 (macOS)" */;
 			buildPhases = (
 				C914E0861CD16456006EC147 /* Sources */,
 			);
@@ -295,14 +295,14 @@
 			);
 			dependencies = (
 			);
-			name = "Base16-Mac";
+			name = "Base16 (macOS)";
 			productName = Base16;
 			productReference = C914E0AA1CD16904006EC147 /* Base16.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		C914E0B21CD16904006EC147 /* Base16Tests-Mac */ = {
+		C914E0B21CD16904006EC147 /* Base16Tests (macOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C914E0BE1CD16904006EC147 /* Build configuration list for PBXNativeTarget "Base16Tests-Mac" */;
+			buildConfigurationList = C914E0BE1CD16904006EC147 /* Build configuration list for PBXNativeTarget "Base16Tests (macOS)" */;
 			buildPhases = (
 				C914E0901CD16456006EC147 /* Sources */,
 				C914E0B01CD16904006EC147 /* Frameworks */,
@@ -311,14 +311,14 @@
 			);
 			dependencies = (
 			);
-			name = "Base16Tests-Mac";
+			name = "Base16Tests (macOS)";
 			productName = Base16Tests;
 			productReference = C914E0B31CD16904006EC147 /* Base16Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		C977BB031AC89FB900D2F9E2 /* Base32-Mac */ = {
+		C977BB031AC89FB900D2F9E2 /* Base32 (macOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C977BB171AC89FBA00D2F9E2 /* Build configuration list for PBXNativeTarget "Base32-Mac" */;
+			buildConfigurationList = C977BB171AC89FBA00D2F9E2 /* Build configuration list for PBXNativeTarget "Base32 (macOS)" */;
 			buildPhases = (
 				C90A76CB1AC7AF8A006875B8 /* Sources */,
 			);
@@ -326,14 +326,14 @@
 			);
 			dependencies = (
 			);
-			name = "Base32-Mac";
+			name = "Base32 (macOS)";
 			productName = Base32;
 			productReference = C977BB041AC89FB900D2F9E2 /* Base32.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		C977BB0D1AC89FBA00D2F9E2 /* Base32Tests-Mac */ = {
+		C977BB0D1AC89FBA00D2F9E2 /* Base32Tests (macOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C977BB1A1AC89FBA00D2F9E2 /* Build configuration list for PBXNativeTarget "Base32Tests-Mac" */;
+			buildConfigurationList = C977BB1A1AC89FBA00D2F9E2 /* Build configuration list for PBXNativeTarget "Base32Tests (macOS)" */;
 			buildPhases = (
 				C90A76D61AC7AF8A006875B8 /* Sources */,
 				C977BB0B1AC89FBA00D2F9E2 /* Frameworks */,
@@ -342,7 +342,7 @@
 			);
 			dependencies = (
 			);
-			name = "Base32Tests-Mac";
+			name = "Base32Tests (macOS)";
 			productName = Base32Tests;
 			productReference = C977BB0E1AC89FBA00D2F9E2 /* Base32Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -403,14 +403,14 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C914E08A1CD16456006EC147 /* Base16-iOS */,
-				C914E0931CD16456006EC147 /* Base16Tests-iOS */,
-				C914E0A91CD16904006EC147 /* Base16-Mac */,
-				C914E0B21CD16904006EC147 /* Base16Tests-Mac */,
-				C90A76CF1AC7AF8A006875B8 /* Base32-iOS */,
-				C90A76D91AC7AF8A006875B8 /* Base32Tests-iOS */,
-				C977BB031AC89FB900D2F9E2 /* Base32-Mac */,
-				C977BB0D1AC89FBA00D2F9E2 /* Base32Tests-Mac */,
+				C914E08A1CD16456006EC147 /* Base16 (iOS) */,
+				C914E0931CD16456006EC147 /* Base16Tests (iOS) */,
+				C914E0A91CD16904006EC147 /* Base16 (macOS) */,
+				C914E0B21CD16904006EC147 /* Base16Tests (macOS) */,
+				C90A76CF1AC7AF8A006875B8 /* Base32 (iOS) */,
+				C90A76D91AC7AF8A006875B8 /* Base32Tests (iOS) */,
+				C977BB031AC89FB900D2F9E2 /* Base32 (macOS) */,
+				C977BB0D1AC89FBA00D2F9E2 /* Base32Tests (macOS) */,
 			);
 		};
 /* End PBXProject section */
@@ -620,7 +620,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C90A76E31AC7AF8A006875B8 /* Build configuration list for PBXNativeTarget "Base32-iOS" */ = {
+		C90A76E31AC7AF8A006875B8 /* Build configuration list for PBXNativeTarget "Base32 (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C90A76E41AC7AF8A006875B8 /* Debug */,
@@ -629,7 +629,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C90A76E61AC7AF8A006875B8 /* Build configuration list for PBXNativeTarget "Base32Tests-iOS" */ = {
+		C90A76E61AC7AF8A006875B8 /* Build configuration list for PBXNativeTarget "Base32Tests (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C90A76E71AC7AF8A006875B8 /* Debug */,
@@ -638,7 +638,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C914E09C1CD16456006EC147 /* Build configuration list for PBXNativeTarget "Base16-iOS" */ = {
+		C914E09C1CD16456006EC147 /* Build configuration list for PBXNativeTarget "Base16 (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C914E09D1CD16456006EC147 /* Debug */,
@@ -647,7 +647,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C914E09F1CD16456006EC147 /* Build configuration list for PBXNativeTarget "Base16Tests-iOS" */ = {
+		C914E09F1CD16456006EC147 /* Build configuration list for PBXNativeTarget "Base16Tests (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C914E0A01CD16456006EC147 /* Debug */,
@@ -656,7 +656,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C914E0BB1CD16904006EC147 /* Build configuration list for PBXNativeTarget "Base16-Mac" */ = {
+		C914E0BB1CD16904006EC147 /* Build configuration list for PBXNativeTarget "Base16 (macOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C914E0BC1CD16904006EC147 /* Debug */,
@@ -665,7 +665,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C914E0BE1CD16904006EC147 /* Build configuration list for PBXNativeTarget "Base16Tests-Mac" */ = {
+		C914E0BE1CD16904006EC147 /* Build configuration list for PBXNativeTarget "Base16Tests (macOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C914E0BF1CD16904006EC147 /* Debug */,
@@ -674,7 +674,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C977BB171AC89FBA00D2F9E2 /* Build configuration list for PBXNativeTarget "Base32-Mac" */ = {
+		C977BB171AC89FBA00D2F9E2 /* Build configuration list for PBXNativeTarget "Base32 (macOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C977BB181AC89FBA00D2F9E2 /* Debug */,
@@ -683,7 +683,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C977BB1A1AC89FBA00D2F9E2 /* Build configuration list for PBXNativeTarget "Base32Tests-Mac" */ = {
+		C977BB1A1AC89FBA00D2F9E2 /* Build configuration list for PBXNativeTarget "Base32Tests (macOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C977BB1B1AC89FBA00D2F9E2 /* Debug */,

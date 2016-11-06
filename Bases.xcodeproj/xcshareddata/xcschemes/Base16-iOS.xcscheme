@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C914E08A1CD16456006EC147"
                BuildableName = "Base16.framework"
-               BlueprintName = "Base16-iOS"
+               BlueprintName = "Base16 (iOS)"
                ReferencedContainer = "container:Bases.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -30,7 +30,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C914E0931CD16456006EC147"
                BuildableName = "Base16Tests.xctest"
-               BlueprintName = "Base16Tests-iOS"
+               BlueprintName = "Base16Tests (iOS)"
                ReferencedContainer = "container:Bases.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -48,7 +48,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C914E0931CD16456006EC147"
                BuildableName = "Base16Tests.xctest"
-               BlueprintName = "Base16Tests-iOS"
+               BlueprintName = "Base16Tests (iOS)"
                ReferencedContainer = "container:Bases.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -58,7 +58,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C914E08A1CD16456006EC147"
             BuildableName = "Base16.framework"
-            BlueprintName = "Base16-iOS"
+            BlueprintName = "Base16 (iOS)"
             ReferencedContainer = "container:Bases.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -80,7 +80,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C914E08A1CD16456006EC147"
             BuildableName = "Base16.framework"
-            BlueprintName = "Base16-iOS"
+            BlueprintName = "Base16 (iOS)"
             ReferencedContainer = "container:Bases.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -98,7 +98,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C914E08A1CD16456006EC147"
             BuildableName = "Base16.framework"
-            BlueprintName = "Base16-iOS"
+            BlueprintName = "Base16 (iOS)"
             ReferencedContainer = "container:Bases.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

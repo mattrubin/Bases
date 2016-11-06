@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C977BB031AC89FB900D2F9E2"
                BuildableName = "Base32.framework"
-               BlueprintName = "Base32-Mac"
+               BlueprintName = "Base32 (macOS)"
                ReferencedContainer = "container:Bases.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -30,7 +30,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C977BB0D1AC89FBA00D2F9E2"
                BuildableName = "Base32Tests.xctest"
-               BlueprintName = "Base32Tests-Mac"
+               BlueprintName = "Base32Tests (macOS)"
                ReferencedContainer = "container:Bases.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -48,7 +48,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C977BB0D1AC89FBA00D2F9E2"
                BuildableName = "Base32Tests.xctest"
-               BlueprintName = "Base32Tests-Mac"
+               BlueprintName = "Base32Tests (macOS)"
                ReferencedContainer = "container:Bases.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -58,7 +58,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C977BB031AC89FB900D2F9E2"
             BuildableName = "Base32.framework"
-            BlueprintName = "Base32-Mac"
+            BlueprintName = "Base32 (macOS)"
             ReferencedContainer = "container:Bases.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -80,7 +80,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C977BB031AC89FB900D2F9E2"
             BuildableName = "Base32.framework"
-            BlueprintName = "Base32-Mac"
+            BlueprintName = "Base32 (macOS)"
             ReferencedContainer = "container:Bases.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -98,7 +98,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C977BB031AC89FB900D2F9E2"
             BuildableName = "Base32.framework"
-            BlueprintName = "Base32-Mac"
+            BlueprintName = "Base32 (macOS)"
             ReferencedContainer = "container:Bases.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
