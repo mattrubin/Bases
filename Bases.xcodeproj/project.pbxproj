@@ -20,37 +20,6 @@
 		C977BB0F1AC89FBA00D2F9E2 /* Base32.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C977BB041AC89FB900D2F9E2 /* Base32.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		C90A76DC1AC7AF8A006875B8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C90A76A61AC7AD5A006875B8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C90A76CF1AC7AF8A006875B8;
-			remoteInfo = Base32;
-		};
-		C914E0961CD16456006EC147 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C90A76A61AC7AD5A006875B8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C914E08A1CD16456006EC147;
-			remoteInfo = Base16;
-		};
-		C914E0B51CD16904006EC147 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C90A76A61AC7AD5A006875B8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C914E0A91CD16904006EC147;
-			remoteInfo = Base16;
-		};
-		C977BB101AC89FBA00D2F9E2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C90A76A61AC7AD5A006875B8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C977BB031AC89FB900D2F9E2;
-			remoteInfo = Base32;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		C90A76D01AC7AF8A006875B8 /* Base32.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Base32.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C90A76DA1AC7AF8A006875B8 /* Base32Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Base32Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -279,7 +248,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				C90A76DD1AC7AF8A006875B8 /* PBXTargetDependency */,
 			);
 			name = "Base32Tests-iOS";
 			productName = Base32Tests;
@@ -311,7 +279,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				C914E0971CD16456006EC147 /* PBXTargetDependency */,
 			);
 			name = "Base16Tests-iOS";
 			productName = Base16Tests;
@@ -343,7 +310,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				C914E0B61CD16904006EC147 /* PBXTargetDependency */,
 			);
 			name = "Base16Tests-Mac";
 			productName = Base16Tests;
@@ -375,7 +341,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				C977BB111AC89FBA00D2F9E2 /* PBXTargetDependency */,
 			);
 			name = "Base32Tests-Mac";
 			productName = Base32Tests;
@@ -487,29 +452,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		C90A76DD1AC7AF8A006875B8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C90A76CF1AC7AF8A006875B8 /* Base32-iOS */;
-			targetProxy = C90A76DC1AC7AF8A006875B8 /* PBXContainerItemProxy */;
-		};
-		C914E0971CD16456006EC147 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C914E08A1CD16456006EC147 /* Base16-iOS */;
-			targetProxy = C914E0961CD16456006EC147 /* PBXContainerItemProxy */;
-		};
-		C914E0B61CD16904006EC147 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C914E0A91CD16904006EC147 /* Base16-Mac */;
-			targetProxy = C914E0B51CD16904006EC147 /* PBXContainerItemProxy */;
-		};
-		C977BB111AC89FBA00D2F9E2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C977BB031AC89FB900D2F9E2 /* Base32-Mac */;
-			targetProxy = C977BB101AC89FBA00D2F9E2 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		C90A76C31AC7AD5A006875B8 /* Debug */ = {
