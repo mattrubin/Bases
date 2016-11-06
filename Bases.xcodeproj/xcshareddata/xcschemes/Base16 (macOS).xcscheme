@@ -14,30 +14,16 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C977BB031AC89FB900D2F9E2"
-               BuildableName = "Base32.framework"
-               BlueprintName = "Base32 (macOS)"
-               ReferencedContainer = "container:Bases.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C977BB0D1AC89FBA00D2F9E2"
-               BuildableName = "Base32Tests.xctest"
-               BlueprintName = "Base32Tests (macOS)"
+               BlueprintIdentifier = "C914E0A91CD16904006EC147"
+               BuildableName = "Base16.framework"
+               BlueprintName = "Base16 (macOS)"
                ReferencedContainer = "container:Bases.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
@@ -46,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C977BB0D1AC89FBA00D2F9E2"
-               BuildableName = "Base32Tests.xctest"
-               BlueprintName = "Base32Tests (macOS)"
+               BlueprintIdentifier = "C914E0B21CD16904006EC147"
+               BuildableName = "Base16Tests.xctest"
+               BlueprintName = "Base16Tests (macOS)"
                ReferencedContainer = "container:Bases.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -56,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C977BB031AC89FB900D2F9E2"
-            BuildableName = "Base32.framework"
-            BlueprintName = "Base32 (macOS)"
+            BlueprintIdentifier = "C914E0A91CD16904006EC147"
+            BuildableName = "Base16.framework"
+            BlueprintName = "Base16 (macOS)"
             ReferencedContainer = "container:Bases.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -78,9 +64,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C977BB031AC89FB900D2F9E2"
-            BuildableName = "Base32.framework"
-            BlueprintName = "Base32 (macOS)"
+            BlueprintIdentifier = "C914E0A91CD16904006EC147"
+            BuildableName = "Base16.framework"
+            BlueprintName = "Base16 (macOS)"
             ReferencedContainer = "container:Bases.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -96,9 +82,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C977BB031AC89FB900D2F9E2"
-            BuildableName = "Base32.framework"
-            BlueprintName = "Base32 (macOS)"
+            BlueprintIdentifier = "C914E0A91CD16904006EC147"
+            BuildableName = "Base16.framework"
+            BlueprintName = "Base16 (macOS)"
             ReferencedContainer = "container:Bases.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
