@@ -11,8 +11,6 @@ internal typealias EncodedBlock = (EncodedChar, EncodedChar, EncodedChar, Encode
 
 internal func encodeBlock(bytes: UnsafePointer<Byte>, size: Int) -> EncodedBlock {
     switch size {
-    case 0:
-        fatalError()
     case 1:
         return encodeBlock(bytes[0])
     case 2:
@@ -21,8 +19,10 @@ internal func encodeBlock(bytes: UnsafePointer<Byte>, size: Int) -> EncodedBlock
         return encodeBlock(bytes[0], bytes[1], bytes[2])
     case 4:
         return encodeBlock(bytes[0], bytes[1], bytes[2], bytes[3])
-    default:
+    case 5:
         return encodeBlock(bytes[0], bytes[1], bytes[2], bytes[3], bytes[4])
+    default:
+        fatalError()
     }
 }
 
