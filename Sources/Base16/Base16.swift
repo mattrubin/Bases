@@ -30,13 +30,13 @@ public enum Base16 {
          __, __, __, __, __, __, __, __, __, __, __, __, __, __, __, __,
          __, __, __, __, __, __, __, __, __, __, __, __, __, __, __, __]
 
-    public static func encode(data: NSData) -> String {
-        let unencodedLength = data.length
-        let unencodedBytes = UnsafePointer<Byte>(data.bytes)
+    public static func encode(_ data: Data) -> String {
+        let unencodedLength = data.count
 
         let encodedLength = unencodedLength * encodedBlockSize
-        let encodedBytes = UnsafeMutablePointer<EncodedChar>(allocatingCapacity: encodedLength)
+        let encodedBytes = UnsafeMutablePointer<EncodedChar>.allocate(capacity: encodedLength)
 
+        data.withUnsafeBytes { (unencodedBytes: UnsafePointer<Byte>) in
         var encodedWriteOffset = 0
         for unencodedReadOffset in stride(from: 0, to: unencodedLength, by: unencodedBlockSize) {
             let nextUnencodedByte = unencodedBytes[unencodedReadOffset]
@@ -50,25 +50,26 @@ public enum Base16 {
 
             encodedWriteOffset += encodedBlockSize
         }
+        }
 
         // The NSData object takes ownership of the allocated bytes and will handle deallocation.
-        let encodedData = NSData(bytesNoCopy: encodedBytes, length: encodedLength)
-        let encodedString = String(data: encodedData, encoding: NSASCIIStringEncoding)!
+        let encodedData = Data(bytesNoCopy: encodedBytes, count: encodedLength, deallocator: .free)
+        let encodedString = String(data: encodedData, encoding: String.Encoding.ascii)!
         return encodedString
     }
 
-    public static func decode(string: String) -> NSData? {
-        guard let encodedData = string.data(using: NSASCIIStringEncoding) else {
+    public static func decode(_ string: String) -> Data? {
+        guard let encodedData = string.data(using: String.Encoding.ascii) else {
             return nil
         }
-        let encodedLength = encodedData.length
-        let encodedBytes = UnsafePointer<Byte>(encodedData.bytes)
+        let encodedLength = encodedData.count
 
         guard let decodedLength = unencodedLength(encodedLength: encodedLength) else {
             return nil
         }
-        let decodedBytes = UnsafeMutablePointer<Byte>(allocatingCapacity: decodedLength)
+        let decodedBytes = UnsafeMutablePointer<Byte>.allocate(capacity: decodedLength)
 
+        encodedData.withUnsafeBytes { (encodedBytes: UnsafePointer<Byte>) in
         var decodedWriteOffset = 0
         for encodedReadOffset in stride(from: 0, to: encodedLength, by: encodedBlockSize) {
             let bigChar = encodedBytes[encodedReadOffset]
@@ -82,9 +83,10 @@ public enum Base16 {
 
             decodedWriteOffset += unencodedBlockSize
         }
+        }
 
         // The NSData object takes ownership of the allocated bytes and will handle deallocation.
-        let decodedData = NSData(bytesNoCopy: decodedBytes, length: decodedLength)
+        let decodedData = Data(bytesNoCopy: decodedBytes, count: decodedLength, deallocator: .free)
         return decodedData
     }
 

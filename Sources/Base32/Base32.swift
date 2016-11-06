@@ -14,13 +14,13 @@ public enum Base32 {
     /// The size of a block after encoding, measured in bytes.
     private static let encodedBlockSize = 8
 
-    public static func encode(data: NSData) -> String {
-        let unencodedLength = data.length
-        let unencodedBytes = UnsafePointer<Byte>(data.bytes)
+    public static func encode(_ data: Data) -> String {
+        let unencodedLength = data.count
 
         let encodedLength = Base32.encodedLength(unencodedLength: unencodedLength)
-        let encodedBytes = UnsafeMutablePointer<EncodedChar>(allocatingCapacity: encodedLength)
+        let encodedBytes = UnsafeMutablePointer<EncodedChar>.allocate(capacity: encodedLength)
 
+        data.withUnsafeBytes { (unencodedBytes: UnsafePointer<Byte>) in
         var encodedWriteOffset = 0
         for unencodedReadOffset in stride(from: 0, to: unencodedLength, by: unencodedBlockSize) {
             let nextBlockBytes = unencodedBytes + unencodedReadOffset
@@ -38,10 +38,11 @@ public enum Base32 {
 
             encodedWriteOffset += encodedBlockSize
         }
+        }
 
         // The NSData object takes ownership of the allocated bytes and will handle deallocation.
-        let encodedData = NSData(bytesNoCopy: encodedBytes, length: encodedLength)
-        let encodedString = String(data: encodedData, encoding: NSASCIIStringEncoding)!
+        let encodedData = Data(bytesNoCopy: encodedBytes, count: encodedLength, deallocator: .free)
+        let encodedString = String(data: encodedData, encoding: .ascii)!
         return encodedString
     }
 
