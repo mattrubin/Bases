@@ -18,7 +18,6 @@
 		C914E0C21CD16A4C006EC147 /* Base16Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C914E0991CD16456006EC147 /* Base16Tests.swift */; };
 		C95BCAE81CD1406500FFFAAD /* BlockEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BCAE71CD1406500FFFAAD /* BlockEncoding.swift */; };
 		C977BB0F1AC89FBA00D2F9E2 /* Base32.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C977BB041AC89FB900D2F9E2 /* Base32.framework */; };
-		C977BB211AC8A01300D2F9E2 /* Base32Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A76E11AC7AF8A006875B8 /* Base32Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -370,7 +369,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C977BB1A1AC89FBA00D2F9E2 /* Build configuration list for PBXNativeTarget "Base32Tests-Mac" */;
 			buildPhases = (
-				C977BB0A1AC89FBA00D2F9E2 /* Sources */,
+				C90A76D61AC7AF8A006875B8 /* Sources */,
 				C977BB0B1AC89FBA00D2F9E2 /* Frameworks */,
 			);
 			buildRules = (
@@ -484,14 +483,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C914E0C21CD16A4C006EC147 /* Base16Tests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C977BB0A1AC89FBA00D2F9E2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C977BB211AC8A01300D2F9E2 /* Base32Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
