@@ -1,0 +1,5 @@
+# Configuration for Codecov (https://codecov.io)
+
+coverage:
+  ignore:
+    - "Tests"
