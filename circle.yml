@@ -1,0 +1,7 @@
+machine:
+  xcode:
+    version: "8.1"
+
+test:
+  override:
+    - swift test
