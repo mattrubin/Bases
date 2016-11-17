@@ -49,4 +49,9 @@ class Base16Tests: XCTestCase {
             XCTAssertEqual(decodedResult, decodedData, "Encoded string \"\(encodedString)\" decoded to data \"\(decodedResult)\" (expected \"\(decodedData)\")")
         }
     }
+
+    func testDecodeNonASCII() {
+        let decodedResult = Base16.decode("🐙")
+        XCTAssertNil(decodedResult, "Unexpected decoded string: \(decodedResult)")
+    }
 }
