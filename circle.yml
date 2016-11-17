@@ -5,7 +5,7 @@ machine:
 test:
   override:
     - swift test
-    - set -o pipefail && xcodebuild -project Bases.xcodeproj -scheme Base16-iOS -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.1' build test | xcpretty
-    - set -o pipefail && xcodebuild -project Bases.xcodeproj -scheme Base16-Mac build test | xcpretty
-    - set -o pipefail && xcodebuild -project Bases.xcodeproj -scheme Base32-iOS -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.1' build test | xcpretty
-    - set -o pipefail && xcodebuild -project Bases.xcodeproj -scheme Base32-Mac build test | xcpretty
+    - set -o pipefail && xcodebuild -project Bases.xcodeproj -scheme Base16-iOS -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.1' clean build test | xcpretty
+    - set -o pipefail && xcodebuild -project Bases.xcodeproj -scheme Base16-Mac clean build test | xcpretty
+    - set -o pipefail && xcodebuild -project Bases.xcodeproj -scheme Base32-iOS -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.1' clean build test | xcpretty
+    - set -o pipefail && xcodebuild -project Bases.xcodeproj -scheme Base32-Mac clean build test | xcpretty
