@@ -1,5 +1,8 @@
 # Configuration for Codecov (https://codecov.io)
 
+codecov:
+  branch: develop
+
 coverage:
   ignore:
     - "Tests"
