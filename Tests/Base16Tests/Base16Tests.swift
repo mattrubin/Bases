@@ -54,4 +54,11 @@ class Base16Tests: XCTestCase {
         let decodedResult = Base16.decode("🐙")
         XCTAssertNil(decodedResult, "Unexpected decoded string: \(decodedResult)")
     }
+
+    func testDecodePartialBlock() {
+        let decodedPartial = Base16.decode("6")
+        XCTAssertNil(decodedPartial, "Unexpected decoded string: \(decodedPartial)")
+        let decodedFull = Base16.decode("66")
+        XCTAssertEqual(decodedFull, Data(bytes: [102]), "Unexpected decoded string: \(decodedFull)")
+    }
 }
