@@ -5,3 +5,7 @@ machine:
 test:
   override:
     - swift test
+    - xcodebuild -project Bases.xcodeproj -scheme Base16-iOS build test
+    - xcodebuild -project Bases.xcodeproj -scheme Base16-Mac build test
+    - xcodebuild -project Bases.xcodeproj -scheme Base32-iOS build test
+    - xcodebuild -project Bases.xcodeproj -scheme Base32-Mac build test
