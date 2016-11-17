@@ -19,8 +19,6 @@
 		C95BCAE81CD1406500FFFAAD /* BlockEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BCAE71CD1406500FFFAAD /* BlockEncoding.swift */; };
 		C977BB0F1AC89FBA00D2F9E2 /* Base32.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C977BB041AC89FB900D2F9E2 /* Base32.framework */; };
 		C9E75C731DDD9112007CE06D /* Base16.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E75C6A1DDD9112007CE06D /* Base16.framework */; };
-		C9E75C861DDD9335007CE06D /* Base16.swift in Sources */ = {isa = PBXBuildFile; fileRef = C914E0A31CD164BC006EC147 /* Base16.swift */; };
-		C9E75C871DDD9391007CE06D /* Base16Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C914E0991CD16456006EC147 /* Base16Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -422,7 +420,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C9E75C7F1DDD9112007CE06D /* Build configuration list for PBXNativeTarget "Base16 (tvOS)" */;
 			buildPhases = (
-				C9E75C651DDD9112007CE06D /* Sources */,
+				C914E0861CD16456006EC147 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -437,7 +435,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C9E75C801DDD9112007CE06D /* Build configuration list for PBXNativeTarget "Base16Tests (tvOS)" */;
 			buildPhases = (
-				C9E75C6E1DDD9112007CE06D /* Sources */,
+				C914E0901CD16456006EC147 /* Sources */,
 				C9E75C6F1DDD9112007CE06D /* Frameworks */,
 			);
 			buildRules = (
@@ -561,22 +559,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C914E0C21CD16A4C006EC147 /* Base16Tests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C9E75C651DDD9112007CE06D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C9E75C861DDD9335007CE06D /* Base16.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C9E75C6E1DDD9112007CE06D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C9E75C871DDD9391007CE06D /* Base16Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
