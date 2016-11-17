@@ -19,8 +19,6 @@
 		C95BCAE81CD1406500FFFAAD /* BlockEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BCAE71CD1406500FFFAAD /* BlockEncoding.swift */; };
 		C977BB0F1AC89FBA00D2F9E2 /* Base32.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C977BB041AC89FB900D2F9E2 /* Base32.framework */; };
 		C9E75C731DDD9112007CE06D /* Base16.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E75C6A1DDD9112007CE06D /* Base16.framework */; };
-		C9E75C781DDD9112007CE06D /* Base16Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E75C771DDD9112007CE06D /* Base16Tests.swift */; };
-		C9E75C7A1DDD9112007CE06D /* Base16.h in Headers */ = {isa = PBXBuildFile; fileRef = C9E75C6C1DDD9112007CE06D /* Base16.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,11 +89,7 @@
 		C977BB041AC89FB900D2F9E2 /* Base32.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Base32.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C977BB0E1AC89FBA00D2F9E2 /* Base32Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Base32Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9E75C6A1DDD9112007CE06D /* Base16.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Base16.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C9E75C6C1DDD9112007CE06D /* Base16.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Base16.h; sourceTree = "<group>"; };
-		C9E75C6D1DDD9112007CE06D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9E75C721DDD9112007CE06D /* Base16Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Base16Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C9E75C771DDD9112007CE06D /* Base16Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base16Tests.swift; sourceTree = "<group>"; };
-		C9E75C791DDD9112007CE06D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9E75C821DDD91A9007CE06D /* tvOS-Application.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "tvOS-Application.xcconfig"; sourceTree = "<group>"; };
 		C9E75C841DDD91A9007CE06D /* tvOS-Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "tvOS-Framework.xcconfig"; sourceTree = "<group>"; };
 		C9E75C851DDD91A9007CE06D /* tvOS-StaticLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "tvOS-StaticLibrary.xcconfig"; sourceTree = "<group>"; };
@@ -158,8 +152,6 @@
 				C98BC9301CD0527A00227CE7 /* Sources */,
 				C98BC9311CD053EA00227CE7 /* Tests */,
 				C977BAC91AC8953F00D2F9E2 /* Configurations */,
-				C9E75C6B1DDD9112007CE06D /* Base16 */,
-				C9E75C761DDD9112007CE06D /* Base16Tests */,
 				C90A76B01AC7AD5A006875B8 /* Products */,
 				C94EAC7D1B38CB610073D43E /* Docs */,
 			);
@@ -290,24 +282,6 @@
 			path = Tests;
 			sourceTree = "<group>";
 		};
-		C9E75C6B1DDD9112007CE06D /* Base16 */ = {
-			isa = PBXGroup;
-			children = (
-				C9E75C6C1DDD9112007CE06D /* Base16.h */,
-				C9E75C6D1DDD9112007CE06D /* Info.plist */,
-			);
-			path = Base16;
-			sourceTree = "<group>";
-		};
-		C9E75C761DDD9112007CE06D /* Base16Tests */ = {
-			isa = PBXGroup;
-			children = (
-				C9E75C771DDD9112007CE06D /* Base16Tests.swift */,
-				C9E75C791DDD9112007CE06D /* Info.plist */,
-			);
-			path = Base16Tests;
-			sourceTree = "<group>";
-		};
 		C9E75C811DDD91A9007CE06D /* tvOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -325,7 +299,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9E75C7A1DDD9112007CE06D /* Base16.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -638,7 +611,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9E75C781DDD9112007CE06D /* Base16Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
