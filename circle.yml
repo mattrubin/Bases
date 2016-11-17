@@ -2,6 +2,10 @@ machine:
   xcode:
     version: "8.1"
 
+checkout:
+  post:
+    - git submodule update --init --recursive
+
 test:
   override:
     - swift test
