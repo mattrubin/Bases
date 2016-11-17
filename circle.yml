@@ -9,7 +9,7 @@ checkout:
 test:
   override:
     - swift test
-    - set -o pipefail && xcodebuild -project 'Bases.xcodeproj' -scheme 'Base16-iOS' -destination 'id=2D96E690-BFB5-44D5-8B22-31D9C57EDADF' clean build test | xcpretty
-    - set -o pipefail && xcodebuild -project 'Bases.xcodeproj' -scheme 'Base16-Mac' clean build test | xcpretty
-    - set -o pipefail && xcodebuild -project 'Bases.xcodeproj' -scheme 'Base32-iOS' -destination 'id=2D96E690-BFB5-44D5-8B22-31D9C57EDADF' clean build test | xcpretty
-    - set -o pipefail && xcodebuild -project 'Bases.xcodeproj' -scheme 'Base32-Mac' clean build test | xcpretty
+    - set -o pipefail && xcodebuild -project 'Bases.xcodeproj' -scheme 'Base16 (iOS)' -destination 'id=2D96E690-BFB5-44D5-8B22-31D9C57EDADF' clean build test | xcpretty
+    - set -o pipefail && xcodebuild -project 'Bases.xcodeproj' -scheme 'Base16 (macOS)' clean build test | xcpretty
+    - set -o pipefail && xcodebuild -project 'Bases.xcodeproj' -scheme 'Base32 (iOS)' -destination 'id=2D96E690-BFB5-44D5-8B22-31D9C57EDADF' clean build test | xcpretty
+    - set -o pipefail && xcodebuild -project 'Bases.xcodeproj' -scheme 'Base32 (macOS)' clean build test | xcpretty
