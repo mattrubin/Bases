@@ -19,6 +19,12 @@
 		C95BCAE81CD1406500FFFAAD /* BlockEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BCAE71CD1406500FFFAAD /* BlockEncoding.swift */; };
 		C977BB0F1AC89FBA00D2F9E2 /* Base32.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C977BB041AC89FB900D2F9E2 /* Base32.framework */; };
 		C9E75C731DDD9112007CE06D /* Base16.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E75C6A1DDD9112007CE06D /* Base16.framework */; };
+		C9E75C961DDD95B2007CE06D /* Base32.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E75C8D1DDD95B2007CE06D /* Base32.framework */; };
+		C9E75CA41DDD960B007CE06D /* Base32.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A76EF1AC7BBB8006875B8 /* Base32.swift */; };
+		C9E75CA51DDD960B007CE06D /* BlockEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BCAE71CD1406500FFFAAD /* BlockEncoding.swift */; };
+		C9E75CA61DDD960B007CE06D /* Quintets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A76F11AC7CE92006875B8 /* Quintets.swift */; };
+		C9E75CA71DDD960B007CE06D /* Alphabet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A76EB1AC7B286006875B8 /* Alphabet.swift */; };
+		C9E75CA81DDD9614007CE06D /* Base32Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A76E11AC7AF8A006875B8 /* Base32Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +63,13 @@
 			remoteGlobalIDString = C9E75C691DDD9112007CE06D;
 			remoteInfo = Base16;
 		};
+		C9E75C971DDD95B2007CE06D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C90A76A61AC7AD5A006875B8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C9E75C8C1DDD95B2007CE06D;
+			remoteInfo = Base32;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +106,8 @@
 		C9E75C821DDD91A9007CE06D /* tvOS-Application.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "tvOS-Application.xcconfig"; sourceTree = "<group>"; };
 		C9E75C841DDD91A9007CE06D /* tvOS-Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "tvOS-Framework.xcconfig"; sourceTree = "<group>"; };
 		C9E75C851DDD91A9007CE06D /* tvOS-StaticLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "tvOS-StaticLibrary.xcconfig"; sourceTree = "<group>"; };
+		C9E75C8D1DDD95B2007CE06D /* Base32.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Base32.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9E75C951DDD95B2007CE06D /* Base32Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Base32Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +151,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C9E75C921DDD95B2007CE06D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9E75C961DDD95B2007CE06D /* Base32.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -165,6 +188,8 @@
 				C914E0B31CD16904006EC147 /* Base16Tests.xctest */,
 				C9E75C6A1DDD9112007CE06D /* Base16.framework */,
 				C9E75C721DDD9112007CE06D /* Base16Tests.xctest */,
+				C9E75C8D1DDD95B2007CE06D /* Base32.framework */,
+				C9E75C951DDD95B2007CE06D /* Base32Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -448,6 +473,38 @@
 			productReference = C9E75C721DDD9112007CE06D /* Base16Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		C9E75C8C1DDD95B2007CE06D /* Base32 (tvOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9E75CA21DDD95B2007CE06D /* Build configuration list for PBXNativeTarget "Base32 (tvOS)" */;
+			buildPhases = (
+				C9E75C881DDD95B2007CE06D /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Base32 (tvOS)";
+			productName = Base32;
+			productReference = C9E75C8D1DDD95B2007CE06D /* Base32.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C9E75C941DDD95B2007CE06D /* Base32Tests (tvOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9E75CA31DDD95B2007CE06D /* Build configuration list for PBXNativeTarget "Base32Tests (tvOS)" */;
+			buildPhases = (
+				C9E75C911DDD95B2007CE06D /* Sources */,
+				C9E75C921DDD95B2007CE06D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C9E75C981DDD95B2007CE06D /* PBXTargetDependency */,
+			);
+			name = "Base32Tests (tvOS)";
+			productName = Base32Tests;
+			productReference = C9E75C951DDD95B2007CE06D /* Base32Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -498,6 +555,14 @@
 						CreatedOnToolsVersion = 8.1;
 						ProvisioningStyle = Manual;
 					};
+					C9E75C8C1DDD95B2007CE06D = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Manual;
+					};
+					C9E75C941DDD95B2007CE06D = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Manual;
+					};
 				};
 			};
 			buildConfigurationList = C90A76A91AC7AD5A006875B8 /* Build configuration list for PBXProject "Bases" */;
@@ -522,6 +587,8 @@
 				C90A76D91AC7AF8A006875B8 /* Base32Tests (iOS) */,
 				C977BB031AC89FB900D2F9E2 /* Base32 (macOS) */,
 				C977BB0D1AC89FBA00D2F9E2 /* Base32Tests (macOS) */,
+				C9E75C8C1DDD95B2007CE06D /* Base32 (tvOS) */,
+				C9E75C941DDD95B2007CE06D /* Base32Tests (tvOS) */,
 			);
 		};
 /* End PBXProject section */
@@ -562,6 +629,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C9E75C881DDD95B2007CE06D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9E75CA41DDD960B007CE06D /* Base32.swift in Sources */,
+				C9E75CA51DDD960B007CE06D /* BlockEncoding.swift in Sources */,
+				C9E75CA61DDD960B007CE06D /* Quintets.swift in Sources */,
+				C9E75CA71DDD960B007CE06D /* Alphabet.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9E75C911DDD95B2007CE06D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9E75CA81DDD9614007CE06D /* Base32Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -589,6 +675,11 @@
 			isa = PBXTargetDependency;
 			target = C9E75C691DDD9112007CE06D /* Base16 (tvOS) */;
 			targetProxy = C9E75C741DDD9112007CE06D /* PBXContainerItemProxy */;
+		};
+		C9E75C981DDD95B2007CE06D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C9E75C8C1DDD95B2007CE06D /* Base32 (tvOS) */;
+			targetProxy = C9E75C971DDD95B2007CE06D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -779,6 +870,38 @@
 			};
 			name = Release;
 		};
+		C9E75C9E1DDD95B2007CE06D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9E75C841DDD91A9007CE06D /* tvOS-Framework.xcconfig */;
+			buildSettings = {
+				PRODUCT_NAME = Base32;
+			};
+			name = Debug;
+		};
+		C9E75C9F1DDD95B2007CE06D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9E75C841DDD91A9007CE06D /* tvOS-Framework.xcconfig */;
+			buildSettings = {
+				PRODUCT_NAME = Base32;
+			};
+			name = Release;
+		};
+		C9E75CA01DDD95B2007CE06D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9E75C821DDD91A9007CE06D /* tvOS-Application.xcconfig */;
+			buildSettings = {
+				PRODUCT_NAME = Base32Tests;
+			};
+			name = Debug;
+		};
+		C9E75CA11DDD95B2007CE06D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9E75C821DDD91A9007CE06D /* tvOS-Application.xcconfig */;
+			buildSettings = {
+				PRODUCT_NAME = Base32Tests;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -880,6 +1003,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		C9E75CA21DDD95B2007CE06D /* Build configuration list for PBXNativeTarget "Base32 (tvOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9E75C9E1DDD95B2007CE06D /* Debug */,
+				C9E75C9F1DDD95B2007CE06D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C9E75CA31DDD95B2007CE06D /* Build configuration list for PBXNativeTarget "Base32Tests (tvOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9E75CA01DDD95B2007CE06D /* Debug */,
+				C9E75CA11DDD95B2007CE06D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
