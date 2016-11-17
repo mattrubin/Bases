@@ -496,7 +496,7 @@
 					};
 					C9E75C711DDD9112007CE06D = {
 						CreatedOnToolsVersion = 8.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
