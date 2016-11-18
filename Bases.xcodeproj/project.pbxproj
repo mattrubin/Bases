@@ -110,6 +110,8 @@
 		C9E75CBF1DDE7A1F007CE06D /* Project-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Project-Debug.xcconfig"; sourceTree = "<group>"; };
 		C9E75CC01DDE7A1F007CE06D /* Project-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Project-Release.xcconfig"; sourceTree = "<group>"; };
 		C9E75CC11DDE7A1F007CE06D /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
+		C9E75CC71DDEC87C007CE06D /* Base16.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Base16.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9E75CD51DDF5640007CE06D /* Base32.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Base32.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,12 +185,14 @@
 				C914E08B1CD16456006EC147 /* Base16.framework */,
 				C914E0AA1CD16904006EC147 /* Base16.framework */,
 				C9E75C6A1DDD9112007CE06D /* Base16.framework */,
+				C9E75CC71DDEC87C007CE06D /* Base16.framework */,
 				C914E0941CD16456006EC147 /* Base16Tests.xctest */,
 				C914E0B31CD16904006EC147 /* Base16Tests.xctest */,
 				C9E75C721DDD9112007CE06D /* Base16Tests.xctest */,
 				C90A76D01AC7AF8A006875B8 /* Base32.framework */,
 				C977BB041AC89FB900D2F9E2 /* Base32.framework */,
 				C9E75C8D1DDD95B2007CE06D /* Base32.framework */,
+				C9E75CD51DDF5640007CE06D /* Base32.framework */,
 				C90A76DA1AC7AF8A006875B8 /* Base32Tests.xctest */,
 				C977BB0E1AC89FBA00D2F9E2 /* Base32Tests.xctest */,
 				C9E75C951DDD95B2007CE06D /* Base32Tests.xctest */,
@@ -513,6 +517,36 @@
 			productReference = C9E75C951DDD95B2007CE06D /* Base32Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		C9E75CC61DDEC87C007CE06D /* Base16 (watchOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9E75CCC1DDEC87C007CE06D /* Build configuration list for PBXNativeTarget "Base16 (watchOS)" */;
+			buildPhases = (
+				C914E0861CD16456006EC147 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Base16 (watchOS)";
+			productName = Base16;
+			productReference = C9E75CC71DDEC87C007CE06D /* Base16.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C9E75CD41DDF5640007CE06D /* Base32 (watchOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9E75CDC1DDF5640007CE06D /* Build configuration list for PBXNativeTarget "Base32 (watchOS)" */;
+			buildPhases = (
+				C90A76CB1AC7AF8A006875B8 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Base32 (watchOS)";
+			productName = Base32;
+			productReference = C9E75CD51DDF5640007CE06D /* Base32.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -571,6 +605,14 @@
 						CreatedOnToolsVersion = 8.1;
 						ProvisioningStyle = Manual;
 					};
+					C9E75CC61DDEC87C007CE06D = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Manual;
+					};
+					C9E75CD41DDF5640007CE06D = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Manual;
+					};
 				};
 			};
 			buildConfigurationList = C90A76A91AC7AD5A006875B8 /* Build configuration list for PBXProject "Bases" */;
@@ -588,12 +630,14 @@
 				C914E08A1CD16456006EC147 /* Base16 (iOS) */,
 				C914E0A91CD16904006EC147 /* Base16 (macOS) */,
 				C9E75C691DDD9112007CE06D /* Base16 (tvOS) */,
+				C9E75CC61DDEC87C007CE06D /* Base16 (watchOS) */,
 				C914E0931CD16456006EC147 /* Base16Tests (iOS) */,
 				C914E0B21CD16904006EC147 /* Base16Tests (macOS) */,
 				C9E75C711DDD9112007CE06D /* Base16Tests (tvOS) */,
 				C90A76CF1AC7AF8A006875B8 /* Base32 (iOS) */,
 				C977BB031AC89FB900D2F9E2 /* Base32 (macOS) */,
 				C9E75C8C1DDD95B2007CE06D /* Base32 (tvOS) */,
+				C9E75CD41DDF5640007CE06D /* Base32 (watchOS) */,
 				C90A76D91AC7AF8A006875B8 /* Base32Tests (iOS) */,
 				C977BB0D1AC89FBA00D2F9E2 /* Base32Tests (macOS) */,
 				C9E75C941DDD95B2007CE06D /* Base32Tests (tvOS) */,
@@ -855,6 +899,34 @@
 			};
 			name = Release;
 		};
+		C9E75CCD1DDEC87C007CE06D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9E75CAD1DDE7A1F007CE06D /* Base16-watchOS.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		C9E75CCE1DDEC87C007CE06D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9E75CAD1DDE7A1F007CE06D /* Base16-watchOS.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		C9E75CDA1DDF5640007CE06D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9E75CB81DDE7A1F007CE06D /* Base32-watchOS.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		C9E75CDB1DDF5640007CE06D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9E75CB81DDE7A1F007CE06D /* Base32-watchOS.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -971,6 +1043,24 @@
 			buildConfigurations = (
 				C9E75CA01DDD95B2007CE06D /* Debug */,
 				C9E75CA11DDD95B2007CE06D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C9E75CCC1DDEC87C007CE06D /* Build configuration list for PBXNativeTarget "Base16 (watchOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9E75CCD1DDEC87C007CE06D /* Debug */,
+				C9E75CCE1DDEC87C007CE06D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C9E75CDC1DDF5640007CE06D /* Build configuration list for PBXNativeTarget "Base32 (watchOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9E75CDA1DDF5640007CE06D /* Debug */,
+				C9E75CDB1DDF5640007CE06D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
