@@ -677,12 +677,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9E75CBF1DDE7A1F007CE06D /* Project-Debug.xcconfig */;
 			buildSettings = {
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_BUNDLE_IDENTIFIER = "me.mattrubin.$(PRODUCT_NAME:rfc1034identifier)";
-				SWIFT_VERSION = 3.0.1;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
@@ -690,12 +684,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9E75CC01DDE7A1F007CE06D /* Project-Release.xcconfig */;
 			buildSettings = {
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_BUNDLE_IDENTIFIER = "me.mattrubin.$(PRODUCT_NAME:rfc1034identifier)";
-				SWIFT_VERSION = 3.0.1;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
@@ -703,7 +691,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9E75CB51DDE7A1F007CE06D /* Base32-iOS.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = Base32;
 			};
 			name = Debug;
 		};
@@ -711,7 +698,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9E75CB51DDE7A1F007CE06D /* Base32-iOS.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = Base32;
 			};
 			name = Release;
 		};
@@ -719,7 +705,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9E75CBB1DDE7A1F007CE06D /* Base32Tests-iOS.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = Base32Tests;
 			};
 			name = Debug;
 		};
@@ -727,7 +712,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9E75CBB1DDE7A1F007CE06D /* Base32Tests-iOS.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = Base32Tests;
 			};
 			name = Release;
 		};
@@ -735,7 +719,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9E75CAA1DDE7A1F007CE06D /* Base16-iOS.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = Base16;
 			};
 			name = Debug;
 		};
@@ -743,7 +726,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9E75CAA1DDE7A1F007CE06D /* Base16-iOS.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = Base16;
 			};
 			name = Release;
 		};
@@ -751,7 +733,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9E75CB01DDE7A1F007CE06D /* Base16Tests-iOS.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = Base16Tests;
 			};
 			name = Debug;
 		};
@@ -759,7 +740,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9E75CB01DDE7A1F007CE06D /* Base16Tests-iOS.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = Base16Tests;
 			};
 			name = Release;
 		};
@@ -767,7 +747,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9E75CAB1DDE7A1F007CE06D /* Base16-macOS.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = Base16;
 			};
 			name = Debug;
 		};
@@ -775,7 +754,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9E75CAB1DDE7A1F007CE06D /* Base16-macOS.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = Base16;
 			};
 			name = Release;
 		};
@@ -783,7 +761,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9E75CB11DDE7A1F007CE06D /* Base16Tests-macOS.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = Base16Tests;
 			};
 			name = Debug;
 		};
@@ -791,7 +768,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9E75CB11DDE7A1F007CE06D /* Base16Tests-macOS.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = Base16Tests;
 			};
 			name = Release;
 		};
@@ -799,7 +775,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9E75CB61DDE7A1F007CE06D /* Base32-macOS.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = Base32;
 			};
 			name = Debug;
 		};
@@ -807,7 +782,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9E75CB61DDE7A1F007CE06D /* Base32-macOS.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = Base32;
 			};
 			name = Release;
 		};
@@ -815,7 +789,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9E75CBC1DDE7A1F007CE06D /* Base32Tests-macOS.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = Base32Tests;
 			};
 			name = Debug;
 		};
@@ -823,7 +796,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9E75CBC1DDE7A1F007CE06D /* Base32Tests-macOS.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = Base32Tests;
 			};
 			name = Release;
 		};
@@ -831,7 +803,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9E75CAC1DDE7A1F007CE06D /* Base16-tvOS.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = Base16;
 			};
 			name = Debug;
 		};
@@ -839,7 +810,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9E75CAC1DDE7A1F007CE06D /* Base16-tvOS.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = Base16;
 			};
 			name = Release;
 		};
@@ -847,7 +817,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9E75CB21DDE7A1F007CE06D /* Base16Tests-tvOS.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = Base16Tests;
 			};
 			name = Debug;
 		};
@@ -855,7 +824,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9E75CB21DDE7A1F007CE06D /* Base16Tests-tvOS.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = Base16Tests;
 			};
 			name = Release;
 		};
@@ -863,7 +831,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9E75CB71DDE7A1F007CE06D /* Base32-tvOS.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = Base32;
 			};
 			name = Debug;
 		};
@@ -871,7 +838,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9E75CB71DDE7A1F007CE06D /* Base32-tvOS.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = Base32;
 			};
 			name = Release;
 		};
@@ -879,7 +845,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9E75CBD1DDE7A1F007CE06D /* Base32Tests-tvOS.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = Base32Tests;
 			};
 			name = Debug;
 		};
@@ -887,7 +852,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9E75CBD1DDE7A1F007CE06D /* Base32Tests-tvOS.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = Base32Tests;
 			};
 			name = Release;
 		};
