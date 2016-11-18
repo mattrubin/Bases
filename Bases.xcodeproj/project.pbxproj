@@ -533,9 +533,9 @@
 			productReference = C9E75C951DDD95B2007CE06D /* Base32Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		C9E75CC61DDEC87C007CE06D /* Base16 */ = {
+		C9E75CC61DDEC87C007CE06D /* Base16 (watchOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C9E75CCC1DDEC87C007CE06D /* Build configuration list for PBXNativeTarget "Base16" */;
+			buildConfigurationList = C9E75CCC1DDEC87C007CE06D /* Build configuration list for PBXNativeTarget "Base16 (watchOS)" */;
 			buildPhases = (
 				C9E75CC21DDEC87C007CE06D /* Sources */,
 				C9E75CC31DDEC87C007CE06D /* Frameworks */,
@@ -546,7 +546,7 @@
 			);
 			dependencies = (
 			);
-			name = Base16;
+			name = "Base16 (watchOS)";
 			productName = Base16;
 			productReference = C9E75CC71DDEC87C007CE06D /* Base16.framework */;
 			productType = "com.apple.product-type.framework";
@@ -631,7 +631,7 @@
 				C914E08A1CD16456006EC147 /* Base16 (iOS) */,
 				C914E0A91CD16904006EC147 /* Base16 (macOS) */,
 				C9E75C691DDD9112007CE06D /* Base16 (tvOS) */,
-				C9E75CC61DDEC87C007CE06D /* Base16 */,
+				C9E75CC61DDEC87C007CE06D /* Base16 (watchOS) */,
 				C914E0931CD16456006EC147 /* Base16Tests (iOS) */,
 				C914E0B21CD16904006EC147 /* Base16Tests (macOS) */,
 				C9E75C711DDD9112007CE06D /* Base16Tests (tvOS) */,
@@ -969,7 +969,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = me.mattrubin.Base16;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Base16;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -1027,7 +1027,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = me.mattrubin.Base16;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Base16;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1160,7 +1160,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C9E75CCC1DDEC87C007CE06D /* Build configuration list for PBXNativeTarget "Base16" */ = {
+		C9E75CCC1DDEC87C007CE06D /* Build configuration list for PBXNativeTarget "Base16 (watchOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C9E75CCD1DDEC87C007CE06D /* Debug */,
