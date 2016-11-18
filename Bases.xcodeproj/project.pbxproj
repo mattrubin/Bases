@@ -163,13 +163,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C9E75CC31DDEC87C007CE06D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -329,16 +322,6 @@
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
-
-/* Begin PBXHeadersBuildPhase section */
-		C9E75CC41DDEC87C007CE06D /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		C90A76CF1AC7AF8A006875B8 /* Base32 (iOS) */ = {
@@ -538,9 +521,6 @@
 			buildConfigurationList = C9E75CCC1DDEC87C007CE06D /* Build configuration list for PBXNativeTarget "Base16 (watchOS)" */;
 			buildPhases = (
 				C9E75CC21DDEC87C007CE06D /* Sources */,
-				C9E75CC31DDEC87C007CE06D /* Frameworks */,
-				C9E75CC41DDEC87C007CE06D /* Headers */,
-				C9E75CC51DDEC87C007CE06D /* Resources */,
 			);
 			buildRules = (
 			);
@@ -643,16 +623,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		C9E75CC51DDEC87C007CE06D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C90A76CB1AC7AF8A006875B8 /* Sources */ = {
