@@ -111,6 +111,7 @@
 		C9E75CC01DDE7A1F007CE06D /* Project-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Project-Release.xcconfig"; sourceTree = "<group>"; };
 		C9E75CC11DDE7A1F007CE06D /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
 		C9E75CC71DDEC87C007CE06D /* Base16.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Base16.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9E75CD51DDF5640007CE06D /* Base32.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Base32.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +195,7 @@
 				C90A76DA1AC7AF8A006875B8 /* Base32Tests.xctest */,
 				C977BB0E1AC89FBA00D2F9E2 /* Base32Tests.xctest */,
 				C9E75C951DDD95B2007CE06D /* Base32Tests.xctest */,
+				C9E75CD51DDF5640007CE06D /* Base32.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -530,6 +532,21 @@
 			productReference = C9E75CC71DDEC87C007CE06D /* Base16.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		C9E75CD41DDF5640007CE06D /* Base32 (watchOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9E75CDC1DDF5640007CE06D /* Build configuration list for PBXNativeTarget "Base32 (watchOS)" */;
+			buildPhases = (
+				C9E75CD01DDF5640007CE06D /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Base32 (watchOS)";
+			productName = Base32;
+			productReference = C9E75CD51DDF5640007CE06D /* Base32.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -592,6 +609,10 @@
 						CreatedOnToolsVersion = 8.1;
 						ProvisioningStyle = Manual;
 					};
+					C9E75CD41DDF5640007CE06D = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Manual;
+					};
 				};
 			};
 			buildConfigurationList = C90A76A91AC7AD5A006875B8 /* Build configuration list for PBXProject "Bases" */;
@@ -616,6 +637,7 @@
 				C90A76CF1AC7AF8A006875B8 /* Base32 (iOS) */,
 				C977BB031AC89FB900D2F9E2 /* Base32 (macOS) */,
 				C9E75C8C1DDD95B2007CE06D /* Base32 (tvOS) */,
+				C9E75CD41DDF5640007CE06D /* Base32 (watchOS) */,
 				C90A76D91AC7AF8A006875B8 /* Base32Tests (iOS) */,
 				C977BB0D1AC89FBA00D2F9E2 /* Base32Tests (macOS) */,
 				C9E75C941DDD95B2007CE06D /* Base32Tests (tvOS) */,
@@ -656,6 +678,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C914E0C21CD16A4C006EC147 /* Base16Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9E75CD01DDF5640007CE06D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -891,6 +920,20 @@
 			};
 			name = Release;
 		};
+		C9E75CDA1DDF5640007CE06D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9E75CB81DDE7A1F007CE06D /* Base32-watchOS.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		C9E75CDB1DDF5640007CE06D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9E75CB81DDE7A1F007CE06D /* Base32-watchOS.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1019,6 +1062,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		C9E75CDC1DDF5640007CE06D /* Build configuration list for PBXNativeTarget "Base32 (watchOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9E75CDA1DDF5640007CE06D /* Debug */,
+				C9E75CDB1DDF5640007CE06D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
