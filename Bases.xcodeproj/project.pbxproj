@@ -184,6 +184,7 @@
 				C914E08B1CD16456006EC147 /* Base16.framework */,
 				C914E0AA1CD16904006EC147 /* Base16.framework */,
 				C9E75C6A1DDD9112007CE06D /* Base16.framework */,
+				C9E75CC71DDEC87C007CE06D /* Base16.framework */,
 				C914E0941CD16456006EC147 /* Base16Tests.xctest */,
 				C914E0B31CD16904006EC147 /* Base16Tests.xctest */,
 				C9E75C721DDD9112007CE06D /* Base16Tests.xctest */,
@@ -193,7 +194,6 @@
 				C90A76DA1AC7AF8A006875B8 /* Base32Tests.xctest */,
 				C977BB0E1AC89FBA00D2F9E2 /* Base32Tests.xctest */,
 				C9E75C951DDD95B2007CE06D /* Base32Tests.xctest */,
-				C9E75CC71DDEC87C007CE06D /* Base16.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
