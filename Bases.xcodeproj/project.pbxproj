@@ -536,7 +536,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C9E75CDC1DDF5640007CE06D /* Build configuration list for PBXNativeTarget "Base32 (watchOS)" */;
 			buildPhases = (
-				C9E75CD01DDF5640007CE06D /* Sources */,
+				C90A76CB1AC7AF8A006875B8 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -678,13 +678,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C914E0C21CD16A4C006EC147 /* Base16Tests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C9E75CD01DDF5640007CE06D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1070,6 +1063,7 @@
 				C9E75CDB1DDF5640007CE06D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
