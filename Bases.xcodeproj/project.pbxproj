@@ -20,7 +20,6 @@
 		C977BB0F1AC89FBA00D2F9E2 /* Base32.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C977BB041AC89FB900D2F9E2 /* Base32.framework */; };
 		C9E75C731DDD9112007CE06D /* Base16.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E75C6A1DDD9112007CE06D /* Base16.framework */; };
 		C9E75C961DDD95B2007CE06D /* Base32.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E75C8D1DDD95B2007CE06D /* Base32.framework */; };
-		C9E75CCF1DDEC8A4007CE06D /* Base16.swift in Sources */ = {isa = PBXBuildFile; fileRef = C914E0A31CD164BC006EC147 /* Base16.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -520,7 +519,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C9E75CCC1DDEC87C007CE06D /* Build configuration list for PBXNativeTarget "Base16 (watchOS)" */;
 			buildPhases = (
-				C9E75CC21DDEC87C007CE06D /* Sources */,
+				C914E0861CD16456006EC147 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -657,14 +656,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C914E0C21CD16A4C006EC147 /* Base16Tests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C9E75CC21DDEC87C007CE06D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C9E75CCF1DDEC8A4007CE06D /* Base16.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1027,6 +1018,7 @@
 				C9E75CCE1DDEC87C007CE06D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
