@@ -192,10 +192,10 @@
 				C90A76D01AC7AF8A006875B8 /* Base32.framework */,
 				C977BB041AC89FB900D2F9E2 /* Base32.framework */,
 				C9E75C8D1DDD95B2007CE06D /* Base32.framework */,
+				C9E75CD51DDF5640007CE06D /* Base32.framework */,
 				C90A76DA1AC7AF8A006875B8 /* Base32Tests.xctest */,
 				C977BB0E1AC89FBA00D2F9E2 /* Base32Tests.xctest */,
 				C9E75C951DDD95B2007CE06D /* Base32Tests.xctest */,
-				C9E75CD51DDF5640007CE06D /* Base32.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
