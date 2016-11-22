@@ -1,7 +1,7 @@
 # Bases
 
-[![CircleCI](https://circleci.com/gh/mattrubin/Bases.png?style=shield)](https://circleci.com/gh/mattrubin/Bases)
-[![codecov](https://codecov.io/gh/mattrubin/Bases/branch/develop/graph/badge.svg)](https://codecov.io/gh/mattrubin/Bases)
+[![CircleCI build status](https://img.shields.io/circleci/project/github/mattrubin/Bases.svg)](https://circleci.com/gh/mattrubin/Bases)
+[![Codecov test coverage](https://img.shields.io/codecov/c/github/mattrubin/Bases.svg)](https://codecov.io/gh/mattrubin/Bases)
 
 Swift frameworks for Base16, Base32, and Base64 encoding/decoding
 
