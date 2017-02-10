@@ -76,14 +76,14 @@ public enum Base16 {
         return String(data: encodedData, encoding: String.Encoding.ascii)!
     }
 
-    public static func decode(_ string: String) -> Data? {
+    public static func decode(_ string: String) throws -> Data {
         guard let encodedData = string.data(using: String.Encoding.ascii) else {
-            return nil
+            throw Error.encodedStringNotASCII
         }
         let encodedByteCount = encodedData.count
 
         guard let decodedByteCount = byteCount(decoding: encodedByteCount) else {
-            return nil
+            throw Error.incompleteBlock
         }
         let decodedBytes = UnsafeMutablePointer<Byte>.allocate(capacity: decodedByteCount)
 
@@ -112,5 +112,12 @@ public enum Base16 {
             return nil
         }
         return (encodedByteCount / encodedBlockSize) * unencodedBlockSize
+    }
+
+    public enum Error: Swift.Error {
+        /// The input string contains a non-ASCII character
+        case encodedStringNotASCII
+        /// The input string ends with an incomplete encoded block
+        case incompleteBlock
     }
 }
