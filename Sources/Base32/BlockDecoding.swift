@@ -27,18 +27,12 @@ internal typealias DecodedBlock = (Byte?, Byte?, Byte?, Byte?, Byte?)
 
 internal func decodeBlock(chars: UnsafePointer<EncodedChar>, size: Int) throws -> DecodedBlock {
     switch size {
-    case 1:
-        fatalError()
     case 2:
         return try decodeBlock(chars[0], chars[1])
-    case 3:
-        fatalError()
     case 4:
         return try decodeBlock(chars[0], chars[1], chars[2], chars[3])
     case 5:
         return try decodeBlock(chars[0], chars[1], chars[2], chars[3], chars[4])
-    case 6:
-        fatalError()
     case 7:
         return try decodeBlock(chars[0], chars[1], chars[2], chars[3], chars[4], chars[5], chars[6])
     case 8:

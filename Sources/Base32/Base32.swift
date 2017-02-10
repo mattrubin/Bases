@@ -114,18 +114,12 @@ public enum Base32 {
         switch extraEncodedBytes {
         case 0:
             extraDecodedBytes = 0
-        case 1:
-            throw Error.incompleteBlock
         case 2:
             extraDecodedBytes = 1
-        case 3:
-            throw Error.incompleteBlock
         case 4:
             extraDecodedBytes = 2
         case 5:
             extraDecodedBytes = 3
-        case 6:
-            throw Error.incompleteBlock
         case 7:
             extraDecodedBytes = 4
         default:
