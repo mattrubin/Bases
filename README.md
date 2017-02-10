@@ -9,7 +9,7 @@
 ![watchOS 2.0+](https://img.shields.io/badge/watchOS-2.0+-blue.svg)
 [![MIT License](https://img.shields.io/badge/license-MIT-lightgray.svg)](LICENSE.md)
 
-Bases is a collection of small Swift libraries for Base16, Base32, and Base64 encoding/decoding, as standardized in [RFC 4648](https://tools.ietf.org/html/rfc4648).
+Bases is a collection of small Swift libraries for Base16, Base32, and (eventually) Base64 encoding/decoding, as standardized in [RFC 4648](https://tools.ietf.org/html/rfc4648).
 
 ## License
 
