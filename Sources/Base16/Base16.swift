@@ -73,7 +73,10 @@ public enum Base16 {
         let encodedData = Data(bytesNoCopy: encodedBytes,
                                count: encodedByteCount,
                                deallocator: .free)
-        return String(data: encodedData, encoding: String.Encoding.ascii)!
+        guard let encodedString = String(data: encodedData, encoding: String.Encoding.ascii) else {
+            fatalError("Internal Error: Encoded data could not be encoded as ASCII (\(encodedData))")
+        }
+        return encodedString
     }
 
     public static func decode(_ string: String) throws -> Data {
