@@ -70,11 +70,16 @@ class Base16Tests: XCTestCase {
         } catch {
             XCTFail("Unexpected error: \(error)")
         }
-    }
 
-    func testDecodeNonASCII() {
-        let decodedResult = try? Base16.decode("🐙")
-        XCTAssertNil(decodedResult, "Unexpected decoded string: \(decodedResult)")
+        do {
+            // Test non-ASCII character
+            let decodedResult = try Base16.decode("🐙")
+            XCTAssertNil(decodedResult, "Unexpected decoded string: \(decodedResult)")
+        } catch Base16.Error.nonAlphabetCharacter {
+            // This is the expected error
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
     }
 
     func testDecodePartialBlock() {

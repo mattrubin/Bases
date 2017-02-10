@@ -78,7 +78,7 @@ public enum Base16 {
 
     public static func decode(_ string: String) throws -> Data {
         guard let encodedData = string.data(using: String.Encoding.ascii) else {
-            throw Error.encodedStringNotASCII
+            throw Error.nonAlphabetCharacter
         }
         let encodedByteCount = encodedData.count
 
@@ -117,8 +117,6 @@ public enum Base16 {
     }
 
     public enum Error: Swift.Error {
-        /// The input string contains a non-ASCII character
-        case encodedStringNotASCII
         /// The input string ends with an incomplete encoded block
         case incompleteBlock
         /// The input string contains a character not in the encoding alphabet 
