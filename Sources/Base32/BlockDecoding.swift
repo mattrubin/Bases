@@ -49,7 +49,7 @@ internal func decodeBlock(chars: UnsafePointer<EncodedChar>, size: Int) throws -
         let bytes = try decodeBlock(chars[0], chars[1], chars[2], chars[3], chars[4], chars[5], chars[6], chars[7])
         return .FiveBytes(bytes.0, bytes.1, bytes.2, bytes.3, bytes.4)
     default:
-        fatalError()
+        throw Base32.Error.incompleteBlock
     }
 }
 

@@ -93,4 +93,26 @@ class Base32Tests: XCTestCase {
         XCTAssertEqual(decodedData, expectedData, "Encoded string \"\(encodedString)\" decoded to \"\(decodedData)\" (expected result: \"\(expectedData)\")", file: file, line: line)
     }
 
+    func testIncompleteBlocks() {
+        let encodedStrings = [
+            "A",
+            "AAA",
+            "AAAAAA",
+            "AAAAAAAAA",
+            "AAAAAAAAAAA",
+            "AAAAAAAAAAAAAA",
+            ]
+
+        for encodedString in encodedStrings {
+            do {
+                let decodedData = try Base32.decode(encodedString)
+                XCTAssertNil(decodedData, "Unexpected decoded data: \(decodedData)")
+            } catch Base32.Error.incompleteBlock {
+                // This is the expected error
+            } catch {
+                XCTFail("Unexpected error: \(error)")
+            }
+        }
+    }
+
 }
