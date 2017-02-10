@@ -56,4 +56,41 @@ class Base32Tests: XCTestCase {
         }
     }
 
+    func testDecodeWithoutPadding() {
+        assert("", decodesTo: "")
+        assert("MY", decodesTo: "f")
+        assert("MZXQ", decodesTo: "fo")
+        assert("MZXW6", decodesTo: "foo")
+        assert("MZXW6YQ", decodesTo: "foob")
+        assert("MZXW6YTB", decodesTo: "fooba")
+        assert("MZXW6YTBOI", decodesTo: "foobar")
+    }
+
+    func testDecodeWithOddPadding() {
+        assert("=========", decodesTo: "")
+        assert("MY=", decodesTo: "f")
+        assert("MZXQ==", decodesTo: "fo")
+        assert("MZXW6==", decodesTo: "foo")
+        assert("MZXW6YQ==", decodesTo: "foob")
+        assert("MZXW6YTB=", decodesTo: "fooba")
+        assert("MZXW6YTBOI===", decodesTo: "foobar")
+    }
+
+    private func assert(_ encodedString: String, decodesTo asciiString: String, file: StaticString = #file, line: UInt = #line) {
+        guard let expectedData = asciiString.data(using: String.Encoding.ascii) else {
+            XCTFail("Could not convert ASCII string \"\(asciiString)\" to Data", file: file, line: line)
+            return
+        }
+
+        let decodedData: Data
+        do {
+            decodedData = try Base32.decode(encodedString)
+        } catch {
+            XCTFail("Decoding of encoded string \"\(encodedString)\" threw an unexpected error: \(error)", file: file, line: line)
+            return
+        }
+
+        XCTAssertEqual(decodedData, expectedData, "Encoded string \"\(encodedString)\" decoded to \"\(decodedData)\" (expected result: \"\(expectedData)\")", file: file, line: line)
+    }
+
 }
