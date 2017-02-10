@@ -57,7 +57,7 @@ public enum Base32 {
             }
         }
 
-        // The NSData object takes ownership of the allocated bytes and will handle deallocation.
+        // The Data instance takes ownership of the allocated bytes and will handle deallocation.
         let encodedData = Data(bytesNoCopy: encodedBytes,
                                count: encodedByteCount,
                                deallocator: .free)

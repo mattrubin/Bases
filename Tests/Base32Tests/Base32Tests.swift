@@ -44,7 +44,7 @@ class Base32Tests: XCTestCase {
             let result = Base32.encode(data)
             XCTAssertEqual(result, encodedString, "ASCII string \"\(sourceString)\" encoded to \"\(result)\" (expected result: \"\(encodedString)\")", file: file, line: line)
         } else {
-            XCTFail("Could not convert ASCII string \"\(sourceString)\" to NSData", file: file, line: line)
+            XCTFail("Could not convert ASCII string \"\(sourceString)\" to Data", file: file, line: line)
         }
     }
 

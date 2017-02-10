@@ -69,7 +69,7 @@ public enum Base16 {
             }
         }
 
-        // The NSData object takes ownership of the allocated bytes and will handle deallocation.
+        // The Data instance takes ownership of the allocated bytes and will handle deallocation.
         let encodedData = Data(bytesNoCopy: encodedBytes,
                                count: encodedByteCount,
                                deallocator: .free)
@@ -103,7 +103,7 @@ public enum Base16 {
             }
         }
 
-        // The NSData object takes ownership of the allocated bytes and will handle deallocation.
+        // The Data instance takes ownership of the allocated bytes and will handle deallocation.
         return Data(bytesNoCopy: decodedBytes, count: decodedByteCount, deallocator: .free)
     }
 

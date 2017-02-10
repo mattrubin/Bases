@@ -38,7 +38,7 @@ class Base16Tests: XCTestCase {
 
         for (decodedString, encodedString) in rfcTestVectors {
             guard let decodedData = decodedString.data(using: String.Encoding.ascii) else {
-                XCTFail("Could not convert ASCII string \"\(decodedString)\" to NSData")
+                XCTFail("Could not convert ASCII string \"\(decodedString)\" to Data")
                 continue
             }
 
