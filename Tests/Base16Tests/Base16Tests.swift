@@ -87,9 +87,22 @@ class Base16Tests: XCTestCase {
     }
 
     func testDecodePartialBlock() {
-        let decodedPartial = try? Base16.decode("6")
-        XCTAssertNil(decodedPartial, "Unexpected decoded string: \(decodedPartial)")
-        let decodedFull = try? Base16.decode("66")
-        XCTAssertEqual(decodedFull, Data(bytes: [102]), "Unexpected decoded string: \(decodedFull)")
+        do {
+            // Test partial encoded block
+            let decodedPartial = try Base16.decode("6")
+            XCTAssertNil(decodedPartial, "Unexpected decoded string: \(decodedPartial)")
+        } catch Base16.Error.incompleteBlock {
+            // This is the expected error
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
+
+        do {
+            // Test full encoded block
+            let decodedFull = try Base16.decode("66")
+            XCTAssertEqual(decodedFull, Data(bytes: [102]), "Unexpected decoded string: \(decodedFull)")
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
     }
 }
