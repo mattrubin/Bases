@@ -85,9 +85,7 @@ public enum Base16 {
         }
         let encodedByteCount = encodedData.count
 
-        guard let decodedByteCount = byteCount(decoding: encodedByteCount) else {
-            throw Error.incompleteBlock
-        }
+        let decodedByteCount = try byteCount(decoding: encodedByteCount)
         let decodedBytes = UnsafeMutablePointer<Byte>.allocate(capacity: decodedByteCount)
 
         try encodedData.withUnsafeBytes { (encodedBytes: UnsafePointer<Byte>) in
@@ -112,9 +110,9 @@ public enum Base16 {
         return Data(bytesNoCopy: decodedBytes, count: decodedByteCount, deallocator: .free)
     }
 
-    private static func byteCount(decoding encodedByteCount: Int) -> Int? {
+    private static func byteCount(decoding encodedByteCount: Int) throws -> Int {
         guard encodedByteCount % encodedBlockSize == 0 else {
-            return nil
+            throw Error.incompleteBlock
         }
         return (encodedByteCount / encodedBlockSize) * unencodedBlockSize
     }
