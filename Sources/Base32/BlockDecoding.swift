@@ -28,20 +28,25 @@ internal typealias DecodedBlock = (Byte?, Byte?, Byte?, Byte?, Byte?)
 internal func decodeBlock(chars: UnsafePointer<EncodedChar>, size: Int) throws -> DecodedBlock {
     switch size {
     case 2:
-        return try decodeBlock(chars[0], chars[1])
+        let byte0 = try decodeBlock(chars[0], chars[1])
+        return (byte0, nil, nil, nil, nil)
     case 4:
-        return try decodeBlock(chars[0], chars[1], chars[2], chars[3])
+        let bytes = try decodeBlock(chars[0], chars[1], chars[2], chars[3])
+        return (bytes.0, bytes.1, nil, nil, nil)
     case 5:
-        return try decodeBlock(chars[0], chars[1], chars[2], chars[3], chars[4])
+        let bytes = try decodeBlock(chars[0], chars[1], chars[2], chars[3], chars[4])
+        return (bytes.0, bytes.1, bytes.2, nil, nil)
     case 7:
-        return try decodeBlock(chars[0], chars[1], chars[2], chars[3], chars[4], chars[5], chars[6])
+        let bytes = try decodeBlock(chars[0], chars[1], chars[2], chars[3], chars[4], chars[5], chars[6])
+        return (bytes.0, bytes.1, bytes.2, bytes.3, nil)
     case 8:
-        return try decodeBlock(chars[0], chars[1], chars[2], chars[3], chars[4], chars[5], chars[6], chars[7])
+        let bytes = try decodeBlock(chars[0], chars[1], chars[2], chars[3], chars[4], chars[5], chars[6], chars[7])
+        return (bytes.0, bytes.1, bytes.2, bytes.3, bytes.4)
     default:
         fatalError()
     }
 }
-private func decodeBlock(_ c0: EncodedChar, _ c1: EncodedChar, _ c2: EncodedChar, _ c3: EncodedChar, _ c4: EncodedChar, _ c5: EncodedChar, _ c6: EncodedChar, _ c7: EncodedChar) throws -> DecodedBlock {
+private func decodeBlock(_ c0: EncodedChar, _ c1: EncodedChar, _ c2: EncodedChar, _ c3: EncodedChar, _ c4: EncodedChar, _ c5: EncodedChar, _ c6: EncodedChar, _ c7: EncodedChar) throws -> (Byte, Byte, Byte, Byte, Byte) {
     let q = (try quintet(decoding: c0),
              try quintet(decoding: c1),
              try quintet(decoding: c2),
@@ -50,11 +55,10 @@ private func decodeBlock(_ c0: EncodedChar, _ c1: EncodedChar, _ c2: EncodedChar
              try quintet(decoding: c5),
              try quintet(decoding: c6),
              try quintet(decoding: c7))
-    let bytes = bytesFromQuintets(q.0, q.1, q.2, q.3, q.4, q.5, q.6, q.7)
-    return (bytes.0, bytes.1, bytes.2, bytes.3, bytes.4)
+    return bytesFromQuintets(q.0, q.1, q.2, q.3, q.4, q.5, q.6, q.7)
 }
 
-private func decodeBlock(_ c0: EncodedChar, _ c1: EncodedChar, _ c2: EncodedChar, _ c3: EncodedChar, _ c4: EncodedChar, _ c5: EncodedChar, _ c6: EncodedChar) throws -> DecodedBlock {
+private func decodeBlock(_ c0: EncodedChar, _ c1: EncodedChar, _ c2: EncodedChar, _ c3: EncodedChar, _ c4: EncodedChar, _ c5: EncodedChar, _ c6: EncodedChar) throws -> (Byte, Byte, Byte, Byte) {
     let q = (try quintet(decoding: c0),
              try quintet(decoding: c1),
              try quintet(decoding: c2),
@@ -62,34 +66,30 @@ private func decodeBlock(_ c0: EncodedChar, _ c1: EncodedChar, _ c2: EncodedChar
              try quintet(decoding: c4),
              try quintet(decoding: c5),
              try quintet(decoding: c6))
-    let bytes = bytesFromQuintets(q.0, q.1, q.2, q.3, q.4, q.5, q.6)
-    return (bytes.0, bytes.1, bytes.2, bytes.3, nil)
+    return bytesFromQuintets(q.0, q.1, q.2, q.3, q.4, q.5, q.6)
 }
 
-private func decodeBlock(_ c0: EncodedChar, _ c1: EncodedChar, _ c2: EncodedChar, _ c3: EncodedChar, _ c4: EncodedChar) throws -> DecodedBlock {
+private func decodeBlock(_ c0: EncodedChar, _ c1: EncodedChar, _ c2: EncodedChar, _ c3: EncodedChar, _ c4: EncodedChar) throws -> (Byte, Byte, Byte) {
     let q = (try quintet(decoding: c0),
              try quintet(decoding: c1),
              try quintet(decoding: c2),
              try quintet(decoding: c3),
              try quintet(decoding: c4))
-    let bytes = bytesFromQuintets(q.0, q.1, q.2, q.3, q.4)
-    return (bytes.0, bytes.1, bytes.2, nil, nil)
+    return bytesFromQuintets(q.0, q.1, q.2, q.3, q.4)
 }
 
-private func decodeBlock(_ c0: EncodedChar, _ c1: EncodedChar, _ c2: EncodedChar, _ c3: EncodedChar) throws -> DecodedBlock {
+private func decodeBlock(_ c0: EncodedChar, _ c1: EncodedChar, _ c2: EncodedChar, _ c3: EncodedChar) throws -> (Byte, Byte) {
     let q = (try quintet(decoding: c0),
              try quintet(decoding: c1),
              try quintet(decoding: c2),
              try quintet(decoding: c3))
-    let bytes = bytesFromQuintets(q.0, q.1, q.2, q.3)
-    return (bytes.0, bytes.1, nil, nil, nil)
+    return bytesFromQuintets(q.0, q.1, q.2, q.3)
 }
 
-private func decodeBlock(_ c0: EncodedChar, _ c1: EncodedChar) throws -> DecodedBlock {
+private func decodeBlock(_ c0: EncodedChar, _ c1: EncodedChar) throws -> (Byte) {
     let q = (try quintet(decoding: c0),
              try quintet(decoding: c1))
-    let byte0 = bytesFromQuintets(q.0, q.1)
-    return (byte0, nil, nil, nil, nil)
+    return bytesFromQuintets(q.0, q.1)
 }
 
 // MARK: -
