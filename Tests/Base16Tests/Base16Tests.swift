@@ -45,8 +45,12 @@ class Base16Tests: XCTestCase {
             let encodedResult = Base16.encode(decodedData)
             XCTAssertEqual(encodedResult, encodedString, "ASCII string \"\(decodedString)\" encoded to \"\(encodedResult)\" (expected \"\(encodedString)\")")
 
-            let decodedResult = try! Base16.decode(encodedString)
-            XCTAssertEqual(decodedResult, decodedData, "Encoded string \"\(encodedString)\" decoded to data \"\(decodedResult)\" (expected \"\(decodedData)\")")
+            do {
+                let decodedResult = try Base16.decode(encodedString)
+                XCTAssertEqual(decodedResult, decodedData, "Encoded string \"\(encodedString)\" decoded to data \"\(decodedResult)\" (expected \"\(decodedData)\")")
+            } catch {
+                XCTFail("Unexpected error: \(error)")
+            }
         }
     }
 
