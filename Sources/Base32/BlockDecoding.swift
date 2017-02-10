@@ -23,25 +23,31 @@
 //  SOFTWARE.
 //
 
-internal typealias DecodedBlock = (Byte?, Byte?, Byte?, Byte?, Byte?)
+internal enum DecodedBlock {
+    case OneByte(Byte)
+    case TwoBytes(Byte, Byte)
+    case ThreeBytes(Byte, Byte, Byte)
+    case FourBytes(Byte, Byte, Byte, Byte)
+    case FiveBytes(Byte, Byte, Byte, Byte, Byte)
+}
 
 internal func decodeBlock(chars: UnsafePointer<EncodedChar>, size: Int) throws -> DecodedBlock {
     switch size {
     case 2:
         let byte0 = try decodeBlock(chars[0], chars[1])
-        return (byte0, nil, nil, nil, nil)
+        return .OneByte(byte0)
     case 4:
         let bytes = try decodeBlock(chars[0], chars[1], chars[2], chars[3])
-        return (bytes.0, bytes.1, nil, nil, nil)
+        return .TwoBytes(bytes.0, bytes.1)
     case 5:
         let bytes = try decodeBlock(chars[0], chars[1], chars[2], chars[3], chars[4])
-        return (bytes.0, bytes.1, bytes.2, nil, nil)
+        return .ThreeBytes(bytes.0, bytes.1, bytes.2)
     case 7:
         let bytes = try decodeBlock(chars[0], chars[1], chars[2], chars[3], chars[4], chars[5], chars[6])
-        return (bytes.0, bytes.1, bytes.2, bytes.3, nil)
+        return .FourBytes(bytes.0, bytes.1, bytes.2, bytes.3)
     case 8:
         let bytes = try decodeBlock(chars[0], chars[1], chars[2], chars[3], chars[4], chars[5], chars[6], chars[7])
-        return (bytes.0, bytes.1, bytes.2, bytes.3, bytes.4)
+        return .FiveBytes(bytes.0, bytes.1, bytes.2, bytes.3, bytes.4)
     default:
         fatalError()
     }

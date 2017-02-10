@@ -93,12 +93,29 @@ public enum Base32 {
                 let nextBlockSize = min(encodedBlockSize, encodedByteCount - encodedReadOffset)
 
                 let nextBytes = try decodeBlock(chars: nextBlockChars, size: nextBlockSize)
+                switch nextBytes {
+                case let .OneByte(byte):
+                    decodedBytes[decodedWriteOffset + 0] = byte
+                case let .TwoBytes(bytes):
+                    decodedBytes[decodedWriteOffset + 0] = bytes.0
+                    decodedBytes[decodedWriteOffset + 1] = bytes.1
+                case let .ThreeBytes(bytes):
+                    decodedBytes[decodedWriteOffset + 0] = bytes.0
+                    decodedBytes[decodedWriteOffset + 1] = bytes.1
+                    decodedBytes[decodedWriteOffset + 2] = bytes.2
+                case let .FourBytes(bytes):
+                    decodedBytes[decodedWriteOffset + 0] = bytes.0
+                    decodedBytes[decodedWriteOffset + 1] = bytes.1
+                    decodedBytes[decodedWriteOffset + 2] = bytes.2
+                    decodedBytes[decodedWriteOffset + 3] = bytes.3
 
-                nextBytes.0.map { decodedBytes[decodedWriteOffset + 0] = $0}
-                nextBytes.1.map { decodedBytes[decodedWriteOffset + 1] = $0}
-                nextBytes.2.map { decodedBytes[decodedWriteOffset + 2] = $0}
-                nextBytes.3.map { decodedBytes[decodedWriteOffset + 3] = $0}
-                nextBytes.4.map { decodedBytes[decodedWriteOffset + 4] = $0}
+                case let .FiveBytes(bytes):
+                    decodedBytes[decodedWriteOffset + 0] = bytes.0
+                    decodedBytes[decodedWriteOffset + 1] = bytes.1
+                    decodedBytes[decodedWriteOffset + 2] = bytes.2
+                    decodedBytes[decodedWriteOffset + 3] = bytes.3
+                    decodedBytes[decodedWriteOffset + 4] = bytes.4
+                }
 
                 decodedWriteOffset += unencodedBlockSize
             }
