@@ -50,6 +50,28 @@ class Base16Tests: XCTestCase {
         }
     }
 
+    func testDecodeNonAlphabetCharacter() {
+        do {
+            // Test non-alphabet character in the first half of a block
+            let decodedResult = try Base16.decode("QA")
+            XCTAssertNil(decodedResult, "Unexpected decoded string: \(decodedResult)")
+        } catch Base16.Error.nonAlphabetCharacter {
+            // This is the expected error
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
+
+        do {
+            // Test non-alphabet character in the second half of a block
+            let decodedResult = try Base16.decode("AQ")
+            XCTAssertNil(decodedResult, "Unexpected decoded string: \(decodedResult)")
+        } catch Base16.Error.nonAlphabetCharacter {
+            // This is the expected error
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
+    }
+
     func testDecodeNonASCII() {
         let decodedResult = try? Base16.decode("🐙")
         XCTAssertNil(decodedResult, "Unexpected decoded string: \(decodedResult)")

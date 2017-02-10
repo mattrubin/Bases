@@ -87,14 +87,16 @@ public enum Base16 {
         }
         let decodedBytes = UnsafeMutablePointer<Byte>.allocate(capacity: decodedByteCount)
 
-        encodedData.withUnsafeBytes { (encodedBytes: UnsafePointer<Byte>) in
+        try encodedData.withUnsafeBytes { (encodedBytes: UnsafePointer<Byte>) in
             var decodedWriteOffset = 0
             for encodedReadOffset in stride(from: 0, to: encodedByteCount, by: encodedBlockSize) {
                 let bigChar = encodedBytes[encodedReadOffset]
                 let littleChar = encodedBytes[encodedReadOffset + 1]
 
-                let bigNibble = decodingTable[Int(bigChar)]!
-                let littleNibble = decodingTable[Int(littleChar)]!
+                guard let bigNibble = decodingTable[Int(bigChar)],
+                    let littleNibble = decodingTable[Int(littleChar)] else {
+                        throw Error.nonAlphabetCharacter
+                }
 
                 let decodedByte = ((bigNibble & 0b00001111) << 4) | (littleNibble & 0b00001111)
                 decodedBytes[decodedWriteOffset] = decodedByte
@@ -119,5 +121,7 @@ public enum Base16 {
         case encodedStringNotASCII
         /// The input string ends with an incomplete encoded block
         case incompleteBlock
+        /// The input string contains a character not in the encoding alphabet 
+        case nonAlphabetCharacter
     }
 }
