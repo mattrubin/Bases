@@ -75,13 +75,7 @@ public enum Base32 {
         guard let encodedData = string.data(using: String.Encoding.ascii) else {
             throw Error.nonAlphabetCharacter
         }
-        var encodedByteCount = encodedData.count
-        // Ignore padding characters at the end of the encoded data
-        encodedData.withUnsafeBytes { (encodedChars: UnsafePointer<EncodedChar>) in
-            while encodedByteCount > 0, encodedData[encodedByteCount - 1] == paddingCharacter {
-                encodedByteCount -= 1
-            }
-        }
+        let encodedByteCount = nonPaddingByteCount(encodedData: encodedData)
 
         let decodedByteCount = try byteCount(decoding: encodedByteCount)
         let decodedBytes = UnsafeMutablePointer<Byte>.allocate(capacity: decodedByteCount)
@@ -123,6 +117,17 @@ public enum Base32 {
 
         // The Data instance takes ownership of the allocated bytes and will handle deallocation.
         return Data(bytesNoCopy: decodedBytes, count: decodedByteCount, deallocator: .free)
+    }
+
+    private static func nonPaddingByteCount(encodedData: Data) -> Int {
+        return encodedData.withUnsafeBytes { (encodedChars: UnsafePointer<EncodedChar>) in
+            for i in (0 ..< encodedData.count).reversed() {
+                if encodedData[i] != paddingCharacter {
+                    return i + 1
+                }
+            }
+            return 0
+        }
     }
 
     private static func byteCount(decoding encodedByteCount: Int) throws -> Int {
