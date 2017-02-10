@@ -34,8 +34,8 @@ internal enum DecodedBlock {
 internal func decodeBlock(chars: UnsafePointer<EncodedChar>, size: Int) throws -> DecodedBlock {
     switch size {
     case 2:
-        let byte0 = try decodeBlock(chars[0], chars[1])
-        return .OneByte(byte0)
+        let byte = try decodeBlock(chars[0], chars[1])
+        return .OneByte(byte)
     case 4:
         let bytes = try decodeBlock(chars[0], chars[1], chars[2], chars[3])
         return .TwoBytes(bytes.0, bytes.1)
@@ -52,6 +52,9 @@ internal func decodeBlock(chars: UnsafePointer<EncodedChar>, size: Int) throws -
         fatalError()
     }
 }
+
+// MARK: -
+
 private func decodeBlock(_ c0: EncodedChar, _ c1: EncodedChar, _ c2: EncodedChar, _ c3: EncodedChar, _ c4: EncodedChar, _ c5: EncodedChar, _ c6: EncodedChar, _ c7: EncodedChar) throws -> (Byte, Byte, Byte, Byte, Byte) {
     let q = (try quintet(decoding: c0),
              try quintet(decoding: c1),
