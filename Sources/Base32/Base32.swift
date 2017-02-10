@@ -72,6 +72,72 @@ public enum Base32 {
     }
 
     public static func decode(_ string: String) throws -> Data {
-        return Data()
+        guard let encodedData = string.data(using: String.Encoding.ascii) else {
+            throw Error.nonAlphabetCharacter
+        }
+        var encodedByteCount = encodedData.count
+        // Ignore padding characters at the end of the encoded data
+        encodedData.withUnsafeBytes { (encodedChars: UnsafePointer<EncodedChar>) in
+            while encodedByteCount > 0, encodedData[encodedByteCount - 1] == paddingCharacter {
+                encodedByteCount -= 1
+            }
+        }
+
+        let decodedByteCount = try byteCount(decoding: encodedByteCount)
+        let decodedBytes = UnsafeMutablePointer<Byte>.allocate(capacity: decodedByteCount)
+
+        try encodedData.withUnsafeBytes { (encodedChars: UnsafePointer<EncodedChar>) in
+            var decodedWriteOffset = 0
+            for encodedReadOffset in stride(from: 0, to: encodedByteCount, by: encodedBlockSize) {
+                let nextBlockChars = encodedChars + encodedReadOffset
+                let nextBlockSize = min(encodedBlockSize, encodedByteCount - encodedReadOffset)
+
+                let nextBytes = try decodeBlock(chars: nextBlockChars, size: nextBlockSize)
+
+                nextBytes.0.map { decodedBytes[decodedWriteOffset + 0] = $0}
+                nextBytes.1.map { decodedBytes[decodedWriteOffset + 1] = $0}
+                nextBytes.2.map { decodedBytes[decodedWriteOffset + 2] = $0}
+                nextBytes.3.map { decodedBytes[decodedWriteOffset + 3] = $0}
+                nextBytes.4.map { decodedBytes[decodedWriteOffset + 4] = $0}
+
+                decodedWriteOffset += unencodedBlockSize
+            }
+        }
+
+        // The Data instance takes ownership of the allocated bytes and will handle deallocation.
+        return Data(bytesNoCopy: decodedBytes, count: decodedByteCount, deallocator: .free)
+    }
+
+    private static func byteCount(decoding encodedByteCount: Int) throws -> Int {
+        let extraEncodedBytes = encodedByteCount % encodedBlockSize
+        let extraDecodedBytes: Int
+        switch extraEncodedBytes {
+        case 0:
+            extraDecodedBytes = 0
+        case 1:
+            throw Error.incompleteBlock
+        case 2:
+            extraDecodedBytes = 1
+        case 3:
+            throw Error.incompleteBlock
+        case 4:
+            extraDecodedBytes = 2
+        case 5:
+            extraDecodedBytes = 3
+        case 6:
+            throw Error.incompleteBlock
+        case 7:
+            extraDecodedBytes = 4
+        default:
+            throw Error.incompleteBlock
+        }
+        return (encodedByteCount / encodedBlockSize) * unencodedBlockSize + extraDecodedBytes
+    }
+
+    public enum Error: Swift.Error {
+        /// The input string ends with an incomplete encoded block
+        case incompleteBlock
+        /// The input string contains a character not in the encoding alphabet
+        case nonAlphabetCharacter
     }
 }
