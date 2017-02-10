@@ -70,4 +70,8 @@ public enum Base32 {
         let blockCount = remainingRawBytes > 0 ? fullBlockCount + 1 : fullBlockCount
         return blockCount * encodedBlockSize
     }
+
+    public static func decode(_ string: String) throws -> Data {
+        return Data()
+    }
 }
