@@ -115,4 +115,27 @@ class Base32Tests: XCTestCase {
         }
     }
 
+    func testStrayBits() {
+        // These are the RFC strings which end in padding, with the last non-padding character incremented by one
+        let encodedStrings = [
+            "MZ======",
+            "MZXR====",
+            "MZXW7===",
+            "MZXW6YR=",
+            "MZXW6YTBOJ======",
+            ]
+
+        for encodedString in encodedStrings {
+            do {
+                let decodedData = try Base32.decode(encodedString)
+                XCTAssertNil(decodedData, "Encoded string \"\(encodedString)\" unexpectedly decoded to data: \(decodedData)")
+            } catch Base32.Error.strayBits {
+                // This is the expected error
+            } catch {
+                XCTFail("Unexpected error: \(error)")
+            }
+        }
+
+    }
+
 }

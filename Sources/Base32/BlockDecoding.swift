@@ -75,7 +75,7 @@ private func decodeBlock(_ c0: EncodedChar, _ c1: EncodedChar, _ c2: EncodedChar
              try quintet(decoding: c4),
              try quintet(decoding: c5),
              try quintet(decoding: c6))
-    return bytesFromQuintets(q.0, q.1, q.2, q.3, q.4, q.5, q.6)
+    return try bytesFromQuintets(q.0, q.1, q.2, q.3, q.4, q.5, q.6)
 }
 
 private func decodeBlock(_ c0: EncodedChar, _ c1: EncodedChar, _ c2: EncodedChar, _ c3: EncodedChar, _ c4: EncodedChar) throws -> (Byte, Byte, Byte) {
@@ -84,7 +84,7 @@ private func decodeBlock(_ c0: EncodedChar, _ c1: EncodedChar, _ c2: EncodedChar
              try quintet(decoding: c2),
              try quintet(decoding: c3),
              try quintet(decoding: c4))
-    return bytesFromQuintets(q.0, q.1, q.2, q.3, q.4)
+    return try bytesFromQuintets(q.0, q.1, q.2, q.3, q.4)
 }
 
 private func decodeBlock(_ c0: EncodedChar, _ c1: EncodedChar, _ c2: EncodedChar, _ c3: EncodedChar) throws -> (Byte, Byte) {
@@ -92,13 +92,13 @@ private func decodeBlock(_ c0: EncodedChar, _ c1: EncodedChar, _ c2: EncodedChar
              try quintet(decoding: c1),
              try quintet(decoding: c2),
              try quintet(decoding: c3))
-    return bytesFromQuintets(q.0, q.1, q.2, q.3)
+    return try bytesFromQuintets(q.0, q.1, q.2, q.3)
 }
 
 private func decodeBlock(_ c0: EncodedChar, _ c1: EncodedChar) throws -> (Byte) {
     let q = (try quintet(decoding: c0),
              try quintet(decoding: c1))
-    return bytesFromQuintets(q.0, q.1)
+    return try bytesFromQuintets(q.0, q.1)
 }
 
 // MARK: -
@@ -113,7 +113,10 @@ func bytesFromQuintets(_ first: Quintet, _ second: Quintet, _ third: Quintet, _ 
     )
 }
 
-func bytesFromQuintets(_ first: Quintet, _ second: Quintet, _ third: Quintet, _ fourth: Quintet, _ fifth: Quintet, _ sixth: Quintet, _ seventh: Quintet) -> (Byte, Byte, Byte, Byte) {
+func bytesFromQuintets(_ first: Quintet, _ second: Quintet, _ third: Quintet, _ fourth: Quintet, _ fifth: Quintet, _ sixth: Quintet, _ seventh: Quintet) throws -> (Byte, Byte, Byte, Byte) {
+    guard seventh & 0b00111 == 0 else {
+        throw Base32.Error.strayBits
+    }
     return (
         firstByte(firstQuintet: first, secondQuintet: second),
         secondByte(secondQuintet: second, thirdQuintet: third, fourthQuintet: fourth),
@@ -122,7 +125,10 @@ func bytesFromQuintets(_ first: Quintet, _ second: Quintet, _ third: Quintet, _ 
     )
 }
 
-func bytesFromQuintets(_ first: Quintet, _ second: Quintet, _ third: Quintet, _ fourth: Quintet, _ fifth: Quintet) -> (Byte, Byte, Byte) {
+func bytesFromQuintets(_ first: Quintet, _ second: Quintet, _ third: Quintet, _ fourth: Quintet, _ fifth: Quintet) throws -> (Byte, Byte, Byte) {
+    guard fifth & 0b00001 == 0 else {
+        throw Base32.Error.strayBits
+    }
     return (
         firstByte(firstQuintet: first, secondQuintet: second),
         secondByte(secondQuintet: second, thirdQuintet: third, fourthQuintet: fourth),
@@ -130,7 +136,10 @@ func bytesFromQuintets(_ first: Quintet, _ second: Quintet, _ third: Quintet, _ 
     )
 }
 
-func bytesFromQuintets(_ first: Quintet, _ second: Quintet, _ third: Quintet, _ fourth: Quintet) -> (Byte, Byte) {
+func bytesFromQuintets(_ first: Quintet, _ second: Quintet, _ third: Quintet, _ fourth: Quintet) throws -> (Byte, Byte) {
+    guard fourth & 0b01111 == 0 else {
+        throw Base32.Error.strayBits
+    }
     return (
         firstByte(firstQuintet: first, secondQuintet: second),
         secondByte(secondQuintet: second, thirdQuintet: third, fourthQuintet: fourth)
@@ -138,7 +147,10 @@ func bytesFromQuintets(_ first: Quintet, _ second: Quintet, _ third: Quintet, _ 
 }
 
 
-func bytesFromQuintets(_ first: Quintet, _ second: Quintet) -> (Byte) {
+func bytesFromQuintets(_ first: Quintet, _ second: Quintet) throws -> (Byte) {
+    guard second & 0b00011 == 0 else {
+        throw Base32.Error.strayBits
+    }
     return (
         firstByte(firstQuintet: first, secondQuintet: second)
     )

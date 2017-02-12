@@ -155,5 +155,8 @@ public enum Base32 {
         case incompleteBlock
         /// The input string contains a character not in the encoding alphabet
         case nonAlphabetCharacter
+        /// The last encoded character has non-zero padding bits
+        /// https://tools.ietf.org/html/rfc4648#section-3.5
+        case strayBits
     }
 }
