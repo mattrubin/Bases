@@ -6,3 +6,6 @@ TVOS_DEPLOYMENT_TARGET = 9.0;
 WATCHOS_DEPLOYMENT_TARGET = 2.0;
 
 PRODUCT_BUNDLE_IDENTIFIER = me.mattrubin.$(PRODUCT_NAME:rfc1034identifier);
+
+// Prevent new warnings in new compiler versions from breaking released versions of the library.
+SWIFT_TREAT_WARNINGS_AS_ERRORS = NO;
