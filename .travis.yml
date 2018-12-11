@@ -7,14 +7,14 @@ xcode_project: Bases.xcodeproj
 matrix:
   include:
     - xcode_scheme: "Base16 (iOS)"
-      xcode_sdk: iphonesimulator12.1
+      xcode_destination: platform=iOS Simulator,OS=12.1,name=iPhone XS
     - xcode_scheme: "Base16 (macOS)"
     - xcode_scheme: "Base16 (tvOS)"
     - xcode_scheme: "Base16 (watchOS)"
-      script: set -o pipefail && xcodebuild -project "$TRAVIS_XCODE_PROJECT" -scheme "$TRAVIS_XCODE_SCHEME" build test | xcpretty -c
+      script: set -o pipefail && xcodebuild -project "$TRAVIS_XCODE_PROJECT" -scheme "$TRAVIS_XCODE_SCHEME" build | xcpretty -c
     - xcode_scheme: "Base32 (iOS)"
-      xcode_sdk: iphonesimulator12.1
+      xcode_destination: platform=iOS Simulator,OS=12.1,name=iPhone XS
     - xcode_scheme: "Base32 (macOS)"
     - xcode_scheme: "Base32 (tvOS)"
     - xcode_scheme: "Base32 (watchOS)"
-      script: set -o pipefail && xcodebuild -project "$TRAVIS_XCODE_PROJECT" -scheme "$TRAVIS_XCODE_SCHEME" build test | xcpretty -c
+      script: set -o pipefail && xcodebuild -project "$TRAVIS_XCODE_PROJECT" -scheme "$TRAVIS_XCODE_SCHEME" build | xcpretty -c
