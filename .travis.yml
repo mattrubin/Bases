@@ -18,3 +18,6 @@ matrix:
     - xcode_scheme: "Base32 (tvOS)"
     - xcode_scheme: "Base32 (watchOS)"
       script: set -o pipefail && xcodebuild -project "$TRAVIS_XCODE_PROJECT" -scheme "$TRAVIS_XCODE_SCHEME" build | xcpretty -c
+
+notifications:
+  email: false
