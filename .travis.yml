@@ -4,12 +4,13 @@ language: objective-c
 osx_image: xcode10.1
 
 xcode_project: Bases.xcodeproj
-xcode_scheme:
-  - "Base16 (iOS)" 
-  - "Base16 (macOS)"
-  - "Base16 (tvOS)"
-  - "Base16 (watchOS)"
-  - "Base32 (iOS)"
-  - "Base32 (macOS)"
-  - "Base32 (tvOS)"
-  - "Base32 (watchOS)"
+env: 
+  - TARGET_NAME="Base16" 
+  - TARGET_NAME="Base32" 
+
+script:
+ - set -o pipefail
+ - xcodebuild -project "$TRAVIS_XCODE_PROJECT" -scheme "$TARGET_NAME (iOS)" build test | xcpretty -c
+ - xcodebuild -project "$TRAVIS_XCODE_PROJECT" -scheme "$TARGET_NAME (macOS)" build test | xcpretty -c
+ - xcodebuild -project "$TRAVIS_XCODE_PROJECT" -scheme "$TARGET_NAME (tvOS)" build test | xcpretty -c
+ - xcodebuild -project "$TRAVIS_XCODE_PROJECT" -scheme "$TARGET_NAME (watchOS)" build | xcpretty -c
