@@ -1,0 +1,15 @@
+# Configuration for Travis (https://travis-ci.com)
+
+language: objective-c
+osx_image: xcode10.1
+
+xcode_project: Bases.xcodeproj
+xcode_scheme:
+  - "Base16 (iOS)" 
+  - "Base16 (macOS)"
+  - "Base16 (tvOS)"
+  - "Base16 (watchOS)"
+  - "Base32 (iOS)"
+  - "Base32 (macOS)"
+  - "Base32 (tvOS)"
+  - "Base32 (watchOS)"
