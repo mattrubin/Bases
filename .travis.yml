@@ -4,13 +4,17 @@ language: objective-c
 osx_image: xcode10.1
 
 xcode_project: Bases.xcodeproj
-env: 
-  - TARGET_NAME="Base16" 
-  - TARGET_NAME="Base32" 
-
-script:
- - set -o pipefail
- - xcodebuild -project "$TRAVIS_XCODE_PROJECT" -scheme "$TARGET_NAME (iOS)" build test | xcpretty -c
- - xcodebuild -project "$TRAVIS_XCODE_PROJECT" -scheme "$TARGET_NAME (macOS)" build test | xcpretty -c
- - xcodebuild -project "$TRAVIS_XCODE_PROJECT" -scheme "$TARGET_NAME (tvOS)" build test | xcpretty -c
- - xcodebuild -project "$TRAVIS_XCODE_PROJECT" -scheme "$TARGET_NAME (watchOS)" build | xcpretty -c
+matrix:
+  include:
+    - xcode_scheme: "Base16 (iOS)"
+      xcode_sdk: iphonesimulator12.1
+    - xcode_scheme: "Base16 (macOS)"
+    - xcode_scheme: "Base16 (tvOS)"
+    - xcode_scheme: "Base16 (watchOS)"
+      script: set -o pipefail && xcodebuild -project "$TRAVIS_XCODE_PROJECT" -scheme "$TRAVIS_XCODE_SCHEME" build test | xcpretty -c
+    - xcode_scheme: "Base32 (iOS)"
+      xcode_sdk: iphonesimulator12.1
+    - xcode_scheme: "Base32 (macOS)"
+    - xcode_scheme: "Base32 (tvOS)"
+    - xcode_scheme: "Base32 (watchOS)"
+      script: set -o pipefail && xcodebuild -project "$TRAVIS_XCODE_PROJECT" -scheme "$TRAVIS_XCODE_SCHEME" build test | xcpretty -c
