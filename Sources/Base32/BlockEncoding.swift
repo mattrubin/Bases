@@ -39,7 +39,7 @@ internal func encodeBlock(bytes: UnsafePointer<Byte>, size: Int) -> EncodedBlock
     case 5:
         return encodeBlock(bytes[0], bytes[1], bytes[2], bytes[3], bytes[4])
     default:
-        fatalError()
+        fatalError("Cannot encode \(size) bytes. Max block size is five.")
     }
 }
 
