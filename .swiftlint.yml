@@ -47,7 +47,6 @@ opt_in_rules:
 disabled_rules:
   - comma
   - for_where
-  - force_cast
   - function_parameter_count
   - identifier_name
   - large_tuple

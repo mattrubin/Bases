@@ -58,6 +58,7 @@ func compareEncoding(from data: Data, to encodedString: String, times: Int) {
 func secBase32Encode(data: Data) -> String {
     let encoder = SecEncodeTransformCreate(kSecBase32Encoding, nil)!
     SecTransformSetAttribute(encoder, kSecTransformInputAttributeName, data as CFTypeRef, nil)
+    // swiftlint:disable:next force_cast
     let encodedData = SecTransformExecute(encoder, nil) as! CFData
     return String(data: encodedData as Data, encoding: .ascii)!
 }
@@ -88,6 +89,7 @@ func secBase32Decode(_ encodedString: String) -> Data {
     let encodedData = encodedString.data(using: .ascii)!
     let decoder = SecDecodeTransformCreate(kSecBase32Encoding, nil)!
     SecTransformSetAttribute(decoder, kSecTransformInputAttributeName, encodedData as CFTypeRef, nil)
+    // swiftlint:disable:next force_cast
     let decodedData = SecTransformExecute(decoder, nil) as! CFData
     return decodedData as Data
 }
