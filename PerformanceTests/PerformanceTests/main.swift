@@ -51,13 +51,14 @@ func compareEncoding(from data: Data, to encodedString: String, times: Int) {
     let previousBest = 0.11406124114990235
     print("Previous best: \(previousBest)")
     let improvement = 1 - (duration / previousBest)
-    print("Improvement: \(round(improvement*10000)/100)%")
-    print("Now \(round((secDuration/duration)*100)/100) times as fast as the system baseline.")
+    print("Improvement: \(round(improvement * 10000) / 100)%")
+    print("Now \(round((secDuration / duration) * 100) / 100) times as fast as the system baseline.")
 }
 
 func secBase32Encode(data: Data) -> String {
     let encoder = SecEncodeTransformCreate(kSecBase32Encoding, nil)!
     SecTransformSetAttribute(encoder, kSecTransformInputAttributeName, data as CFTypeRef, nil)
+    // swiftlint:disable:next force_cast
     let encodedData = SecTransformExecute(encoder, nil) as! CFData
     return String(data: encodedData as Data, encoding: .ascii)!
 }
@@ -80,48 +81,45 @@ func compareDecoding(from encodedString: String, to data: Data, times: Int) thro
     let previousBest = 0.17377197742462158
     print("Previous best: \(previousBest)")
     let improvement = 1 - (duration / previousBest)
-    print("Improvement: \(round(improvement*10000)/100)%")
-    print("Now \(round((secDuration/duration)*100)/100) times as fast as the system baseline.")
+    print("Improvement: \(round(improvement * 10000) / 100)%")
+    print("Now \(round((secDuration / duration) * 100) / 100) times as fast as the system baseline.")
 }
 
 func secBase32Decode(_ encodedString: String) -> Data {
     let encodedData = encodedString.data(using: .ascii)!
     let decoder = SecDecodeTransformCreate(kSecBase32Encoding, nil)!
     SecTransformSetAttribute(decoder, kSecTransformInputAttributeName, encodedData as CFTypeRef, nil)
+    // swiftlint:disable:next force_cast
     let decodedData = SecTransformExecute(decoder, nil) as! CFData
     return decodedData as Data
 }
 
 func fox(times: Int) -> String {
     let foxString = "The quick brown fox jumps over a lazy dog"
-    var s = String()
-    for _ in 1...times {
-        s += foxString
-    }
-    return s
+    return String(repeating: foxString, count: times)
 }
 
 let fox1000 = fox(times: 1000)
 let foxData = fox1000.data(using: .ascii)!
 let foxResult = secBase32Encode(data: foxData)
 let n = 1000
+
 compareEncoding(from: foxData, to: foxResult, times: n)
 print()
 try compareDecoding(from: foxResult, to: foxData, times: n)
-
-let c = 25
 print()
 
-let encodingAverage = (0..<c).map({ _ in
+let c = 25
+let encodingTimes = (0..<c).map({ _ in
     measureEncoding(from: foxData, to: foxResult, using: Base32.encode, times: n)
-}).reduce(0) { (total, time) in
-    total + time
-} / Double(c * n)
+})
+let encodingAverage = encodingTimes.reduce(0, +) / Double(c * n)
+
 print(String(format: "Encoding Average: %.5f ms", encodingAverage * 1000))
 
-let decodingAverage = try (0..<c).map({ _ in
+let decodingTimes = try (0..<c).map({ _ in
     try measureDecoding(from: foxResult, to: foxData, using: Base32.decode, times: n)
-}).reduce(0) { (total, time) in
-    total + time
-} / Double(c * n)
+})
+let decodingAverage = decodingTimes.reduce(0, +) / Double(c * n)
+
 print(String(format: "Decoding Average: %.5f ms", decodingAverage * 1000))

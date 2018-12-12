@@ -61,7 +61,10 @@ public enum Base32 {
         let encodedData = Data(bytesNoCopy: encodedBytes,
                                count: encodedByteCount,
                                deallocator: .free)
-        return String(data: encodedData, encoding: .ascii)!
+        guard let encodedString = String(data: encodedData, encoding: .ascii) else {
+            fatalError("Internal Error: Encoded data could not be encoded as ASCII (\(encodedData))")
+        }
+        return encodedString
     }
 
     private static func byteCount(encoding unencodedByteCount: Int) -> Int {
@@ -84,9 +87,8 @@ public enum Base32 {
             var decodedWriteOffset = 0
             for encodedReadOffset in stride(from: 0, to: encodedByteCount, by: encodedBlockSize) {
                 let chars = encodedChars + encodedReadOffset
-                let nextBlockSize = min(encodedBlockSize, encodedByteCount - encodedReadOffset)
 
-                switch nextBlockSize {
+                switch min(encodedByteCount - encodedReadOffset, encodedBlockSize) {
                 case 2:
                     let byte = try decodeBlock(chars[0], chars[1])
                     decodedBytes[decodedWriteOffset + 0] = byte
@@ -106,7 +108,8 @@ public enum Base32 {
                     decodedBytes[decodedWriteOffset + 2] = bytes.2
                     decodedBytes[decodedWriteOffset + 3] = bytes.3
                 case 8:
-                    let bytes = try decodeBlock(chars[0], chars[1], chars[2], chars[3], chars[4], chars[5], chars[6], chars[7])
+                    let bytes =
+                        try decodeBlock(chars[0], chars[1], chars[2], chars[3], chars[4], chars[5], chars[6], chars[7])
                     decodedBytes[decodedWriteOffset + 0] = bytes.0
                     decodedBytes[decodedWriteOffset + 1] = bytes.1
                     decodedBytes[decodedWriteOffset + 2] = bytes.2
@@ -125,14 +128,10 @@ public enum Base32 {
     }
 
     private static func nonPaddingByteCount(encodedData: Data) -> Int {
-        return encodedData.withUnsafeBytes { (encodedChars: UnsafePointer<EncodedChar>) in
-            for i in (0 ..< encodedData.count).reversed() {
-                if encodedData[i] != paddingCharacter {
-                    return i + 1
-                }
-            }
-            return 0
+        if let lastNonPaddingCharacterIndex = encodedData.lastIndex(where: { $0 != paddingCharacter }) {
+            return lastNonPaddingCharacterIndex + 1
         }
+        return 0
     }
 
     private static func byteCount(decoding encodedByteCount: Int) throws -> Int {

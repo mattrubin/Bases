@@ -28,13 +28,15 @@ import Base16
 
 class Base16Tests: XCTestCase {
     func testRFC() {
-        let rfcTestVectors = [("", ""),
-                              ("f", "66"),
-                              ("fo", "666F"),
-                              ("foo", "666F6F"),
-                              ("foob", "666F6F62"),
-                              ("fooba", "666F6F6261"),
-                              ("foobar", "666F6F626172")]
+        let rfcTestVectors = [
+            ("", ""),
+            ("f", "66"),
+            ("fo", "666F"),
+            ("foo", "666F6F"),
+            ("foob", "666F6F62"),
+            ("fooba", "666F6F6261"),
+            ("foobar", "666F6F626172"),
+        ]
 
         for (decodedString, encodedString) in rfcTestVectors {
             guard let decodedData = decodedString.data(using: String.Encoding.ascii) else {
@@ -78,7 +80,7 @@ class Base16Tests: XCTestCase {
         do {
             // Test non-ASCII character
             let decodedResult = try Base16.decode("🐙")
-            XCTAssertNil(decodedResult, "Unexpected decoded string: " + String(describing: decodedResult))
+            XCTAssertNil(decodedResult, "Unexpected decoded string: \(decodedResult)")
         } catch Base16.Error.nonAlphabetCharacter {
             // This is the expected error
         } catch {
@@ -90,7 +92,7 @@ class Base16Tests: XCTestCase {
         do {
             // Test partial encoded block
             let decodedPartial = try Base16.decode("6")
-            XCTAssertNil(decodedPartial, "Unexpected decoded string: " + String(describing: decodedPartial))
+            XCTAssertNil(decodedPartial, "Unexpected decoded string: \(decodedPartial)")
         } catch Base16.Error.incompleteBlock {
             // This is the expected error
         } catch {
@@ -100,7 +102,7 @@ class Base16Tests: XCTestCase {
         do {
             // Test full encoded block
             let decodedFull = try Base16.decode("66")
-            XCTAssertEqual(decodedFull, Data(bytes: [102]), "Unexpected decoded string: " + String(describing: decodedFull))
+            XCTAssertEqual(decodedFull, Data(bytes: [102]), "Unexpected decoded string: \(decodedFull)")
         } catch {
             XCTFail("Unexpected error: \(error)")
         }

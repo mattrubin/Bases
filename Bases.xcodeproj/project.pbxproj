@@ -6,6 +6,20 @@
 	objectVersion = 47;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		C92EBCB821C105D3002EEFF9 /* SwiftLint */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = C92EBCB921C105D3002EEFF9 /* Build configuration list for PBXAggregateTarget "SwiftLint" */;
+			buildPhases = (
+				C92EBCBC21C105DB002EEFF9 /* Run SwiftLint */,
+			);
+			dependencies = (
+			);
+			name = SwiftLint;
+			productName = SwiftLint;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		C90A76DB1AC7AF8A006875B8 /* Base32.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C90A76D01AC7AF8A006875B8 /* Base32.framework */; };
 		C90A76E21AC7AF8A006875B8 /* Base32Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A76E11AC7AF8A006875B8 /* Base32Tests.swift */; };
@@ -584,6 +598,9 @@
 						CreatedOnToolsVersion = 7.3;
 						LastSwiftMigration = 1010;
 					};
+					C92EBCB821C105D3002EEFF9 = {
+						CreatedOnToolsVersion = 10.1;
+					};
 					C977BB031AC89FB900D2F9E2 = {
 						CreatedOnToolsVersion = 6.3;
 						LastSwiftMigration = 1010;
@@ -650,9 +667,31 @@
 				C90A76D91AC7AF8A006875B8 /* Base32Tests (iOS) */,
 				C977BB0D1AC89FBA00D2F9E2 /* Base32Tests (macOS) */,
 				C9E75C941DDD95B2007CE06D /* Base32Tests (tvOS) */,
+				C92EBCB821C105D3002EEFF9 /* SwiftLint */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C92EBCBC21C105DB002EEFF9 /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint is not installed. (https://github.com/realm/SwiftLint)\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C90A76CB1AC7AF8A006875B8 /* Sources */ = {
@@ -822,6 +861,20 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9E75CB11DDE7A1F007CE06D /* Base16Tests-macOS.xcconfig */;
 			buildSettings = {
+			};
+			name = Release;
+		};
+		C92EBCBA21C105D3002EEFF9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C92EBCBB21C105D3002EEFF9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -999,6 +1052,15 @@
 			buildConfigurations = (
 				C914E0BF1CD16904006EC147 /* Debug */,
 				C914E0C01CD16904006EC147 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C92EBCB921C105D3002EEFF9 /* Build configuration list for PBXAggregateTarget "SwiftLint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C92EBCBA21C105D3002EEFF9 /* Debug */,
+				C92EBCBB21C105D3002EEFF9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
