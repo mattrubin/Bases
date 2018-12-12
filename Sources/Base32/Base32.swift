@@ -84,9 +84,8 @@ public enum Base32 {
             var decodedWriteOffset = 0
             for encodedReadOffset in stride(from: 0, to: encodedByteCount, by: encodedBlockSize) {
                 let chars = encodedChars + encodedReadOffset
-                let nextBlockSize = min(encodedBlockSize, encodedByteCount - encodedReadOffset)
 
-                switch nextBlockSize {
+                switch min(encodedByteCount - encodedReadOffset, encodedBlockSize) {
                 case 2:
                     let byte = try decodeBlock(chars[0], chars[1])
                     decodedBytes[decodedWriteOffset + 0] = byte
