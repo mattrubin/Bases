@@ -83,32 +83,37 @@ public enum Base32 {
         try encodedData.withUnsafeBytes { (encodedChars: UnsafePointer<EncodedChar>) in
             var decodedWriteOffset = 0
             for encodedReadOffset in stride(from: 0, to: encodedByteCount, by: encodedBlockSize) {
-                let nextBlockChars = encodedChars + encodedReadOffset
+                let chars = encodedChars + encodedReadOffset
                 let nextBlockSize = min(encodedBlockSize, encodedByteCount - encodedReadOffset)
 
-                let nextBytes = try decodeBlock(chars: nextBlockChars, size: nextBlockSize)
-                switch nextBytes {
-                case let .OneByte(byte):
+                switch nextBlockSize {
+                case 2:
+                    let byte = try decodeBlock(chars[0], chars[1])
                     decodedBytes[decodedWriteOffset + 0] = byte
-                case let .TwoBytes(bytes):
+                case 4:
+                    let bytes = try decodeBlock(chars[0], chars[1], chars[2], chars[3])
                     decodedBytes[decodedWriteOffset + 0] = bytes.0
                     decodedBytes[decodedWriteOffset + 1] = bytes.1
-                case let .ThreeBytes(bytes):
+                case 5:
+                    let bytes = try decodeBlock(chars[0], chars[1], chars[2], chars[3], chars[4])
                     decodedBytes[decodedWriteOffset + 0] = bytes.0
                     decodedBytes[decodedWriteOffset + 1] = bytes.1
                     decodedBytes[decodedWriteOffset + 2] = bytes.2
-                case let .FourBytes(bytes):
+                case 7:
+                    let bytes = try decodeBlock(chars[0], chars[1], chars[2], chars[3], chars[4], chars[5], chars[6])
                     decodedBytes[decodedWriteOffset + 0] = bytes.0
                     decodedBytes[decodedWriteOffset + 1] = bytes.1
                     decodedBytes[decodedWriteOffset + 2] = bytes.2
                     decodedBytes[decodedWriteOffset + 3] = bytes.3
-
-                case let .FiveBytes(bytes):
+                case 8:
+                    let bytes = try decodeBlock(chars[0], chars[1], chars[2], chars[3], chars[4], chars[5], chars[6], chars[7])
                     decodedBytes[decodedWriteOffset + 0] = bytes.0
                     decodedBytes[decodedWriteOffset + 1] = bytes.1
                     decodedBytes[decodedWriteOffset + 2] = bytes.2
                     decodedBytes[decodedWriteOffset + 3] = bytes.3
                     decodedBytes[decodedWriteOffset + 4] = bytes.4
+                default:
+                    throw Base32.Error.incompleteBlock
                 }
 
                 decodedWriteOffset += unencodedBlockSize

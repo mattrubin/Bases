@@ -53,23 +53,15 @@ internal func character(encoding quintet: Quintet) -> EncodedChar {
     return encodingTable[Int(quintet)]
 }
 
-private let __: Quintet? = nil
-private let decodingTable: [Quintet?] =
-    [__,__,__,__, __,__,__,__, __,__,__,__, __,__,__,__,
-     __,__,__,__, __,__,__,__, __,__,__,__, __,__,__,__,
-     __,__,__,__, __,__,__,__, __,__,__,__, __,__,__,__,
-     __,__,26,27, 28,29,30,31, __,__,__,__, __,__,__,__,
-     __, 0, 1, 2,  3, 4, 5, 6,  7, 8, 9,10, 11,12,13,14,
-     15,16,17,18, 19,20,21,22, 23,24,25,__, __,__,__,__,
-     __, 0, 1, 2,  3, 4, 5, 6,  7, 8, 9,10, 11,12,13,14,
-     15,16,17,18, 19,20,21,22, 23,24,25,__, __,__,__,__]
-
-
 internal func quintet(decoding char: EncodedChar) throws -> Quintet {
-    let decodingIndex = Int(char)
-    guard decodingTable.indices.contains(decodingIndex),
-        let quintet = decodingTable[decodingIndex] else {
-            throw Base32.Error.nonAlphabetCharacter
+    switch char {
+    case 50...55:
+        return char - 24
+    case 65...90:
+        return char - 65
+    case 97...122:
+        return char - 97
+    default:
+        throw Base32.Error.nonAlphabetCharacter
     }
-    return quintet
 }

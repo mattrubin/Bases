@@ -77,7 +77,7 @@ func compareDecoding(from encodedString: String, to data: Data, times: Int) thro
     print("Base duration: \(secDuration)")
     let duration = try measureDecoding(from: encodedString, to: data, using: Base32.decode, times: times)
     print("  My duration: \(duration)")
-    let previousBest = 0.35019099712371826
+    let previousBest = 0.17377197742462158
     print("Previous best: \(previousBest)")
     let improvement = 1 - (duration / previousBest)
     print("Improvement: \(round(improvement*10000)/100)%")
@@ -109,12 +109,19 @@ compareEncoding(from: foxData, to: foxResult, times: n)
 print()
 try compareDecoding(from: foxResult, to: foxData, times: n)
 
-/*
 let c = 25
-let avg = (0..<c).map({ _ in
+print()
+
+let encodingAverage = (0..<c).map({ _ in
     measureEncoding(from: foxData, to: foxResult, using: Base32.encode, times: n)
 }).reduce(0) { (total, time) in
     total + time
-} / Double(c)
-print("avg: \(avg)")
-*/
+} / Double(c * n)
+print(String(format: "Encoding Average: %.5f ms", encodingAverage * 1000))
+
+let decodingAverage = try (0..<c).map({ _ in
+    try measureDecoding(from: foxResult, to: foxData, using: Base32.decode, times: n)
+}).reduce(0) { (total, time) in
+    total + time
+} / Double(c * n)
+print(String(format: "Decoding Average: %.5f ms", decodingAverage * 1000))
