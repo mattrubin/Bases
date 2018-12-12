@@ -107,21 +107,23 @@ let fox1000 = fox(times: 1000)
 let foxData = fox1000.data(using: .ascii)!
 let foxResult = secBase32Encode(data: foxData)
 let n = 1000
+
 compareEncoding(from: foxData, to: foxResult, times: n)
 print()
 try compareDecoding(from: foxResult, to: foxData, times: n)
-
-let c = 25
 print()
 
+let c = 25
 let encodingTimes = (0..<c).map({ _ in
     measureEncoding(from: foxData, to: foxResult, using: Base32.encode, times: n)
 })
 let encodingAverage = encodingTimes.reduce(0, +) / Double(c * n)
+
 print(String(format: "Encoding Average: %.5f ms", encodingAverage * 1000))
 
 let decodingTimes = try (0..<c).map({ _ in
     try measureDecoding(from: foxResult, to: foxData, using: Base32.decode, times: n)
 })
 let decodingAverage = decodingTimes.reduce(0, +) / Double(c * n)
+
 print(String(format: "Decoding Average: %.5f ms", decodingAverage * 1000))
