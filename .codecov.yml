@@ -10,7 +10,13 @@ ignore:
 coverage:
   status:
     project:
-      default:
+      default: false
+      base16:
+        paths: "Sources/Base16/"
+        # Allow coverage to drop by up to 1% without marking a PR with a failing status.
+        threshold: 1
+      base32:
+        paths: "Sources/Base32/"
         # Allow coverage to drop by up to 1% without marking a PR with a failing status.
         threshold: 1
     patch:
