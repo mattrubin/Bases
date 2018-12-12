@@ -1,0 +1,19 @@
+# Configuration for Codecov (https://codecov.io)
+
+codecov:
+  # Use `develop` as the default branch
+  branch: develop
+
+ignore:
+  - Tests
+
+coverage:
+  status:
+    project:
+      default:
+        # Allow coverage to drop by up to 1% without marking a PR with a failing status.
+        threshold: 1
+    patch:
+      default:
+        # Allow patch to be at least 50% covered without marking a PR with a failing status.
+        target: 50
