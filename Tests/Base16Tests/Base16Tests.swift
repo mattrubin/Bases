@@ -52,13 +52,13 @@ class Base16Tests: XCTestCase {
 
     func testDecodeNonASCII() {
         let decodedResult = Base16.decode("🐙")
-        XCTAssertNil(decodedResult, "Unexpected decoded string: \(decodedResult)")
+        XCTAssertNil(decodedResult, "Unexpected decoded string: " + String(describing: decodedResult))
     }
 
     func testDecodePartialBlock() {
         let decodedPartial = Base16.decode("6")
-        XCTAssertNil(decodedPartial, "Unexpected decoded string: \(decodedPartial)")
+        XCTAssertNil(decodedPartial, "Unexpected decoded string: " + String(describing: decodedPartial))
         let decodedFull = Base16.decode("66")
-        XCTAssertEqual(decodedFull, Data(bytes: [102]), "Unexpected decoded string: \(decodedFull)")
+        XCTAssertEqual(decodedFull, Data(bytes: [102]), "Unexpected decoded string: " + String(describing: decodedFull))
     }
 }
