@@ -112,16 +112,14 @@ try compareDecoding(from: foxResult, to: foxData, times: n)
 let c = 25
 print()
 
-let encodingAverage = (0..<c).map({ _ in
+let encodingTimes = (0..<c).map({ _ in
     measureEncoding(from: foxData, to: foxResult, using: Base32.encode, times: n)
-}).reduce(0) { (total, time) in
-    total + time
-} / Double(c * n)
+})
+let encodingAverage = encodingTimes.reduce(0, +) / Double(c * n)
 print(String(format: "Encoding Average: %.5f ms", encodingAverage * 1000))
 
-let decodingAverage = try (0..<c).map({ _ in
+let decodingTimes = try (0..<c).map({ _ in
     try measureDecoding(from: foxResult, to: foxData, using: Base32.decode, times: n)
-}).reduce(0) { (total, time) in
-    total + time
-} / Double(c * n)
+})
+let decodingAverage = decodingTimes.reduce(0, +) / Double(c * n)
 print(String(format: "Decoding Average: %.5f ms", decodingAverage * 1000))
