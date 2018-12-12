@@ -30,6 +30,7 @@
 		C914E0A41CD164BC006EC147 /* Base16.swift in Sources */ = {isa = PBXBuildFile; fileRef = C914E0A31CD164BC006EC147 /* Base16.swift */; };
 		C914E0B41CD16904006EC147 /* Base16.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C914E0AA1CD16904006EC147 /* Base16.framework */; };
 		C914E0C21CD16A4C006EC147 /* Base16Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C914E0991CD16456006EC147 /* Base16Tests.swift */; };
+		C92EBCC021C19B27002EEFF9 /* Alphabet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92EBCBF21C19B27002EEFF9 /* Alphabet.swift */; };
 		C95BCAE81CD1406500FFFAAD /* BlockEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BCAE71CD1406500FFFAAD /* BlockEncoding.swift */; };
 		C977BB0F1AC89FBA00D2F9E2 /* Base32.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C977BB041AC89FB900D2F9E2 /* Base32.framework */; };
 		C9A1C1A41E4D86E1009E65D6 /* BlockDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A1C1A31E4D86E1009E65D6 /* BlockDecoding.swift */; };
@@ -95,6 +96,7 @@
 		C914E0A31CD164BC006EC147 /* Base16.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base16.swift; sourceTree = "<group>"; };
 		C914E0AA1CD16904006EC147 /* Base16.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Base16.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C914E0B31CD16904006EC147 /* Base16Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Base16Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C92EBCBF21C19B27002EEFF9 /* Alphabet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alphabet.swift; sourceTree = "<group>"; };
 		C94EAC7C1B38C9910073D43E /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		C94EAC7E1B38CCBE0073D43E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C95BCAE71CD1406500FFFAAD /* BlockEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockEncoding.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				C914E0A31CD164BC006EC147 /* Base16.swift */,
+				C92EBCBF21C19B27002EEFF9 /* Alphabet.swift */,
 			);
 			path = Base16;
 			sourceTree = "<group>";
@@ -718,6 +721,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C92EBCC021C19B27002EEFF9 /* Alphabet.swift in Sources */,
 				C914E0A41CD164BC006EC147 /* Base16.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
