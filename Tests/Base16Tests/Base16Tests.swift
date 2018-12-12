@@ -107,4 +107,25 @@ class Base16Tests: XCTestCase {
             XCTFail("Unexpected error: \(error)")
         }
     }
+
+    func testFullAlphabet() {
+        let fullAlphabetUppercaseString = "0123456789ABCDEF"
+        do {
+            let decodedData = try Base16.decode(fullAlphabetUppercaseString)
+            let encodedString = Base16.encode(decodedData)
+            XCTAssertEqual(encodedString, fullAlphabetUppercaseString)
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
+
+        let fullAlphabetLowercaseString = "0123456789abcdef"
+        do {
+            let decodedData = try Base16.decode(fullAlphabetLowercaseString)
+            let encodedString = Base16.encode(decodedData)
+            XCTAssertEqual(encodedString, fullAlphabetUppercaseString)
+            XCTAssertEqual(encodedString.lowercased(), fullAlphabetLowercaseString)
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
+    }
 }
