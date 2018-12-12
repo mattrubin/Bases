@@ -26,14 +26,14 @@
 import Foundation
 import Base32
 
-func measureBlock(_ block: @noescape () -> ()) -> CFTimeInterval {
+func measureBlock(_ block: () -> ()) -> CFTimeInterval {
     let startTime = CFAbsoluteTimeGetCurrent()
     block()
     let endTime = CFAbsoluteTimeGetCurrent()
     return endTime - startTime
 }
 
-func measureEncoding(from data: NSData, to encodedString: String, using encodingFunction: NSData -> String, times: Int) -> CFTimeInterval {
+func measureEncoding(from data: Data, to encodedString: String, using encodingFunction: (Data) -> String, times: Int) -> CFTimeInterval {
     return measureBlock {
         for _ in 0..<times {
             let result = encodingFunction(data)
@@ -42,7 +42,7 @@ func measureEncoding(from data: NSData, to encodedString: String, using encoding
     }
 }
 
-func compareEncoding(from data: NSData, to encodedString: String, times: Int) {
+func compareEncoding(from data: Data, to encodedString: String, times: Int) {
     let secDuration = measureEncoding(from: data, to: encodedString, using: secBase32Encode, times: times)
     print("Base duration: \(secDuration)")
     let duration = measureEncoding(from: data, to: encodedString, using: Base32.encode, times: times)
@@ -54,11 +54,11 @@ func compareEncoding(from data: NSData, to encodedString: String, times: Int) {
     print("Now \(round((secDuration/duration)*100)/100) times as fast as the system baseline.")
 }
 
-func secBase32Encode(data: NSData) -> String {
+func secBase32Encode(data: Data) -> String {
     let encoder = SecEncodeTransformCreate(kSecBase32Encoding, nil)!
-    SecTransformSetAttribute(encoder, kSecTransformInputAttributeName, data, nil);
+    SecTransformSetAttribute(encoder, kSecTransformInputAttributeName, data as CFTypeRef, nil);
     let encodedData = SecTransformExecute(encoder, nil) as! CFData
-    return String(data: encodedData, encoding: NSASCIIStringEncoding)!
+    return String(data: encodedData as Data, encoding: .ascii)!
 }
 
 func fox(times: Int) -> String {
@@ -71,7 +71,7 @@ func fox(times: Int) -> String {
 }
 
 let fox1000 = fox(times: 1000)
-let foxData = fox1000.data(using: NSASCIIStringEncoding)!
+let foxData = fox1000.data(using: .ascii)!
 let foxResult = secBase32Encode(data: foxData)
 let n = 1000
 compareEncoding(from: foxData, to: foxResult, times: n)
@@ -79,7 +79,7 @@ compareEncoding(from: foxData, to: foxResult, times: n)
 /*
 let c = 25
 let avg = (0..<c).map({ _ in
-    measureEncoding(from: foxData, to: foxResult, using: base32, times: n)
+    measureEncoding(from: foxData, to: foxResult, using: Base32.encode, times: n)
 }).reduce(0) { (total, time) in
     total + time
 } / Double(c)
