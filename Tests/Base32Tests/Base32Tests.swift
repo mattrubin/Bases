@@ -24,7 +24,7 @@
 //
 
 import XCTest
-import Base32
+@testable import Base32
 
 
 class Base32Tests: XCTestCase {
@@ -40,12 +40,174 @@ class Base32Tests: XCTestCase {
     }
 
     private func assert(ASCII sourceString: String, encodesTo encodedString: String, file: StaticString = #file, line: UInt = #line) {
-        if let data = sourceString.data(using: String.Encoding.ascii) {
-            let result = Base32.encode(data)
-            XCTAssertEqual(result, encodedString, "ASCII string \"\(sourceString)\" encoded to \"\(result)\" (expected result: \"\(encodedString)\")", file: file, line: line)
-        } else {
+        guard let data = sourceString.data(using: String.Encoding.ascii) else {
             XCTFail("Could not convert ASCII string \"\(sourceString)\" to Data", file: file, line: line)
+            return
+        }
+
+        let result = Base32.encode(data)
+        XCTAssertEqual(result, encodedString, "ASCII string \"\(sourceString)\" encoded to \"\(result)\" (expected result: \"\(encodedString)\")", file: file, line: line)
+
+        do {
+            let resultData = try Base32.decode(encodedString)
+            XCTAssertEqual(resultData, data, "Base32 string \"\(encodedString)\" decoded to \"\(resultData)\" (expected result: \"\(data)\")", file: file, line: line)
+        } catch {
+            XCTFail("Decoding of Base32 string \"\(encodedString)\" threw an unexpected error: \(error)", file: file, line: line)
         }
     }
 
+    func testDecodeWithoutPadding() {
+        assert("", decodesTo: "")
+        assert("MY", decodesTo: "f")
+        assert("MZXQ", decodesTo: "fo")
+        assert("MZXW6", decodesTo: "foo")
+        assert("MZXW6YQ", decodesTo: "foob")
+        assert("MZXW6YTB", decodesTo: "fooba")
+        assert("MZXW6YTBOI", decodesTo: "foobar")
+    }
+
+    func testDecodeWithOddPadding() {
+        assert("=========", decodesTo: "")
+        assert("MY=", decodesTo: "f")
+        assert("MZXQ==", decodesTo: "fo")
+        assert("MZXW6==", decodesTo: "foo")
+        assert("MZXW6YQ==", decodesTo: "foob")
+        assert("MZXW6YTB=", decodesTo: "fooba")
+        assert("MZXW6YTBOI===", decodesTo: "foobar")
+    }
+
+    private func assert(_ encodedString: String, decodesTo asciiString: String, file: StaticString = #file, line: UInt = #line) {
+        guard let expectedData = asciiString.data(using: String.Encoding.ascii) else {
+            XCTFail("Could not convert ASCII string \"\(asciiString)\" to Data", file: file, line: line)
+            return
+        }
+
+        let decodedData: Data
+        do {
+            decodedData = try Base32.decode(encodedString)
+        } catch {
+            XCTFail("Decoding of encoded string \"\(encodedString)\" threw an unexpected error: \(error)", file: file, line: line)
+            return
+        }
+
+        XCTAssertEqual(decodedData, expectedData, "Encoded string \"\(encodedString)\" decoded to \"\(decodedData)\" (expected result: \"\(expectedData)\")", file: file, line: line)
+    }
+
+    func testIncompleteBlocks() {
+        let encodedStrings = [
+            "A",
+            "AAA",
+            "AAAAAA",
+            "AAAAAAAAA",
+            "AAAAAAAAAAA",
+            "AAAAAAAAAAAAAA",
+            ]
+
+        for encodedString in encodedStrings {
+            do {
+                let decodedData = try Base32.decode(encodedString)
+                XCTAssertNil(decodedData, "Unexpected decoded data: \(decodedData)")
+            } catch Base32.Error.incompleteBlock {
+                // This is the expected error
+            } catch {
+                XCTFail("Unexpected error: \(error)")
+            }
+        }
+    }
+
+    func testStrayBits() {
+        // These are the RFC strings which end in padding, with the last non-padding character incremented by one
+        let encodedStrings = [
+            "MZ======",
+            "MZXR====",
+            "MZXW7===",
+            "MZXW6YR=",
+            "MZXW6YTBOJ======",
+            ]
+
+        for encodedString in encodedStrings {
+            do {
+                let decodedData = try Base32.decode(encodedString)
+                XCTAssertNil(decodedData, "Encoded string \"\(encodedString)\" unexpectedly decoded to data: \(decodedData)")
+            } catch Base32.Error.strayBits {
+                // This is the expected error
+            } catch {
+                XCTFail("Unexpected error: \(error)")
+            }
+        }
+
+    }
+
+    func testDecodeNonAlphabetCharacter() {
+        do {
+            // Test non-alphabet ASCII character
+            let decodedResult = try Base32.decode("!Y")
+            XCTAssertNil(decodedResult, "Unexpected decoded string: \(decodedResult)")
+        } catch Base32.Error.nonAlphabetCharacter {
+            // This is the expected error
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
+
+        do {
+            // Test non-ASCII character
+            let decodedResult = try Base32.decode("🐙")
+            XCTAssertNil(decodedResult, "Unexpected decoded string: \(decodedResult)")
+        } catch Base32.Error.nonAlphabetCharacter {
+            // This is the expected error
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
+    }
+
+    func testDecodeMisalignedBlock() throws {
+        let encodedString = "7777777777======"
+
+        guard let encodedData = encodedString.data(using: String.Encoding.ascii) else {
+            XCTFail("Failed to convert strong to data.")
+            return
+        }
+
+        encodedData.withUnsafeBytes { (encodedChars: UnsafePointer<EncodedChar>) in
+            func assertIncompleteBlock(withSize size: Int) {
+                do {
+                    let bytes = try decodeBlock(chars: encodedChars, size: size)
+                    XCTAssertNil(bytes, "Unexpected bytes: \(bytes)")
+                } catch Base32.Error.incompleteBlock {
+                    // This is the expected error
+                } catch {
+                    XCTFail("Unexpected error: \(error)")
+                }
+            }
+
+            func assertStrayBits(withSize size: Int) {
+                do {
+                    let bytes = try decodeBlock(chars: encodedChars, size: size)
+                    XCTAssertNil(bytes, "Unexpected bytes: \(bytes)")
+                } catch Base32.Error.strayBits {
+                    // This is the expected error
+                } catch {
+                    XCTFail("Unexpected error: \(error)")
+                }
+            }
+
+            assertIncompleteBlock(withSize: 0)
+            assertIncompleteBlock(withSize: 1)
+            assertStrayBits(withSize: 2)
+            assertIncompleteBlock(withSize: 3)
+            assertStrayBits(withSize: 4)
+            assertStrayBits(withSize: 5)
+            assertIncompleteBlock(withSize: 6)
+            assertStrayBits(withSize: 7)
+
+            do {
+                let bytes = try decodeBlock(chars: encodedChars, size: 8)
+                XCTAssertNotNil(bytes, "Expected bytes, got \(bytes)")
+            } catch {
+                XCTFail("Unexpected error: \(error)")
+            }
+
+            assertIncompleteBlock(withSize: 9)
+        }
+    }
 }

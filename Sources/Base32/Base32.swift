@@ -70,4 +70,93 @@ public enum Base32 {
         let blockCount = remainingRawBytes > 0 ? fullBlockCount + 1 : fullBlockCount
         return blockCount * encodedBlockSize
     }
+
+    public static func decode(_ string: String) throws -> Data {
+        guard let encodedData = string.data(using: String.Encoding.ascii) else {
+            throw Error.nonAlphabetCharacter
+        }
+        let encodedByteCount = nonPaddingByteCount(encodedData: encodedData)
+
+        let decodedByteCount = try byteCount(decoding: encodedByteCount)
+        let decodedBytes = UnsafeMutablePointer<Byte>.allocate(capacity: decodedByteCount)
+
+        try encodedData.withUnsafeBytes { (encodedChars: UnsafePointer<EncodedChar>) in
+            var decodedWriteOffset = 0
+            for encodedReadOffset in stride(from: 0, to: encodedByteCount, by: encodedBlockSize) {
+                let nextBlockChars = encodedChars + encodedReadOffset
+                let nextBlockSize = min(encodedBlockSize, encodedByteCount - encodedReadOffset)
+
+                let nextBytes = try decodeBlock(chars: nextBlockChars, size: nextBlockSize)
+                switch nextBytes {
+                case let .OneByte(byte):
+                    decodedBytes[decodedWriteOffset + 0] = byte
+                case let .TwoBytes(bytes):
+                    decodedBytes[decodedWriteOffset + 0] = bytes.0
+                    decodedBytes[decodedWriteOffset + 1] = bytes.1
+                case let .ThreeBytes(bytes):
+                    decodedBytes[decodedWriteOffset + 0] = bytes.0
+                    decodedBytes[decodedWriteOffset + 1] = bytes.1
+                    decodedBytes[decodedWriteOffset + 2] = bytes.2
+                case let .FourBytes(bytes):
+                    decodedBytes[decodedWriteOffset + 0] = bytes.0
+                    decodedBytes[decodedWriteOffset + 1] = bytes.1
+                    decodedBytes[decodedWriteOffset + 2] = bytes.2
+                    decodedBytes[decodedWriteOffset + 3] = bytes.3
+
+                case let .FiveBytes(bytes):
+                    decodedBytes[decodedWriteOffset + 0] = bytes.0
+                    decodedBytes[decodedWriteOffset + 1] = bytes.1
+                    decodedBytes[decodedWriteOffset + 2] = bytes.2
+                    decodedBytes[decodedWriteOffset + 3] = bytes.3
+                    decodedBytes[decodedWriteOffset + 4] = bytes.4
+                }
+
+                decodedWriteOffset += unencodedBlockSize
+            }
+        }
+
+        // The Data instance takes ownership of the allocated bytes and will handle deallocation.
+        return Data(bytesNoCopy: decodedBytes, count: decodedByteCount, deallocator: .free)
+    }
+
+    private static func nonPaddingByteCount(encodedData: Data) -> Int {
+        return encodedData.withUnsafeBytes { (encodedChars: UnsafePointer<EncodedChar>) in
+            for i in (0 ..< encodedData.count).reversed() {
+                if encodedData[i] != paddingCharacter {
+                    return i + 1
+                }
+            }
+            return 0
+        }
+    }
+
+    private static func byteCount(decoding encodedByteCount: Int) throws -> Int {
+        let extraEncodedBytes = encodedByteCount % encodedBlockSize
+        let extraDecodedBytes: Int
+        switch extraEncodedBytes {
+        case 0:
+            extraDecodedBytes = 0
+        case 2:
+            extraDecodedBytes = 1
+        case 4:
+            extraDecodedBytes = 2
+        case 5:
+            extraDecodedBytes = 3
+        case 7:
+            extraDecodedBytes = 4
+        default:
+            throw Error.incompleteBlock
+        }
+        return (encodedByteCount / encodedBlockSize) * unencodedBlockSize + extraDecodedBytes
+    }
+
+    public enum Error: Swift.Error {
+        /// The input string ends with an incomplete encoded block
+        case incompleteBlock
+        /// The input string contains a character not in the encoding alphabet
+        case nonAlphabetCharacter
+        /// The last encoded character has non-zero padding bits
+        /// https://tools.ietf.org/html/rfc4648#section-3.5
+        case strayBits
+    }
 }
