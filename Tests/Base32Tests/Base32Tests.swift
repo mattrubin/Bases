@@ -138,4 +138,25 @@ class Base32Tests: XCTestCase {
 
     }
 
+    func testDecodeNonAlphabetCharacter() {
+        do {
+            // Test non-alphabet ASCII character
+            let decodedResult = try Base32.decode("!Y")
+            XCTAssertNil(decodedResult, "Unexpected decoded string: \(decodedResult)")
+        } catch Base32.Error.nonAlphabetCharacter {
+            // This is the expected error
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
+
+        do {
+            // Test non-ASCII character
+            let decodedResult = try Base32.decode("🐙")
+            XCTAssertNil(decodedResult, "Unexpected decoded string: \(decodedResult)")
+        } catch Base32.Error.nonAlphabetCharacter {
+            // This is the expected error
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
+    }
 }
