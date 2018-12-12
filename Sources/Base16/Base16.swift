@@ -73,28 +73,31 @@ public enum Base16 {
         let encodedData = Data(bytesNoCopy: encodedBytes,
                                count: encodedByteCount,
                                deallocator: .free)
-        return String(data: encodedData, encoding: String.Encoding.ascii)!
+        guard let encodedString = String(data: encodedData, encoding: String.Encoding.ascii) else {
+            fatalError("Internal Error: Encoded data could not be encoded as ASCII (\(encodedData))")
+        }
+        return encodedString
     }
 
-    public static func decode(_ string: String) -> Data? {
+    public static func decode(_ string: String) throws -> Data {
         guard let encodedData = string.data(using: String.Encoding.ascii) else {
-            return nil
+            throw Error.nonAlphabetCharacter
         }
         let encodedByteCount = encodedData.count
 
-        guard let decodedByteCount = byteCount(decoding: encodedByteCount) else {
-            return nil
-        }
+        let decodedByteCount = try byteCount(decoding: encodedByteCount)
         let decodedBytes = UnsafeMutablePointer<Byte>.allocate(capacity: decodedByteCount)
 
-        encodedData.withUnsafeBytes { (encodedBytes: UnsafePointer<Byte>) in
+        try encodedData.withUnsafeBytes { (encodedBytes: UnsafePointer<Byte>) in
             var decodedWriteOffset = 0
             for encodedReadOffset in stride(from: 0, to: encodedByteCount, by: encodedBlockSize) {
                 let bigChar = encodedBytes[encodedReadOffset]
                 let littleChar = encodedBytes[encodedReadOffset + 1]
 
-                let bigNibble = decodingTable[Int(bigChar)]!
-                let littleNibble = decodingTable[Int(littleChar)]!
+                guard let bigNibble = decodingTable[Int(bigChar)],
+                    let littleNibble = decodingTable[Int(littleChar)] else {
+                        throw Error.nonAlphabetCharacter
+                }
 
                 let decodedByte = ((bigNibble & 0b00001111) << 4) | (littleNibble & 0b00001111)
                 decodedBytes[decodedWriteOffset] = decodedByte
@@ -107,10 +110,17 @@ public enum Base16 {
         return Data(bytesNoCopy: decodedBytes, count: decodedByteCount, deallocator: .free)
     }
 
-    private static func byteCount(decoding encodedByteCount: Int) -> Int? {
+    private static func byteCount(decoding encodedByteCount: Int) throws -> Int {
         guard encodedByteCount % encodedBlockSize == 0 else {
-            return nil
+            throw Error.incompleteBlock
         }
         return (encodedByteCount / encodedBlockSize) * unencodedBlockSize
+    }
+
+    public enum Error: Swift.Error {
+        /// The input string ends with an incomplete encoded block
+        case incompleteBlock
+        /// The input string contains a character not in the encoding alphabet 
+        case nonAlphabetCharacter
     }
 }

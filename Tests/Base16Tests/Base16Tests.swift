@@ -45,20 +45,64 @@ class Base16Tests: XCTestCase {
             let encodedResult = Base16.encode(decodedData)
             XCTAssertEqual(encodedResult, encodedString, "ASCII string \"\(decodedString)\" encoded to \"\(encodedResult)\" (expected \"\(encodedString)\")")
 
-            let decodedResult = Base16.decode(encodedString)!
-            XCTAssertEqual(decodedResult, decodedData, "Encoded string \"\(encodedString)\" decoded to data \"\(decodedResult)\" (expected \"\(decodedData)\")")
+            do {
+                let decodedResult = try Base16.decode(encodedString)
+                XCTAssertEqual(decodedResult, decodedData, "Encoded string \"\(encodedString)\" decoded to data \"\(decodedResult)\" (expected \"\(decodedData)\")")
+            } catch {
+                XCTFail("Unexpected error: \(error)")
+            }
         }
     }
 
-    func testDecodeNonASCII() {
-        let decodedResult = Base16.decode("🐙")
-        XCTAssertNil(decodedResult, "Unexpected decoded string: " + String(describing: decodedResult))
+    func testDecodeNonAlphabetCharacter() {
+        do {
+            // Test non-alphabet character in the first half of a block
+            let decodedResult = try Base16.decode("QA")
+            XCTAssertNil(decodedResult, "Unexpected decoded string: \(decodedResult)")
+        } catch Base16.Error.nonAlphabetCharacter {
+            // This is the expected error
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
+
+        do {
+            // Test non-alphabet character in the second half of a block
+            let decodedResult = try Base16.decode("AQ")
+            XCTAssertNil(decodedResult, "Unexpected decoded string: \(decodedResult)")
+        } catch Base16.Error.nonAlphabetCharacter {
+            // This is the expected error
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
+
+        do {
+            // Test non-ASCII character
+            let decodedResult = try Base16.decode("🐙")
+            XCTAssertNil(decodedResult, "Unexpected decoded string: " + String(describing: decodedResult))
+        } catch Base16.Error.nonAlphabetCharacter {
+            // This is the expected error
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
     }
 
     func testDecodePartialBlock() {
-        let decodedPartial = Base16.decode("6")
-        XCTAssertNil(decodedPartial, "Unexpected decoded string: " + String(describing: decodedPartial))
-        let decodedFull = Base16.decode("66")
-        XCTAssertEqual(decodedFull, Data(bytes: [102]), "Unexpected decoded string: " + String(describing: decodedFull))
+        do {
+            // Test partial encoded block
+            let decodedPartial = try Base16.decode("6")
+            XCTAssertNil(decodedPartial, "Unexpected decoded string: " + String(describing: decodedPartial))
+        } catch Base16.Error.incompleteBlock {
+            // This is the expected error
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
+
+        do {
+            // Test full encoded block
+            let decodedFull = try Base16.decode("66")
+            XCTAssertEqual(decodedFull, Data(bytes: [102]), "Unexpected decoded string: " + String(describing: decodedFull))
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
     }
 }
