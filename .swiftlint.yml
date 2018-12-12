@@ -43,14 +43,12 @@ opt_in_rules:
 
 disabled_rules:
   - comma
-  - cyclomatic_complexity
   - for_where
   - force_cast
   - function_parameter_count
   - identifier_name
   - large_tuple
   - line_length
-  - opening_brace
   - trailing_comma
   - unused_closure_parameter
   - vertical_whitespace
