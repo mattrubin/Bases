@@ -100,7 +100,7 @@ class Base32Tests: XCTestCase {
             "AAAAAAAAA",
             "AAAAAAAAAAA",
             "AAAAAAAAAAAAAA",
-            ]
+        ]
 
         for encodedString in encodedStrings {
             do {
@@ -122,7 +122,7 @@ class Base32Tests: XCTestCase {
             "MZXW7===",
             "MZXW6YR=",
             "MZXW6YTBOJ======",
-            ]
+        ]
 
         for encodedString in encodedStrings {
             do {

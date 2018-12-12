@@ -22,6 +22,7 @@ opt_in_rules:
   - implicit_return
   - implicitly_unwrapped_optional
   - joined_default_parameter
+  - literal_expression_end_indentation
   - lower_acl_than_parent
   - modifier_order
   - multiline_parameters
@@ -49,5 +50,7 @@ disabled_rules:
   - identifier_name
   - large_tuple
   - line_length
-  - trailing_comma
   - unused_closure_parameter
+
+trailing_comma:
+  mandatory_comma: true

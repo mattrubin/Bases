@@ -28,13 +28,15 @@ import Base16
 
 class Base16Tests: XCTestCase {
     func testRFC() {
-        let rfcTestVectors = [("", ""),
-                              ("f", "66"),
-                              ("fo", "666F"),
-                              ("foo", "666F6F"),
-                              ("foob", "666F6F62"),
-                              ("fooba", "666F6F6261"),
-                              ("foobar", "666F6F626172")]
+        let rfcTestVectors = [
+            ("", ""),
+            ("f", "66"),
+            ("fo", "666F"),
+            ("foo", "666F6F"),
+            ("foob", "666F6F62"),
+            ("fooba", "666F6F6261"),
+            ("foobar", "666F6F626172"),
+        ]
 
         for (decodedString, encodedString) in rfcTestVectors {
             guard let decodedData = decodedString.data(using: String.Encoding.ascii) else {
