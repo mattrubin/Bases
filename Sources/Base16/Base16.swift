@@ -25,30 +25,11 @@
 
 import Foundation
 
-private typealias Byte = UInt8
-private typealias EncodedChar = UInt8
-
 public enum Base16 {
     /// The size of a block before encoding, measured in bytes.
     private static let unencodedBlockSize = 1
     /// The size of a block after encoding, measured in bytes.
     private static let encodedBlockSize = 2
-
-    private static let encodingTable: [EncodedChar] = [
-        48, 49, 50, 51, 52, 53, 54, 55,
-        56, 57, 65, 66, 67, 68, 68, 70,
-    ]
-    private static let __: Byte? = nil
-    private static let decodingTable: [Byte?] = [
-        __, __, __, __, __, __, __, __, __, __, __, __, __, __, __, __,
-        __, __, __, __, __, __, __, __, __, __, __, __, __, __, __, __,
-        __, __, __, __, __, __, __, __, __, __, __, __, __, __, __, __,
-        00, 01, 02, 03, 04, 05, 06, 07, 08, 09, __, __, __, __, __, __,
-        __, 10, 11, 12, 13, 14, 15, __, __, __, __, __, __, __, __, __,
-        __, __, __, __, __, __, __, __, __, __, __, __, __, __, __, __,
-        __, __, __, __, __, __, __, __, __, __, __, __, __, __, __, __,
-        __, __, __, __, __, __, __, __, __, __, __, __, __, __, __, __,
-    ]
 
     public static func encode(_ data: Data) -> String {
         let unencodedByteCount = data.count
