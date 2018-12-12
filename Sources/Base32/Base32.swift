@@ -126,14 +126,10 @@ public enum Base32 {
     }
 
     private static func nonPaddingByteCount(encodedData: Data) -> Int {
-        return encodedData.withUnsafeBytes { (encodedChars: UnsafePointer<EncodedChar>) in
-            for i in (0 ..< encodedData.count).reversed() {
-                if encodedData[i] != paddingCharacter {
-                    return i + 1
-                }
-            }
-            return 0
+        for i in (0 ..< encodedData.count).reversed() where encodedData[i] != paddingCharacter {
+            return i + 1
         }
+        return 0
     }
 
     private static func byteCount(decoding encodedByteCount: Int) throws -> Int {
