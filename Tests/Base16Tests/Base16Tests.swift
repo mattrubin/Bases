@@ -117,5 +117,15 @@ class Base16Tests: XCTestCase {
         } catch {
             XCTFail("Unexpected error: \(error)")
         }
+
+        let fullAlphabetLowercaseString = "0123456789abcdef"
+        do {
+            let decodedData = try Base16.decode(fullAlphabetLowercaseString)
+            let encodedString = Base16.encode(decodedData)
+            XCTAssertEqual(encodedString, fullAlphabetLowercaseString.uppercased())
+            XCTAssertEqual(encodedString.lowercased(), fullAlphabetLowercaseString)
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
     }
 }
