@@ -106,7 +106,8 @@ public enum Base32 {
                     decodedBytes[decodedWriteOffset + 2] = bytes.2
                     decodedBytes[decodedWriteOffset + 3] = bytes.3
                 case 8:
-                    let bytes = try decodeBlock(chars[0], chars[1], chars[2], chars[3], chars[4], chars[5], chars[6], chars[7])
+                    let bytes =
+                        try decodeBlock(chars[0], chars[1], chars[2], chars[3], chars[4], chars[5], chars[6], chars[7])
                     decodedBytes[decodedWriteOffset + 0] = bytes.0
                     decodedBytes[decodedWriteOffset + 1] = bytes.1
                     decodedBytes[decodedWriteOffset + 2] = bytes.2

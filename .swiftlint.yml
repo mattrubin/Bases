@@ -49,8 +49,11 @@ disabled_rules:
   - function_parameter_count
   - identifier_name
   - large_tuple
-  - line_length
   - unused_closure_parameter
 
 trailing_comma:
   mandatory_comma: true
+
+line_length:
+  ignores_function_declarations: true
+  ignores_interpolated_strings: true
