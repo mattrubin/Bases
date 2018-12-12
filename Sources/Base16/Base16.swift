@@ -78,10 +78,8 @@ public enum Base16 {
                 let bigChar = encodedBytes[encodedReadOffset]
                 let littleChar = encodedBytes[encodedReadOffset + 1]
 
-                guard let bigNibble = decodingTable[Int(bigChar)],
-                    let littleNibble = decodingTable[Int(littleChar)] else {
-                        throw Error.nonAlphabetCharacter
-                }
+                let bigNibble = try byte(decoding: bigChar)
+                let littleNibble = try byte(decoding: littleChar)
 
                 let decodedByte = ((bigNibble & 0b00001111) << 4) | (littleNibble & 0b00001111)
                 decodedBytes[decodedWriteOffset] = decodedByte

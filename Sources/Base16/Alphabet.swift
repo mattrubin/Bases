@@ -32,7 +32,7 @@ internal let encodingTable: [EncodedChar] = [
 ]
 
 private let __: Byte? = nil
-internal let decodingTable: [Byte?] = [
+private let decodingTable: [Byte?] = [
     __, __, __, __, __, __, __, __, __, __, __, __, __, __, __, __,
     __, __, __, __, __, __, __, __, __, __, __, __, __, __, __, __,
     __, __, __, __, __, __, __, __, __, __, __, __, __, __, __, __,
@@ -42,3 +42,10 @@ internal let decodingTable: [Byte?] = [
     __, __, __, __, __, __, __, __, __, __, __, __, __, __, __, __,
     __, __, __, __, __, __, __, __, __, __, __, __, __, __, __, __,
 ]
+
+internal func byte(decoding char: EncodedChar) throws -> Byte {
+    guard let byte = decodingTable[Int(char)] else {
+        throw Base16.Error.nonAlphabetCharacter
+    }
+    return byte
+}
