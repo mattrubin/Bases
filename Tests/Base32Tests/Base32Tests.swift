@@ -26,7 +26,6 @@
 import XCTest
 import Base32
 
-
 class Base32Tests: XCTestCase {
 
     func testRFC() {
