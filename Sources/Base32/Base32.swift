@@ -61,7 +61,10 @@ public enum Base32 {
         let encodedData = Data(bytesNoCopy: encodedBytes,
                                count: encodedByteCount,
                                deallocator: .free)
-        return String(data: encodedData, encoding: .ascii)!
+        guard let encodedString = String(data: encodedData, encoding: .ascii) else {
+            fatalError("Internal Error: Encoded data could not be encoded as ASCII (\(encodedData))")
+        }
+        return encodedString
     }
 
     private static func byteCount(encoding unencodedByteCount: Int) -> Int {
