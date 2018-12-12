@@ -51,8 +51,8 @@ func compareEncoding(from data: Data, to encodedString: String, times: Int) {
     let previousBest = 0.11406124114990235
     print("Previous best: \(previousBest)")
     let improvement = 1 - (duration / previousBest)
-    print("Improvement: \(round(improvement*10000)/100)%")
-    print("Now \(round((secDuration/duration)*100)/100) times as fast as the system baseline.")
+    print("Improvement: \(round(improvement * 10000) / 100)%")
+    print("Now \(round((secDuration / duration) * 100) / 100) times as fast as the system baseline.")
 }
 
 func secBase32Encode(data: Data) -> String {
@@ -80,8 +80,8 @@ func compareDecoding(from encodedString: String, to data: Data, times: Int) thro
     let previousBest = 0.17377197742462158
     print("Previous best: \(previousBest)")
     let improvement = 1 - (duration / previousBest)
-    print("Improvement: \(round(improvement*10000)/100)%")
-    print("Now \(round((secDuration/duration)*100)/100) times as fast as the system baseline.")
+    print("Improvement: \(round(improvement * 10000) / 100)%")
+    print("Now \(round((secDuration / duration) * 100) / 100) times as fast as the system baseline.")
 }
 
 func secBase32Decode(_ encodedString: String) -> Data {
