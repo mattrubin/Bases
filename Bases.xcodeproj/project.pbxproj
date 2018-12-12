@@ -557,63 +557,69 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Matt Rubin";
 				TargetAttributes = {
 					C90A76CF1AC7AF8A006875B8 = {
 						CreatedOnToolsVersion = 6.3;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 1010;
 					};
 					C90A76D91AC7AF8A006875B8 = {
 						CreatedOnToolsVersion = 6.3;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 1010;
 					};
 					C914E08A1CD16456006EC147 = {
 						CreatedOnToolsVersion = 7.3;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 1010;
 					};
 					C914E0931CD16456006EC147 = {
 						CreatedOnToolsVersion = 7.3;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 1010;
 					};
 					C914E0A91CD16904006EC147 = {
 						CreatedOnToolsVersion = 7.3;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 1010;
 					};
 					C914E0B21CD16904006EC147 = {
 						CreatedOnToolsVersion = 7.3;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 1010;
 					};
 					C977BB031AC89FB900D2F9E2 = {
 						CreatedOnToolsVersion = 6.3;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 1010;
 					};
 					C977BB0D1AC89FBA00D2F9E2 = {
 						CreatedOnToolsVersion = 6.3;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 1010;
 					};
 					C9E75C691DDD9112007CE06D = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Manual;
 					};
 					C9E75C711DDD9112007CE06D = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Manual;
 					};
 					C9E75C8C1DDD95B2007CE06D = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Manual;
 					};
 					C9E75C941DDD95B2007CE06D = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Manual;
 					};
 					C9E75CC61DDEC87C007CE06D = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Manual;
 					};
 					C9E75CD41DDF5640007CE06D = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Manual;
 					};
 				};
