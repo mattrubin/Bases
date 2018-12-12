@@ -24,7 +24,7 @@
 //
 
 import XCTest
-import Base32
+@testable import Base32
 
 
 class Base32Tests: XCTestCase {
@@ -157,6 +157,57 @@ class Base32Tests: XCTestCase {
             // This is the expected error
         } catch {
             XCTFail("Unexpected error: \(error)")
+        }
+    }
+
+    func testDecodeMisalignedBlock() throws {
+        let encodedString = "7777777777======"
+
+        guard let encodedData = encodedString.data(using: String.Encoding.ascii) else {
+            XCTFail("Failed to convert strong to data.")
+            return
+        }
+
+        encodedData.withUnsafeBytes { (encodedChars: UnsafePointer<EncodedChar>) in
+            func assertIncompleteBlock(withSize size: Int) {
+                do {
+                    let bytes = try decodeBlock(chars: encodedChars, size: size)
+                    XCTAssertNil(bytes, "Unexpected bytes: \(bytes)")
+                } catch Base32.Error.incompleteBlock {
+                    // This is the expected error
+                } catch {
+                    XCTFail("Unexpected error: \(error)")
+                }
+            }
+
+            func assertStrayBits(withSize size: Int) {
+                do {
+                    let bytes = try decodeBlock(chars: encodedChars, size: size)
+                    XCTAssertNil(bytes, "Unexpected bytes: \(bytes)")
+                } catch Base32.Error.strayBits {
+                    // This is the expected error
+                } catch {
+                    XCTFail("Unexpected error: \(error)")
+                }
+            }
+
+            assertIncompleteBlock(withSize: 0)
+            assertIncompleteBlock(withSize: 1)
+            assertStrayBits(withSize: 2)
+            assertIncompleteBlock(withSize: 3)
+            assertStrayBits(withSize: 4)
+            assertStrayBits(withSize: 5)
+            assertIncompleteBlock(withSize: 6)
+            assertStrayBits(withSize: 7)
+
+            do {
+                let bytes = try decodeBlock(chars: encodedChars, size: 8)
+                XCTAssertNotNil(bytes, "Expected bytes, got \(bytes)")
+            } catch {
+                XCTFail("Unexpected error: \(error)")
+            }
+
+            assertIncompleteBlock(withSize: 9)
         }
     }
 }
