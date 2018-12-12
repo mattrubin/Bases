@@ -77,7 +77,7 @@ func compareDecoding(from encodedString: String, to data: Data, times: Int) thro
     print("Base duration: \(secDuration)")
     let duration = try measureDecoding(from: encodedString, to: data, using: Base32.decode, times: times)
     print("  My duration: \(duration)")
-    let previousBest = 0.35019099712371826
+    let previousBest = 0.3057368993759155
     print("Previous best: \(previousBest)")
     let improvement = 1 - (duration / previousBest)
     print("Improvement: \(round(improvement*10000)/100)%")
