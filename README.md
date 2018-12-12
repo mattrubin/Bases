@@ -1,8 +1,8 @@
 # Bases
 
-[![CircleCI build status](https://img.shields.io/circleci/project/github/mattrubin/Bases.svg)](https://circleci.com/gh/mattrubin/Bases)
+[![Travis CI Build Status](https://travis-ci.com/mattrubin/Bases.svg?branch=develop)](https://travis-ci.com/mattrubin/Bases)
 [![Codecov test coverage](https://img.shields.io/codecov/c/github/mattrubin/Bases.svg)](https://codecov.io/gh/mattrubin/Bases)
-![Swift 3.0](https://img.shields.io/badge/swift-3.0-orange.svg)
+![Swift 4.2](https://img.shields.io/badge/swift-4.2-orange.svg)
 ![iOS 8.0+](https://img.shields.io/badge/iOS-8.0+-blue.svg)
 ![macOS 10.9+](https://img.shields.io/badge/macOS-10.9+-blue.svg)
 ![tvOS 9.0+](https://img.shields.io/badge/tvOS-9.0+-blue.svg)
