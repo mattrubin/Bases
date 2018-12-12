@@ -158,4 +158,25 @@ class Base32Tests: XCTestCase {
             XCTFail("Unexpected error: \(error)")
         }
     }
+
+    func testFullAlphabet() {
+        let fullAlphabetUppercaseString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567"
+        do {
+            let decodedData = try Base32.decode(fullAlphabetUppercaseString)
+            let encodedString = Base32.encode(decodedData)
+            XCTAssertEqual(encodedString, fullAlphabetUppercaseString)
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
+
+        let fullAlphabetLowercaseString = "abcdefghijklmnopqrstuvwxyz234567"
+        do {
+            let decodedData = try Base32.decode(fullAlphabetLowercaseString)
+            let encodedString = Base32.encode(decodedData)
+            XCTAssertEqual(encodedString, fullAlphabetUppercaseString)
+            XCTAssertEqual(encodedString.lowercased(), fullAlphabetLowercaseString)
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
+    }
 }
