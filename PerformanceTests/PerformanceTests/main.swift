@@ -43,6 +43,7 @@ func measureEncoding(from data: Data, to encodedString: String, using encodingFu
 }
 
 func compareEncoding(from data: Data, to encodedString: String, times: Int) {
+    print("Encoding \(data.count) bytes over \(times) iterations...")
     let secDuration = measureEncoding(from: data, to: encodedString, using: secBase32Encode, times: times)
     print("Base duration: \(secDuration)")
     let duration = measureEncoding(from: data, to: encodedString, using: Base32.encode, times: times)
