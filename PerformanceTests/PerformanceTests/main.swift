@@ -96,11 +96,7 @@ func secBase32Decode(_ encodedString: String) -> Data {
 
 func fox(times: Int) -> String {
     let foxString = "The quick brown fox jumps over a lazy dog"
-    var s = String()
-    for _ in 1...times {
-        s += foxString
-    }
-    return s
+    return String(repeating: foxString, count: times)
 }
 
 let fox1000 = fox(times: 1000)
