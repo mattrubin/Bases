@@ -21,5 +21,8 @@ matrix:
     - xcode_scheme: "Base32 (watchOS)"
       script: set -o pipefail && xcodebuild -project "$TRAVIS_XCODE_PROJECT" -scheme "$TRAVIS_XCODE_SCHEME" build | xcpretty -c
 
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
 notifications:
   email: false
