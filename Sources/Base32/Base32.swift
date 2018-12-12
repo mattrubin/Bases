@@ -125,8 +125,8 @@ public enum Base32 {
     }
 
     private static func nonPaddingByteCount(encodedData: Data) -> Int {
-        for i in (0 ..< encodedData.count).reversed() where encodedData[i] != paddingCharacter {
-            return i + 1
+        if let lastNonPaddingCharacterIndex = encodedData.lastIndex(where: { $0 != paddingCharacter }) {
+            return lastNonPaddingCharacterIndex + 1
         }
         return 0
     }
