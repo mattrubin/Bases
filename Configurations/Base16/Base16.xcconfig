@@ -1,1 +1,2 @@
 PRODUCT_NAME = Base16;
+INFOPLIST_FILE = $(SRCROOT)/Sources/Base16/Info.plist;
