@@ -1,1 +1,2 @@
 PRODUCT_NAME = Base16Tests;
+INFOPLIST_FILE = $(SRCROOT)/Tests/Base16Tests/Info.plist;
