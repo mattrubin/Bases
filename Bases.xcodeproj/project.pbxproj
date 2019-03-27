@@ -646,10 +646,11 @@
 			};
 			buildConfigurationList = C90A76A91AC7AD5A006875B8 /* Build configuration list for PBXProject "Bases" */;
 			compatibilityVersion = "Xcode 6.3";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = C90A76A51AC7AD5A006875B8;
 			productRefGroup = C90A76B01AC7AD5A006875B8 /* Products */;
