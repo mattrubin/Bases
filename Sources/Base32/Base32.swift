@@ -37,7 +37,9 @@ public enum Base32 {
         let encodedByteCount = byteCount(encoding: unencodedByteCount)
         let encodedBytes = UnsafeMutablePointer<EncodedChar>.allocate(capacity: encodedByteCount)
 
-        data.withUnsafeBytes { (unencodedBytes: UnsafePointer<Byte>) in
+        data.withUnsafeBytes { rawBuffer in
+            let unencodedBytes: UnsafePointer<Byte> = rawBuffer.bindMemory(to: Byte.self).baseAddress!
+
             var encodedWriteOffset = 0
             for unencodedReadOffset in stride(from: 0, to: unencodedByteCount, by: unencodedBlockSize) {
                 let nextBlockBytes = unencodedBytes + unencodedReadOffset
@@ -83,7 +85,9 @@ public enum Base32 {
         let decodedByteCount = try byteCount(decoding: encodedByteCount)
         let decodedBytes = UnsafeMutablePointer<Byte>.allocate(capacity: decodedByteCount)
 
-        try encodedData.withUnsafeBytes { (encodedChars: UnsafePointer<EncodedChar>) in
+        try encodedData.withUnsafeBytes { rawBuffer in
+            let encodedChars: UnsafePointer<EncodedChar> = rawBuffer.bindMemory(to: EncodedChar.self).baseAddress!
+
             var decodedWriteOffset = 0
             for encodedReadOffset in stride(from: 0, to: encodedByteCount, by: encodedBlockSize) {
                 let chars = encodedChars + encodedReadOffset
