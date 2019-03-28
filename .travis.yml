@@ -1,23 +1,23 @@
 # Configuration for Travis (https://travis-ci.com)
 
 language: objective-c
-osx_image: xcode10.1
+osx_image: xcode10.2
 
 xcode_project: Bases.xcodeproj
 matrix:
   include:
     - xcode_scheme: "Base16 (iOS)"
-      xcode_destination: platform=iOS Simulator,OS=12.1,name=iPhone XS
+      xcode_destination: platform=iOS Simulator,OS=12.2,name=iPhone XS
     - xcode_scheme: "Base16 (macOS)"
     - xcode_scheme: "Base16 (tvOS)"
-      xcode_destination: platform=tvOS Simulator,OS=12.1,name=Apple TV 4K
+      xcode_destination: platform=tvOS Simulator,OS=12.2,name=Apple TV 4K
     - xcode_scheme: "Base16 (watchOS)"
       script: set -o pipefail && xcodebuild -project "$TRAVIS_XCODE_PROJECT" -scheme "$TRAVIS_XCODE_SCHEME" build | xcpretty -c
     - xcode_scheme: "Base32 (iOS)"
-      xcode_destination: platform=iOS Simulator,OS=12.1,name=iPhone XS
+      xcode_destination: platform=iOS Simulator,OS=12.2,name=iPhone XS
     - xcode_scheme: "Base32 (macOS)"
     - xcode_scheme: "Base32 (tvOS)"
-      xcode_destination: platform=tvOS Simulator,OS=12.1,name=Apple TV 4K
+      xcode_destination: platform=tvOS Simulator,OS=12.2,name=Apple TV 4K
     - xcode_scheme: "Base32 (watchOS)"
       script: set -o pipefail && xcodebuild -project "$TRAVIS_XCODE_PROJECT" -scheme "$TRAVIS_XCODE_SCHEME" build | xcpretty -c
 
