@@ -579,77 +579,78 @@
 				TargetAttributes = {
 					C90A76CF1AC7AF8A006875B8 = {
 						CreatedOnToolsVersion = 6.3;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 					};
 					C90A76D91AC7AF8A006875B8 = {
 						CreatedOnToolsVersion = 6.3;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 					};
 					C914E08A1CD16456006EC147 = {
 						CreatedOnToolsVersion = 7.3;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 					};
 					C914E0931CD16456006EC147 = {
 						CreatedOnToolsVersion = 7.3;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 					};
 					C914E0A91CD16904006EC147 = {
 						CreatedOnToolsVersion = 7.3;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 					};
 					C914E0B21CD16904006EC147 = {
 						CreatedOnToolsVersion = 7.3;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 					};
 					C92EBCB821C105D3002EEFF9 = {
 						CreatedOnToolsVersion = 10.1;
 					};
 					C977BB031AC89FB900D2F9E2 = {
 						CreatedOnToolsVersion = 6.3;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 					};
 					C977BB0D1AC89FBA00D2F9E2 = {
 						CreatedOnToolsVersion = 6.3;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 					};
 					C9E75C691DDD9112007CE06D = {
 						CreatedOnToolsVersion = 8.1;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Manual;
 					};
 					C9E75C711DDD9112007CE06D = {
 						CreatedOnToolsVersion = 8.1;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Manual;
 					};
 					C9E75C8C1DDD95B2007CE06D = {
 						CreatedOnToolsVersion = 8.1;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Manual;
 					};
 					C9E75C941DDD95B2007CE06D = {
 						CreatedOnToolsVersion = 8.1;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Manual;
 					};
 					C9E75CC61DDEC87C007CE06D = {
 						CreatedOnToolsVersion = 8.1;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Manual;
 					};
 					C9E75CD41DDF5640007CE06D = {
 						CreatedOnToolsVersion = 8.1;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Manual;
 					};
 				};
 			};
 			buildConfigurationList = C90A76A91AC7AD5A006875B8 /* Build configuration list for PBXProject "Bases" */;
 			compatibilityVersion = "Xcode 6.3";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = C90A76A51AC7AD5A006875B8;
 			productRefGroup = C90A76B01AC7AD5A006875B8 /* Products */;
