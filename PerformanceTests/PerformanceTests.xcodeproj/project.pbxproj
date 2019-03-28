@@ -109,12 +109,13 @@
 				TargetAttributes = {
 					C98BCBE51CD0728C00E5C77D = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
 			buildConfigurationList = C98BCBE11CD0728C00E5C77D /* Build configuration list for PBXProject "PerformanceTests" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -158,7 +159,7 @@
 			buildSettings = {
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				SDKROOT = macosx;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -168,7 +169,7 @@
 			buildSettings = {
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				SDKROOT = macosx;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
