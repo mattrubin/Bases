@@ -26,8 +26,8 @@
 internal typealias EncodedBlock = (EncodedChar, EncodedChar, EncodedChar, EncodedChar, EncodedChar,
     EncodedChar, EncodedChar, EncodedChar)
 
-internal func encodeBlock(bytes: UnsafePointer<Byte>, size: Int) -> EncodedBlock {
-    switch size {
+internal func encodeBlock(bytes: UnsafeRawBufferPointer) -> EncodedBlock {
+    switch bytes.count {
     case 1:
         return encodeBlock(bytes[0])
     case 2:
@@ -39,7 +39,7 @@ internal func encodeBlock(bytes: UnsafePointer<Byte>, size: Int) -> EncodedBlock
     case 5:
         return encodeBlock(bytes[0], bytes[1], bytes[2], bytes[3], bytes[4])
     default:
-        fatalError("Cannot encode \(size) bytes. Max block size is five.")
+        fatalError("Cannot encode \(bytes.count) bytes. Max block size is five.")
     }
 }
 
