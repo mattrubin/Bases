@@ -37,13 +37,14 @@ public enum Base32 {
         let encodedByteCount = byteCount(encoding: unencodedByteCount)
         let encodedBytes = UnsafeMutablePointer<EncodedChar>.allocate(capacity: encodedByteCount)
 
-        data.withUnsafeBytes { (unencodedBytes: UnsafePointer<Byte>) in
+        data.withUnsafeBytes { unencodedBytes in
             var encodedWriteOffset = 0
             for unencodedReadOffset in stride(from: 0, to: unencodedByteCount, by: unencodedBlockSize) {
-                let nextBlockBytes = unencodedBytes + unencodedReadOffset
                 let nextBlockSize = min(unencodedBlockSize, unencodedByteCount - unencodedReadOffset)
+                let nextBlockSlice = unencodedBytes[unencodedReadOffset ..< unencodedReadOffset + nextBlockSize]
+                let nextBlockBytes = UnsafeRawBufferPointer(rebasing: nextBlockSlice)
 
-                let nextChars = encodeBlock(bytes: nextBlockBytes, size: nextBlockSize)
+                let nextChars = encodeBlock(bytes: nextBlockBytes)
                 encodedBytes[encodedWriteOffset + 0] = nextChars.0
                 encodedBytes[encodedWriteOffset + 1] = nextChars.1
                 encodedBytes[encodedWriteOffset + 2] = nextChars.2
@@ -81,9 +82,12 @@ public enum Base32 {
         let encodedByteCount = nonPaddingByteCount(encodedData: encodedData)
 
         let decodedByteCount = try byteCount(decoding: encodedByteCount)
-        let decodedBytes = UnsafeMutablePointer<Byte>.allocate(capacity: decodedByteCount)
+        let decodedBytes = UnsafeMutableRawBufferPointer.allocate(byteCount: decodedByteCount,
+                                                                  alignment: MemoryLayout<Byte>.alignment)
 
-        try encodedData.withUnsafeBytes { (encodedChars: UnsafePointer<EncodedChar>) in
+        try encodedData.withUnsafeBytes { rawBuffer in
+            let encodedChars: UnsafePointer<EncodedChar> = rawBuffer.bindMemory(to: EncodedChar.self).baseAddress!
+
             var decodedWriteOffset = 0
             for encodedReadOffset in stride(from: 0, to: encodedByteCount, by: encodedBlockSize) {
                 let chars = encodedChars + encodedReadOffset
@@ -124,7 +128,7 @@ public enum Base32 {
         }
 
         // The Data instance takes ownership of the allocated bytes and will handle deallocation.
-        return Data(bytesNoCopy: decodedBytes, count: decodedByteCount, deallocator: .free)
+        return Data(bytesNoCopy: decodedBytes.baseAddress!, count: decodedByteCount, deallocator: .free)
     }
 
     private static func nonPaddingByteCount(encodedData: Data) -> Int {
