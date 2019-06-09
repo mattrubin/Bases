@@ -2,7 +2,7 @@
 //  BlockEncoding.swift
 //  Bases
 //
-//  Copyright (c) 2016 Matt Rubin and the Bases authors
+//  Copyright (c) 2016-2019 Matt Rubin and the Bases authors
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
