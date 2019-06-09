@@ -102,7 +102,7 @@ class Base16Tests: XCTestCase {
         do {
             // Test full encoded block
             let decodedFull = try Base16.decode("66")
-            XCTAssertEqual(decodedFull, Data(bytes: [102]), "Unexpected decoded string: \(decodedFull)")
+            XCTAssertEqual(decodedFull, Data([102]), "Unexpected decoded string: \(decodedFull)")
         } catch {
             XCTFail("Unexpected error: \(error)")
         }
