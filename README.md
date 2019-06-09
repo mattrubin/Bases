@@ -1,12 +1,10 @@
 # Bases
 
-[![Travis CI Build Status](https://travis-ci.com/mattrubin/Bases.svg?branch=develop)](https://travis-ci.com/mattrubin/Bases)
-[![Codecov test coverage](https://img.shields.io/codecov/c/github/mattrubin/Bases.svg)](https://codecov.io/gh/mattrubin/Bases)
-![Swift 4.2](https://img.shields.io/badge/swift-4.2-orange.svg)
-![iOS 8.0+](https://img.shields.io/badge/iOS-8.0+-blue.svg)
-![macOS 10.9+](https://img.shields.io/badge/macOS-10.9+-blue.svg)
-![tvOS 9.0+](https://img.shields.io/badge/tvOS-9.0+-blue.svg)
-![watchOS 2.0+](https://img.shields.io/badge/watchOS-2.0+-blue.svg)
+[![Build Status](https://travis-ci.com/mattrubin/Bases.svg?branch=develop)](https://travis-ci.com/mattrubin/Bases)
+[![Code Coverage](https://img.shields.io/codecov/c/github/mattrubin/Bases/develop.svg)](https://codecov.io/gh/mattrubin/Bases)
+![Swift 5.0](https://img.shields.io/badge/swift-5.0-orange.svg)
+![Available via Carthage and SPM](https://img.shields.io/badge/via-Carthage%20%7C%20SPM-MediumSlateBlue.svg)
+![Platforms: iOS, macOS, tvOS, watchOS, Linux](https://img.shields.io/badge/platforms-iOS%20%7C%20macOS%20%7C%20tvOS%20%7C%20watchOS%20%7C%20Linux-blue.svg)
 [![MIT License](https://img.shields.io/badge/license-MIT-lightgray.svg)](LICENSE.md)
 
 Bases is a collection of small Swift libraries for Base16, Base32, and (eventually) Base64 encoding/decoding, as standardized in [RFC 4648](https://tools.ietf.org/html/rfc4648).
