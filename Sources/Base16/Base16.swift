@@ -37,7 +37,7 @@ public enum Base16 {
         let encodedByteCount = unencodedByteCount * encodedBlockSize
         let encodedBytes = UnsafeMutablePointer<EncodedChar>.allocate(capacity: encodedByteCount)
 
-        data.withUnsafeBytes { (unencodedBytes: UnsafePointer<Byte>) in
+        data.withUnsafeBytes { unencodedBytes in
             var encodedWriteOffset = 0
             for unencodedReadOffset in stride(from: 0, to: unencodedByteCount, by: unencodedBlockSize) {
                 let nextUnencodedByte = unencodedBytes[unencodedReadOffset]
@@ -72,7 +72,7 @@ public enum Base16 {
         let decodedByteCount = try byteCount(decoding: encodedByteCount)
         let decodedBytes = UnsafeMutablePointer<Byte>.allocate(capacity: decodedByteCount)
 
-        try encodedData.withUnsafeBytes { (encodedBytes: UnsafePointer<Byte>) in
+        try encodedData.withUnsafeBytes { encodedBytes in
             var decodedWriteOffset = 0
             for encodedReadOffset in stride(from: 0, to: encodedByteCount, by: encodedBlockSize) {
                 let bigChar = encodedBytes[encodedReadOffset]
