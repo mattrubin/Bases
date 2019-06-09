@@ -82,7 +82,8 @@ public enum Base32 {
         let encodedByteCount = nonPaddingByteCount(encodedData: encodedData)
 
         let decodedByteCount = try byteCount(decoding: encodedByteCount)
-        let decodedBytes = UnsafeMutablePointer<Byte>.allocate(capacity: decodedByteCount)
+        let decodedBytes = UnsafeMutableRawBufferPointer.allocate(byteCount: decodedByteCount,
+                                                                  alignment: MemoryLayout<Byte>.alignment)
 
         try encodedData.withUnsafeBytes { rawBuffer in
             let encodedChars: UnsafePointer<EncodedChar> = rawBuffer.bindMemory(to: EncodedChar.self).baseAddress!
@@ -127,7 +128,7 @@ public enum Base32 {
         }
 
         // The Data instance takes ownership of the allocated bytes and will handle deallocation.
-        return Data(bytesNoCopy: decodedBytes, count: decodedByteCount, deallocator: .free)
+        return Data(bytesNoCopy: decodedBytes.baseAddress!, count: decodedByteCount, deallocator: .free)
     }
 
     private static func nonPaddingByteCount(encodedData: Data) -> Int {
