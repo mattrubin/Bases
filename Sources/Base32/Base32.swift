@@ -122,7 +122,7 @@ public enum Base32 {
                     decodedBytes[decodedWriteOffset + 3] = bytes.3
                     decodedBytes[decodedWriteOffset + 4] = bytes.4
                 default:
-                    throw Base32.Error.incompleteBlock
+                    throw Error.incompleteBlock
                 }
 
                 decodedWriteOffset += unencodedBlockSize
