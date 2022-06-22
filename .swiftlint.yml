@@ -47,7 +47,7 @@ opt_in_rules:
   - implicitly_unwrapped_optional
   - joined_default_parameter
   - last_where
-  # - legacy_multiple
+  - legacy_multiple
   - legacy_random
   - legacy_objc_type
   - let_var_whitespace

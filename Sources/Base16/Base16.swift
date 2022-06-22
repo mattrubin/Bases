@@ -93,7 +93,7 @@ public enum Base16 {
     }
 
     private static func byteCount(decoding encodedByteCount: Int) throws -> Int {
-        guard encodedByteCount % encodedBlockSize == 0 else {
+        guard encodedByteCount.isMultiple(of: encodedBlockSize) else {
             throw Error.incompleteBlock
         }
         return (encodedByteCount / encodedBlockSize) * unencodedBlockSize
