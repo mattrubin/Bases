@@ -75,6 +75,7 @@ public enum Base32 {
         return blockCount * encodedBlockSize
     }
 
+    // swiftlint:disable:next function_body_length
     public static func decode(_ string: String) throws -> Data {
         guard let encodedData = string.data(using: String.Encoding.ascii) else {
             throw Error.nonAlphabetCharacter
@@ -85,6 +86,7 @@ public enum Base32 {
         let decodedBytes = UnsafeMutableRawBufferPointer.allocate(byteCount: decodedByteCount,
                                                                   alignment: MemoryLayout<Byte>.alignment)
 
+        // swiftlint:disable:next closure_body_length
         try encodedData.withUnsafeBytes { rawBuffer in
             let encodedChars: UnsafePointer<EncodedChar> = rawBuffer.bindMemory(to: EncodedChar.self).baseAddress!
 
@@ -120,7 +122,7 @@ public enum Base32 {
                     decodedBytes[decodedWriteOffset + 3] = bytes.3
                     decodedBytes[decodedWriteOffset + 4] = bytes.4
                 default:
-                    throw Base32.Error.incompleteBlock
+                    throw Error.incompleteBlock
                 }
 
                 decodedWriteOffset += unencodedBlockSize
