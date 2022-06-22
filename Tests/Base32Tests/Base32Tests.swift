@@ -27,7 +27,6 @@ import XCTest
 import Base32
 
 class Base32Tests: XCTestCase {
-
     func testRFC() {
         assert(ASCII: "", encodesTo: "")
         assert(ASCII: "f", encodesTo: "MY======")
@@ -134,7 +133,6 @@ class Base32Tests: XCTestCase {
                 XCTFail("Unexpected error: \(error)")
             }
         }
-
     }
 
     func testDecodeNonAlphabetCharacter() {
