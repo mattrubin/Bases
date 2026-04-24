@@ -15,5 +15,5 @@ let package = Package(
         .testTarget(name: "Base16Tests", dependencies: ["Base16"]),
         .testTarget(name: "Base32Tests", dependencies: ["Base32"]),
         .executableTarget(name: "PerformanceTests", dependencies: ["Base32"]),
-    ],
+    ]
 )
