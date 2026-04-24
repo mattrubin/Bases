@@ -1,0 +1,44 @@
+name: SPM
+
+on:
+  pull_request:
+  push:
+    branches: [develop, release]
+
+jobs:
+  macOS:
+    name: "macOS, Xcode ${{ matrix.xcode }}"
+    runs-on: macOS-26
+    strategy:
+      fail-fast: false
+      matrix:
+        xcode:
+          - "26.0"
+          - "26.4"
+    steps:
+      - uses: actions/checkout@v6
+      - name: "Select Xcode ${{ matrix.xcode }}"
+        uses: ./.github/actions/xcode-select
+        with:
+          version: ${{ matrix.xcode }}
+      - run: swift --version
+      - run: swift build -v --build-tests -Xswiftc -warnings-as-errors
+      - run: swift test -v
+  Linux:
+    name: Linux, Swift ${{ matrix.swift }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        swift:
+          - "6.0"
+          - "6.1"
+          - "6.2"
+          - "6.3"
+    container:
+      image: swift:${{ matrix.swift }}
+    steps:
+      - uses: actions/checkout@v6
+      - run: swift --version
+      - run: swift build -v --build-tests -Xswiftc -warnings-as-errors
+      - run: swift test -v
