@@ -24,6 +24,8 @@
 //
 
 import Foundation
+import CoreFoundation
+import Security
 import Base32
 
 func measureBlock(_ block: () throws -> Void) rethrows -> CFTimeInterval {
