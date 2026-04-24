@@ -75,7 +75,6 @@ public enum Base32 {
         return blockCount * encodedBlockSize
     }
 
-    // swiftlint:disable:next function_body_length
     public static func decode(_ string: String) throws -> Data {
         guard let encodedData = string.data(using: String.Encoding.ascii) else {
             throw Error.nonAlphabetCharacter

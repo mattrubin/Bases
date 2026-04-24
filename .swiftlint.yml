@@ -1,15 +1,18 @@
 # Configuration for SwiftLint (https://github.com/realm/SwiftLint)
 
 excluded:
-  - Tests/LinuxMain.swift
+  - .build
 
+analyzer_rules:
+  - capture_variable
+  - typesafe_array_init
+  - unused_declaration
+  - unused_import
 opt_in_rules:
   - accessibility_label_for_image
-  - anyobject_protocol
   - array_init
   - attributes
   - balanced_xctest_lifecycle
-  - capture_variable
   - closure_body_length
   - closure_end_indentation
   - closure_spacing
@@ -84,12 +87,9 @@ opt_in_rules:
   - switch_case_on_newline
   - test_case_accessibility
   - toggle_bool
-  - typesafe_array_init
   - unavailable_function
   - unowned_variable_capture
   - untyped_error_in_catch
-  - unused_declaration
-  - unused_import
   - vertical_parameter_alignment_on_call
   # - vertical_whitespace_between_cases
   - vertical_whitespace_closing_braces
