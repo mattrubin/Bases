@@ -1,2 +1,0 @@
-#include "../../Carthage/Checkouts/xcconfigs/macOS/macOS-Framework.xcconfig"
-#include "Base16.xcconfig"

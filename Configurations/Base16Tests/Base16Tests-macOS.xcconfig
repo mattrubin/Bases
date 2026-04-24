@@ -1,2 +1,0 @@
-#include "../../Carthage/Checkouts/xcconfigs/macOS/macOS-Application.xcconfig"
-#include "Base16Tests.xcconfig"

@@ -1,2 +1,0 @@
-#include "../../Carthage/Checkouts/xcconfigs/tvOS/tvOS-Framework.xcconfig"
-#include "Base16.xcconfig"
