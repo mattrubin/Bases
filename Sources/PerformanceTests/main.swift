@@ -25,8 +25,11 @@
 
 import Foundation
 import CoreFoundation
-import Security
 import Base32
+
+#if canImport(Security)
+import Security
+#endif
 
 func measureBlock(_ block: () throws -> Void) rethrows -> CFTimeInterval {
     let startTime = CFAbsoluteTimeGetCurrent()
@@ -46,17 +49,22 @@ func measureEncoding(from data: Data, to encodedString: String, using encodingFu
 
 func compareEncoding(from data: Data, to encodedString: String, times: Int) {
     print("Encoding \(data.count) bytes over \(times) iterations...")
+#if canImport(Security)
     let secDuration = measureEncoding(from: data, to: encodedString, using: secBase32Encode, times: times)
     print("Base duration: \(secDuration)")
+#endif
     let duration = measureEncoding(from: data, to: encodedString, using: Base32.encode, times: times)
     print("  My duration: \(duration)")
     let previousBest = 0.11406124114990235
     print("Previous best: \(previousBest)")
     let improvement = 1 - (duration / previousBest)
     print("Improvement: \(round(improvement * 10000) / 100)%")
+#if canImport(Security)
     print("Now \(round((secDuration / duration) * 100) / 100) times as fast as the system baseline.")
+#endif
 }
 
+#if canImport(Security)
 func secBase32Encode(data: Data) -> String {
     let encoder = SecEncodeTransformCreate(kSecBase32Encoding, nil)!
     SecTransformSetAttribute(encoder, kSecTransformInputAttributeName, data as CFTypeRef, nil)
@@ -64,6 +72,7 @@ func secBase32Encode(data: Data) -> String {
     let encodedData = SecTransformExecute(encoder, nil) as! CFData
     return String(data: encodedData as Data, encoding: .ascii)!
 }
+#endif
 
 func measureDecoding(from encodedString: String, to data: Data, using decodingFunction: (String) throws -> Data, times: Int) rethrows -> CFTimeInterval {
     return try measureBlock {
@@ -76,17 +85,22 @@ func measureDecoding(from encodedString: String, to data: Data, using decodingFu
 
 func compareDecoding(from encodedString: String, to data: Data, times: Int) throws {
     print("Decoding \(data.count) bytes over \(times) iterations...")
+#if canImport(Security)
     let secDuration = measureDecoding(from: encodedString, to: data, using: secBase32Decode, times: times)
     print("Base duration: \(secDuration)")
+#endif
     let duration = try measureDecoding(from: encodedString, to: data, using: Base32.decode, times: times)
     print("  My duration: \(duration)")
     let previousBest = 0.17377197742462158
     print("Previous best: \(previousBest)")
     let improvement = 1 - (duration / previousBest)
     print("Improvement: \(round(improvement * 10000) / 100)%")
+#if canImport(Security)
     print("Now \(round((secDuration / duration) * 100) / 100) times as fast as the system baseline.")
+#endif
 }
 
+#if canImport(Security)
 func secBase32Decode(_ encodedString: String) -> Data {
     let encodedData = encodedString.data(using: .ascii)!
     let decoder = SecDecodeTransformCreate(kSecBase32Encoding, nil)!
@@ -95,6 +109,7 @@ func secBase32Decode(_ encodedString: String) -> Data {
     let decodedData = SecTransformExecute(decoder, nil) as! CFData
     return decodedData as Data
 }
+#endif
 
 func fox(times: Int) -> String {
     let foxString = "The quick brown fox jumps over a lazy dog"
@@ -103,7 +118,7 @@ func fox(times: Int) -> String {
 
 let fox1000 = fox(times: 1000)
 let foxData = fox1000.data(using: .ascii)!
-let foxResult = secBase32Encode(data: foxData)
+let foxResult = Base32.encode(foxData)
 let n = 1000
 
 compareEncoding(from: foxData, to: foxResult, times: n)
