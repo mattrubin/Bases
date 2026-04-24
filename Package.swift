@@ -4,12 +4,6 @@ import PackageDescription
 
 let package = Package(
     name: "Bases",
-    platforms: [
-        .iOS(.v12),
-        .macOS(.v10_13),
-        .tvOS(.v12),
-        .watchOS(.v4),
-    ],
     products: [
         .library(name: "Base16", targets: ["Base16"]),
         .library(name: "Base32", targets: ["Base32"]),
