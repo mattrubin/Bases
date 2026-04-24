@@ -13,12 +13,14 @@ let package = Package(
     products: [
         .library(name: "Base16", targets: ["Base16"]),
         .library(name: "Base32", targets: ["Base32"]),
+        .executable(name: "PerformanceTests", targets: ["PerformanceTests"]),
     ],
     targets: [
         .target(name: "Base16"),
         .target(name: "Base32"),
         .testTarget(name: "Base16Tests", dependencies: ["Base16"]),
         .testTarget(name: "Base32Tests", dependencies: ["Base32"]),
+        .target(name: "PerformanceTests", dependencies: ["Base32"]),
     ],
     swiftLanguageVersions: [.v5]
 )

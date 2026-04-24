@@ -1,2 +1,0 @@
-PRODUCT_NAME = Base32Tests;
-INFOPLIST_FILE = $(SRCROOT)/Tests/Base32Tests/Info.plist;

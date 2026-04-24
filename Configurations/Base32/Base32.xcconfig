@@ -1,2 +1,0 @@
-PRODUCT_NAME = Base32;
-INFOPLIST_FILE = $(SRCROOT)/Sources/Base32/Info.plist;
