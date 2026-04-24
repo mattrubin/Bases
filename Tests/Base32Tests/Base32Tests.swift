@@ -37,7 +37,7 @@ class Base32Tests: XCTestCase {
         assert(ASCII: "foobar", encodesTo: "MZXW6YTBOI======")
     }
 
-    private func assert(ASCII sourceString: String, encodesTo encodedString: String, file: StaticString = #file, line: UInt = #line) {
+    private func assert(ASCII sourceString: String, encodesTo encodedString: String, file: StaticString = #filePath, line: UInt = #line) {
         guard let data = sourceString.data(using: String.Encoding.ascii) else {
             XCTFail("Could not convert ASCII string \"\(sourceString)\" to Data", file: file, line: line)
             return
@@ -74,7 +74,7 @@ class Base32Tests: XCTestCase {
         assert("MZXW6YTBOI===", decodesTo: "foobar")
     }
 
-    private func assert(_ encodedString: String, decodesTo asciiString: String, file: StaticString = #file, line: UInt = #line) {
+    private func assert(_ encodedString: String, decodesTo asciiString: String, file: StaticString = #filePath, line: UInt = #line) {
         guard let expectedData = asciiString.data(using: String.Encoding.ascii) else {
             XCTFail("Could not convert ASCII string \"\(asciiString)\" to Data", file: file, line: line)
             return
