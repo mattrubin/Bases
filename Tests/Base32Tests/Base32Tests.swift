@@ -23,9 +23,9 @@
 //  SOFTWARE.
 //
 
+import Base32
 import Foundation
 import Testing
-import Base32
 
 struct Base32Tests {
     @Test
@@ -39,20 +39,35 @@ struct Base32Tests {
         assert(ASCII: "foobar", encodesTo: "MZXW6YTBOI======")
     }
 
-    private func assert(ASCII sourceString: String, encodesTo encodedString: String, sourceLocation: SourceLocation = #_sourceLocation) {
+    private func assert(
+        ASCII sourceString: String,
+        encodesTo encodedString: String,
+        sourceLocation: SourceLocation = #_sourceLocation
+    ) {
         guard let data = sourceString.data(using: String.Encoding.ascii) else {
             Issue.record("Could not convert ASCII string \"\(sourceString)\" to Data", sourceLocation: sourceLocation)
             return
         }
 
         let result = Base32.encode(data)
-        #expect(result == encodedString, "ASCII string \"\(sourceString)\" encoded to \"\(result)\" (expected result: \"\(encodedString)\")", sourceLocation: sourceLocation)
+        #expect(
+            result == encodedString,
+            "ASCII string \"\(sourceString)\" encoded to \"\(result)\" (expected result: \"\(encodedString)\")",
+            sourceLocation: sourceLocation
+        )
 
         do {
             let resultData = try Base32.decode(encodedString)
-            #expect(resultData == data, "Base32 string \"\(encodedString)\" decoded to \"\(resultData)\" (expected result: \"\(data)\")", sourceLocation: sourceLocation)
+            #expect(
+                resultData == data,
+                "Base32 string \"\(encodedString)\" decoded to \"\(resultData)\" (expected result: \"\(data)\")",
+                sourceLocation: sourceLocation
+            )
         } catch {
-            Issue.record("Decoding of Base32 string \"\(encodedString)\" threw an unexpected error: \(error)", sourceLocation: sourceLocation)
+            Issue.record(
+                "Decoding of Base32 string \"\(encodedString)\" threw an unexpected error: \(error)",
+                sourceLocation: sourceLocation
+            )
         }
     }
 
@@ -78,7 +93,11 @@ struct Base32Tests {
         assert("MZXW6YTBOI===", decodesTo: "foobar")
     }
 
-    private func assert(_ encodedString: String, decodesTo asciiString: String, sourceLocation: SourceLocation = #_sourceLocation) {
+    private func assert(
+        _ encodedString: String,
+        decodesTo asciiString: String,
+        sourceLocation: SourceLocation = #_sourceLocation
+    ) {
         guard let expectedData = asciiString.data(using: String.Encoding.ascii) else {
             Issue.record("Could not convert ASCII string \"\(asciiString)\" to Data", sourceLocation: sourceLocation)
             return
@@ -88,11 +107,18 @@ struct Base32Tests {
         do {
             decodedData = try Base32.decode(encodedString)
         } catch {
-            Issue.record("Decoding of encoded string \"\(encodedString)\" threw an unexpected error: \(error)", sourceLocation: sourceLocation)
+            Issue.record(
+                "Decoding of encoded string \"\(encodedString)\" threw an unexpected error: \(error)",
+                sourceLocation: sourceLocation
+            )
             return
         }
 
-        #expect(decodedData == expectedData, "Encoded string \"\(encodedString)\" decoded to \"\(decodedData)\" (expected result: \"\(expectedData)\")", sourceLocation: sourceLocation)
+        #expect(
+            decodedData == expectedData,
+            "Encoded string \"\(encodedString)\" decoded to \"\(decodedData)\" (expected result: \"\(expectedData)\")",
+            sourceLocation: sourceLocation
+        )
     }
 
     @Test

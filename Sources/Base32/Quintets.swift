@@ -26,7 +26,13 @@
 typealias Byte = UInt8
 typealias Quintet = UInt8
 
-func quintetsFromBytes(_ firstByte: Byte, _ secondByte: Byte, _ thirdByte: Byte, _ fourthByte: Byte, _ fifthByte: Byte) -> (Quintet, Quintet, Quintet, Quintet, Quintet, Quintet, Quintet, Quintet) {
+func quintetsFromBytes(
+    _ firstByte: Byte,
+    _ secondByte: Byte,
+    _ thirdByte: Byte,
+    _ fourthByte: Byte,
+    _ fifthByte: Byte
+) -> (Quintet, Quintet, Quintet, Quintet, Quintet, Quintet, Quintet, Quintet) {
     return (
         firstQuintet(firstByte: firstByte),
         secondQuintet(firstByte: firstByte, secondByte: secondByte),
@@ -39,7 +45,12 @@ func quintetsFromBytes(_ firstByte: Byte, _ secondByte: Byte, _ thirdByte: Byte,
     )
 }
 
-func quintetsFromBytes(_ firstByte: Byte, _ secondByte: Byte, _ thirdByte: Byte, _ fourthByte: Byte) -> (Quintet, Quintet, Quintet, Quintet, Quintet, Quintet, Quintet) {
+func quintetsFromBytes(
+    _ firstByte: Byte,
+    _ secondByte: Byte,
+    _ thirdByte: Byte,
+    _ fourthByte: Byte
+) -> (Quintet, Quintet, Quintet, Quintet, Quintet, Quintet, Quintet) {
     return (
         firstQuintet(firstByte: firstByte),
         secondQuintet(firstByte: firstByte, secondByte: secondByte),
@@ -51,7 +62,11 @@ func quintetsFromBytes(_ firstByte: Byte, _ secondByte: Byte, _ thirdByte: Byte,
     )
 }
 
-func quintetsFromBytes(_ firstByte: Byte, _ secondByte: Byte, _ thirdByte: Byte) -> (Quintet, Quintet, Quintet, Quintet, Quintet) {
+func quintetsFromBytes(
+    _ firstByte: Byte,
+    _ secondByte: Byte,
+    _ thirdByte: Byte
+) -> (Quintet, Quintet, Quintet, Quintet, Quintet) {
     return (
         firstQuintet(firstByte: firstByte),
         secondQuintet(firstByte: firstByte, secondByte: secondByte),

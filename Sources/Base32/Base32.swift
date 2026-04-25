@@ -41,7 +41,7 @@ public enum Base32 {
             var encodedWriteOffset = 0
             for unencodedReadOffset in stride(from: 0, to: unencodedByteCount, by: unencodedBlockSize) {
                 let nextBlockSize = min(unencodedBlockSize, unencodedByteCount - unencodedReadOffset)
-                let nextBlockSlice = unencodedBytes[unencodedReadOffset ..< unencodedReadOffset + nextBlockSize]
+                let nextBlockSlice = unencodedBytes[unencodedReadOffset..<unencodedReadOffset + nextBlockSize]
                 let nextBlockBytes = UnsafeRawBufferPointer(rebasing: nextBlockSlice)
 
                 let nextChars = encodeBlock(bytes: nextBlockBytes)
@@ -59,9 +59,11 @@ public enum Base32 {
         }
 
         // The Data instance takes ownership of the allocated bytes and will handle deallocation.
-        let encodedData = Data(bytesNoCopy: encodedBytes,
-                               count: encodedByteCount,
-                               deallocator: .free)
+        let encodedData = Data(
+            bytesNoCopy: encodedBytes,
+            count: encodedByteCount,
+            deallocator: .free
+        )
         guard let encodedString = String(data: encodedData, encoding: .ascii) else {
             fatalError("Internal Error: Encoded data could not be encoded as ASCII (\(encodedData))")
         }
@@ -82,8 +84,10 @@ public enum Base32 {
         let encodedByteCount = nonPaddingByteCount(encodedData: encodedData)
 
         let decodedByteCount = try byteCount(decoding: encodedByteCount)
-        let decodedBytes = UnsafeMutableRawBufferPointer.allocate(byteCount: decodedByteCount,
-                                                                  alignment: MemoryLayout<Byte>.alignment)
+        let decodedBytes = UnsafeMutableRawBufferPointer.allocate(
+            byteCount: decodedByteCount,
+            alignment: MemoryLayout<Byte>.alignment
+        )
 
         // swiftlint:disable:next closure_body_length
         try encodedData.withUnsafeBytes { rawBuffer in

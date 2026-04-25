@@ -54,9 +54,11 @@ public enum Base16 {
         }
 
         // The Data instance takes ownership of the allocated bytes and will handle deallocation.
-        let encodedData = Data(bytesNoCopy: encodedBytes,
-                               count: encodedByteCount,
-                               deallocator: .free)
+        let encodedData = Data(
+            bytesNoCopy: encodedBytes,
+            count: encodedByteCount,
+            deallocator: .free
+        )
         guard let encodedString = String(data: encodedData, encoding: String.Encoding.ascii) else {
             fatalError("Internal Error: Encoded data could not be encoded as ASCII (\(encodedData))")
         }
@@ -102,7 +104,7 @@ public enum Base16 {
     public enum Error: Swift.Error {
         /// The input string ends with an incomplete encoded block
         case incompleteBlock
-        /// The input string contains a character not in the encoding alphabet 
+        /// The input string contains a character not in the encoding alphabet
         case nonAlphabetCharacter
     }
 }

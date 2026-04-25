@@ -1,0 +1,22 @@
+name: swift-format
+
+on:
+  pull_request:
+  push:
+    branches: [develop, release]
+
+jobs:
+  lint:
+    name: swift format lint
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        swift:
+          - "6.3"
+    container:
+      image: swift:${{ matrix.swift }}
+    steps:
+      - uses: actions/checkout@v6
+      - run: swift --version
+      - run: swift format lint -spr .

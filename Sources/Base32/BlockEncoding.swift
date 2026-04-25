@@ -23,8 +23,10 @@
 //  SOFTWARE.
 //
 
-internal typealias EncodedBlock = (EncodedChar, EncodedChar, EncodedChar, EncodedChar, EncodedChar,
-    EncodedChar, EncodedChar, EncodedChar)
+internal typealias EncodedBlock = (
+    EncodedChar, EncodedChar, EncodedChar, EncodedChar,
+    EncodedChar, EncodedChar, EncodedChar, EncodedChar
+)
 
 internal func encodeBlock(bytes: UnsafeRawBufferPointer) -> EncodedBlock {
     switch bytes.count {
