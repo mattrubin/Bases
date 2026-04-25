@@ -1,0 +1,83 @@
+name: Xcode
+
+on:
+  pull_request:
+  push:
+    branches: [develop, release]
+
+jobs:
+  simulator:
+    name: "${{ matrix.scheme }}, Xcode ${{ matrix.env.xcode }}, ${{ matrix.env.runtime }}, ${{ matrix.env.device }}"
+    runs-on: macOS-26
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme:
+          - "Base16"
+          - "Base32"
+        env:
+          - xcode: 26.4
+            runtime: "iOS 26.4"
+            device: "iPhone 17 Pro Max"
+          - xcode: 26.4
+            runtime: "watchOS 26.4"
+            device: "Apple Watch Series 11 (46mm)"
+          - xcode: 26.4
+            runtime: "tvOS 26.4"
+            device: "Apple TV 4K (3rd generation)"
+          - xcode: 26.4
+            runtime: "visionOS 26.4"
+            device: "Apple Vision Pro"
+    steps:
+      - uses: actions/checkout@v6
+      - name: "Select Xcode ${{ matrix.env.xcode }}"
+        uses: ./.github/actions/xcode-select
+        with:
+          version: ${{ matrix.env.xcode }}
+      - name: "Cache downloaded simulator runtimes"
+        uses: actions/cache@v5
+        with:
+          path: ~/Downloads/*.dmg
+          key: Xcode ${{ matrix.env.xcode }}+${{ matrix.env.runtime }}
+      - name: "Prepare simulator"
+        id: prepare-simulator
+        uses: ./.github/actions/prepare-simulator
+        with:
+          runtime: ${{ matrix.env.runtime }}
+          device: ${{ matrix.env.device }}
+      - name: "Build and test"
+        run: xcodebuild test -scheme "${{ matrix.scheme }}" -destination "id=${{ steps.prepare-simulator.outputs.destination-id }}"
+      - uses: sersoft-gmbh/swift-coverage-action@v5
+        with:
+          target-name-filter: ^Identifier$
+      - uses: codecov/codecov-action@v6
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
+
+  macos:
+    name: "${{ matrix.scheme }}, Xcode ${{ matrix.xcode }}, macOS 26"
+    runs-on: macOS-26
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme:
+          - "Base16"
+          - "Base32"
+        xcode:
+          - "26.4"
+    steps:
+      - uses: actions/checkout@v6
+      - name: "Select Xcode ${{ matrix.xcode }}"
+        uses: ./.github/actions/xcode-select
+        with:
+          version: ${{ matrix.xcode }}
+      - name: "Build and test"
+        run: xcodebuild test -scheme "${{ matrix.scheme }}" -destination "name=My Mac"
+      - uses: sersoft-gmbh/swift-coverage-action@v5
+        with:
+          target-name-filter: ^Identifier$
+      - uses: codecov/codecov-action@v6
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
