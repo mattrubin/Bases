@@ -9,9 +9,10 @@ jobs:
     name: "Lint"
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/realm/swiftlint:latest
+      image: ghcr.io/realm/swiftlint:0.63.2 # TODO: Switch back to :latest
     steps:
       - uses: actions/checkout@v6
+      - run: swiftlint --version
       - run: swiftlint lint --strict --reporter github-actions-logging
   analyze:
     name: "Analyze ${{ matrix.scheme }}"
@@ -28,5 +29,6 @@ jobs:
         with:
           version: "26.4"
       - run: brew install swiftlint
+      - run: swiftlint --version
       - run: xcodebuild -scheme ${{ matrix.scheme }} -destination "name=My Mac" > xcodebuild.log
       - run: swiftlint analyze --strict --reporter github-actions-logging --compiler-log-path xcodebuild.log
