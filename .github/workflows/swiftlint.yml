@@ -1,0 +1,32 @@
+name: SwiftLint
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  lint:
+    name: "Lint"
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/realm/swiftlint:latest
+    steps:
+      - uses: actions/checkout@v6
+      - run: swiftlint lint --strict --reporter github-actions-logging
+  analyze:
+    name: "Analyze ${{ matrix.scheme }}"
+    runs-on: macOS-26
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme:
+          - "Base16"
+          - "Base32"
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/xcode-select
+        with:
+          version: "26.4"
+      - run: brew install swiftlint
+      - run: xcodebuild -scheme ${{ matrix.scheme }} -destination "name=My Mac" > xcodebuild.log
+      - run: swiftlint analyze --strict --reporter github-actions-logging --compiler-log-path xcodebuild.log
