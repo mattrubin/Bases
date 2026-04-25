@@ -38,7 +38,12 @@ func measureBlock(_ block: () throws -> Void) rethrows -> CFTimeInterval {
     return endTime - startTime
 }
 
-func measureEncoding(from data: Data, to encodedString: String, using encodingFunction: (Data) -> String, times: Int) -> CFTimeInterval {
+func measureEncoding(
+    from data: Data,
+    to encodedString: String,
+    using encodingFunction: (Data) -> String,
+    times: Int
+) -> CFTimeInterval {
     return measureBlock {
         for _ in 0..<times {
             let result = encodingFunction(data)
@@ -74,7 +79,12 @@ func secBase32Encode(data: Data) -> String {
 }
 #endif
 
-func measureDecoding(from encodedString: String, to data: Data, using decodingFunction: (String) throws -> Data, times: Int) rethrows -> CFTimeInterval {
+func measureDecoding(
+    from encodedString: String,
+    to data: Data,
+    using decodingFunction: (String) throws -> Data,
+    times: Int
+) rethrows -> CFTimeInterval {
     return try measureBlock {
         for _ in 0..<times {
             let result = try decodingFunction(encodedString)

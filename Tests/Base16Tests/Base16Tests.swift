@@ -47,11 +47,17 @@ struct Base16Tests {
             }
 
             let encodedResult = Base16.encode(decodedData)
-            #expect(encodedResult == encodedString, "ASCII string \"\(decodedString)\" encoded to \"\(encodedResult)\" (expected \"\(encodedString)\")")
+            #expect(
+                encodedResult == encodedString,
+                "ASCII string \"\(decodedString)\" encoded to \"\(encodedResult)\" (expected \"\(encodedString)\")"
+            )
 
             do {
                 let decodedResult = try Base16.decode(encodedString)
-                #expect(decodedResult == decodedData, "Encoded string \"\(encodedString)\" decoded to data \"\(decodedResult)\" (expected \"\(decodedData)\")")
+                #expect(
+                    decodedResult == decodedData,
+                    "Encoded string \"\(encodedString)\" decoded to data \"\(decodedResult)\" (expected \"\(decodedData)\")"
+                )
             } catch {
                 Issue.record("Unexpected error: \(error)")
             }
