@@ -23,9 +23,9 @@
 //  SOFTWARE.
 //
 
-import Foundation
-import CoreFoundation
 import Base32
+import CoreFoundation
+import Foundation
 
 #if canImport(Security)
 import Security
@@ -49,19 +49,19 @@ func measureEncoding(from data: Data, to encodedString: String, using encodingFu
 
 func compareEncoding(from data: Data, to encodedString: String, times: Int) {
     print("Encoding \(data.count) bytes over \(times) iterations...")
-#if canImport(Security)
+    #if canImport(Security)
     let secDuration = measureEncoding(from: data, to: encodedString, using: secBase32Encode, times: times)
     print("Base duration: \(secDuration)")
-#endif
+    #endif
     let duration = measureEncoding(from: data, to: encodedString, using: Base32.encode, times: times)
     print("  My duration: \(duration)")
     let previousBest = 0.11406124114990235
     print("Previous best: \(previousBest)")
     let improvement = 1 - (duration / previousBest)
     print("Improvement: \(round(improvement * 10000) / 100)%")
-#if canImport(Security)
+    #if canImport(Security)
     print("Now \(round((secDuration / duration) * 100) / 100) times as fast as the system baseline.")
-#endif
+    #endif
 }
 
 #if canImport(Security)
@@ -85,19 +85,19 @@ func measureDecoding(from encodedString: String, to data: Data, using decodingFu
 
 func compareDecoding(from encodedString: String, to data: Data, times: Int) throws {
     print("Decoding \(data.count) bytes over \(times) iterations...")
-#if canImport(Security)
+    #if canImport(Security)
     let secDuration = measureDecoding(from: encodedString, to: data, using: secBase32Decode, times: times)
     print("Base duration: \(secDuration)")
-#endif
+    #endif
     let duration = try measureDecoding(from: encodedString, to: data, using: Base32.decode, times: times)
     print("  My duration: \(duration)")
     let previousBest = 0.17377197742462158
     print("Previous best: \(previousBest)")
     let improvement = 1 - (duration / previousBest)
     print("Improvement: \(round(improvement * 10000) / 100)%")
-#if canImport(Security)
+    #if canImport(Security)
     print("Now \(round((secDuration / duration) * 100) / 100) times as fast as the system baseline.")
-#endif
+    #endif
 }
 
 #if canImport(Security)

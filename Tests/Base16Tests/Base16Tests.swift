@@ -23,9 +23,9 @@
 //  SOFTWARE.
 //
 
+import Base16
 import Foundation
 import Testing
-import Base16
 
 struct Base16Tests {
     @Test

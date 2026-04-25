@@ -23,9 +23,9 @@
 //  SOFTWARE.
 //
 
+import Base32
 import Foundation
 import Testing
-import Base32
 
 struct Base32Tests {
     @Test
