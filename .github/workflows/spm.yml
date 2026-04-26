@@ -23,7 +23,12 @@ jobs:
           version: ${{ matrix.xcode }}
       - run: swift --version
       - run: swift build -v --build-tests -Xswiftc -warnings-as-errors
-      - run: swift test -v
+      - run: swift test -v --enable-code-coverage
+      - run: xcrun llvm-cov export -format="lcov" .build/debug/BasesPackageTests.xctest/Contents/MacOS/BasesPackageTests -instr-profile .build/debug/codecov/default.profdata > .build/coverage.lcov
+      - uses: codecov/codecov-action@v6
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
   Linux:
     name: Linux, Swift ${{ matrix.swift }}
     runs-on: ubuntu-latest
