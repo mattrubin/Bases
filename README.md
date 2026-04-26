@@ -1,6 +1,6 @@
 # Bases
 
-[![Build Status](https://travis-ci.com/mattrubin/Bases.svg?branch=develop)](https://travis-ci.com/mattrubin/Bases)
+[![SPM CI status](https://github.com/mattrubin/Bases/actions/workflows/spm.yml/badge.svg)](https://github.com/mattrubin/Bases/actions/workflows/spm.yml)
 [![Code Coverage](https://img.shields.io/codecov/c/github/mattrubin/Bases/develop.svg)](https://codecov.io/gh/mattrubin/Bases)
 ![Swift 6.0](https://img.shields.io/badge/swift-6.0-orange.svg)
 ![Platforms: iOS, macOS, tvOS, watchOS, Linux](https://img.shields.io/badge/platforms-iOS%20%7C%20macOS%20%7C%20tvOS%20%7C%20watchOS%20%7C%20Linux-blue.svg)
