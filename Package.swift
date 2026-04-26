@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © 2016-2026 Matt Rubin and the Bases authors
+// SPDX-License-Identifier: MIT
 // swift-tools-version: 6.0
 
 import PackageDescription
