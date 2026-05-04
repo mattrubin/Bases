@@ -5,7 +5,7 @@ import Base32
 import CoreFoundation
 import Foundation
 
-#if canImport(Security)
+#if os(macOS)
 import Security
 #endif
 
@@ -32,7 +32,7 @@ func measureEncoding(
 
 func compareEncoding(from data: Data, to encodedString: String, times: Int) {
     print("Encoding \(data.count) bytes over \(times) iterations...")
-    #if canImport(Security)
+    #if os(macOS)
     let secDuration = measureEncoding(from: data, to: encodedString, using: secBase32Encode, times: times)
     print("Base duration: \(secDuration)")
     #endif
@@ -42,12 +42,12 @@ func compareEncoding(from data: Data, to encodedString: String, times: Int) {
     print("Previous best: \(previousBest)")
     let improvement = 1 - (duration / previousBest)
     print("Improvement: \(round(improvement * 10000) / 100)%")
-    #if canImport(Security)
+    #if os(macOS)
     print("Now \(round((secDuration / duration) * 100) / 100) times as fast as the system baseline.")
     #endif
 }
 
-#if canImport(Security)
+#if os(macOS)
 func secBase32Encode(data: Data) -> String {
     let encoder = SecEncodeTransformCreate(kSecBase32Encoding, nil)!
     SecTransformSetAttribute(encoder, kSecTransformInputAttributeName, data as CFTypeRef, nil)
@@ -73,7 +73,7 @@ func measureDecoding(
 
 func compareDecoding(from encodedString: String, to data: Data, times: Int) throws {
     print("Decoding \(data.count) bytes over \(times) iterations...")
-    #if canImport(Security)
+    #if os(macOS)
     let secDuration = measureDecoding(from: encodedString, to: data, using: secBase32Decode, times: times)
     print("Base duration: \(secDuration)")
     #endif
@@ -83,12 +83,12 @@ func compareDecoding(from encodedString: String, to data: Data, times: Int) thro
     print("Previous best: \(previousBest)")
     let improvement = 1 - (duration / previousBest)
     print("Improvement: \(round(improvement * 10000) / 100)%")
-    #if canImport(Security)
+    #if os(macOS)
     print("Now \(round((secDuration / duration) * 100) / 100) times as fast as the system baseline.")
     #endif
 }
 
-#if canImport(Security)
+#if os(macOS)
 func secBase32Decode(_ encodedString: String) -> Data {
     let encodedData = encodedString.data(using: .ascii)!
     let decoder = SecDecodeTransformCreate(kSecBase32Encoding, nil)!
