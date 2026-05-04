@@ -1,0 +1,32 @@
+# Configuration for pre-commit (https://pre-commit.com)
+
+repos:
+  - repo: https://github.com/swiftlang/swift-format.git
+    rev: 602.0.0
+    hooks:
+      - id: swift-format
+      - id: swift-format-lint
+  - repo: https://github.com/realm/SwiftLint.git
+    rev: 0.63.2
+    hooks:
+      - id: swiftlint
+        args: [--strict]
+  - repo: https://github.com/rhysd/actionlint.git
+    rev: v1.7.12
+    hooks:
+      - id: actionlint
+  - repo: https://github.com/pre-commit/pre-commit-hooks.git
+    rev: v6.0.0
+    hooks:
+      - id: check-case-conflict
+      - id: check-executables-have-shebangs
+      - id: check-illegal-windows-names
+      - id: check-merge-conflict
+      - id: check-shebang-scripts-are-executable
+      - id: check-vcs-permalinks
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: fix-byte-order-marker
+      - id: mixed-line-ending
+        args: [--fix=lf]
+      - id: trailing-whitespace
